@@ -1,5 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<c:set var="contextPath"  value="${pageContext.request.contextPath}" />
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -19,7 +21,16 @@
                     <div class="col-lg-6 col-md-5">
                         <div class="header__top__right">
                             <div class="header__top__links">
-                                <a href="#">Sign in</a>
+                            	<c:choose>
+                                	<c:when test="${sessionScope.memberId ne null}">
+                                		<p><a href="${contextPath }/member/login">Logout</a></p>
+                                	</c:when>
+                                	<c:otherwise>
+                                		<c:if test="${sessionScope.memberId eq null}">
+                                	    	<p><a href="${contextPath }/member/login">Login</a></p>
+                                		</c:if>
+                                	</c:otherwise>
+                                </c:choose>
                                 <a href="#">FAQs</a>
                             </div>
                             <div class="header__top__hover">
@@ -27,7 +38,7 @@
                                 <ul>
                                     <li>USD</li>
                                     <li>EUR</li>
-                                    <li>USD</li>
+                                    <li>KRW</li>
                                 </ul>
                             </div>
                         </div>
