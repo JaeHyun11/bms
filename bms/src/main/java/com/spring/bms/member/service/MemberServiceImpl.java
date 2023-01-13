@@ -24,4 +24,34 @@ public class MemberServiceImpl implements MemberService {
 		memberDao.insertMember(memberDto);
 	}
 
+
+	@Override
+	public boolean login(MemberDto memberDto) throws Exception {
+		
+		MemberDto checkExsistId = memberDao.selectLogin(memberDto);
+		if (checkExsistId != null) {
+			if (bCryptPasswordEncoder.matches(memberDto.getPasswd(), checkExsistId.getPasswd()))
+				return true;
+		}
+		
+		return false;
+	}
+
+	@Override
+	public int getMyOrderCnt(String memberId) throws Exception {
+		return memberDao.selectMyOrderCnt(memberId);
+	}
+	
+	@Override
+	public int getMyCartCnt(String memberId) throws Exception {
+		return memberDao.selectMyCartCnt(memberId);
+	}
+
+	@Override
+	public String checkDuplicatedId(String memberId) throws Exception {
+		
+		if (memberDao.selectDuplicatedId(memberId) ==null) return "notDuplicated";
+		else												return "duplicated";
+	}
+	
 }

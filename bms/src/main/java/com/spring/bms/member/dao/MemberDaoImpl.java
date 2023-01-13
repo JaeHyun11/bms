@@ -17,4 +17,24 @@ public class MemberDaoImpl implements MemberDao {
 		sqlSession.insert("member.insertMember", memberDto);
 	}
 
+	@Override
+	public MemberDto selectLogin(MemberDto memberDto) throws Exception {
+		return sqlSession.selectOne("member.selectLogin" , memberDto);
+	}
+
+	@Override
+	public int selectMyOrderCnt(String memberId) throws Exception {
+		return sqlSession.selectOne("member.selectMyOrderCnt" , memberId);
+	}
+
+	@Override
+	public int selectMyCartCnt(String memberId) throws Exception {
+		return sqlSession.selectOne("member.selectMyCartCnt" , memberId);
+	}
+
+	@Override
+	public String selectDuplicatedId(String memberId) throws Exception {
+		return sqlSession.selectOne("member.selectDuplicatedId" , memberId);
+	}
+
 }
