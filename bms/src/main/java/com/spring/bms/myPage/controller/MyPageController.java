@@ -18,6 +18,7 @@ import com.spring.bms.member.service.MemberService;
 import com.spring.bms.myPage.service.MyPageService;
 
 @Controller
+@RequestMapping("/myPage")
 public class MyPageController {
 
 	@Autowired

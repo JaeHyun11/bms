@@ -4,12 +4,12 @@
 <tiles-definitions>
 	
 	<definition name="/member/login" extends="default">
-         <put-attribute name="body" value="/WEB-INF/views/member/login.jsp" />
+         <put-attribute name="body" value="/WEB-INF/views/client/member/login.jsp" />
          <put-attribute name="title" value="login" />
     </definition>  
     
 	<definition name="/member/register" extends="default">
-		<put-attribute name="body" value="/WEB-INF/views/member/register.jsp"/>
+		<put-attribute name="body" value="/WEB-INF/views/client/member/register.jsp"/>
 		<put-attribute name="title" value="register"/>
 	</definition>
 	

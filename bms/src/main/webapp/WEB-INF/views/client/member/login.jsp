@@ -31,18 +31,18 @@
     <section class="checkout spad">
         <div class="container">
             <div class="checkout__form">
-                <form action="${contextPath}/member/login" method="post">
+                <form action="${contextPath }/member/login" method="post">
                     <div class="row">
                         <div class="col-lg-10 col-md-8">
                             <h6 id="login">로그인</h6>
 							<br><br><br><br>
                             <div class="checkout__input">
                                 <p>아이디<span>*</span></p>
-                                <input type="text" id="username">
+                                <input type="text" name="memberId">
                             </div>
                             <div class="checkout__input">
                                 <p>비밀번호<span>*</span></p>
-                                <input type="text" id="password">
+                                <input type="password" name="passwd">
                             </div>
                             <div>
                                 <input name="rememberMe" id="rememberMe" type="checkbox" data-testid="checkboxInput">

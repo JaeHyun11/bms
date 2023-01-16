@@ -41,7 +41,7 @@ public class MemberController {
 		
 		String msg = "<script>";
 			   msg += "alert('회원가입 완료.');";
-			   msg += "location.href= '" + request.getContextPath() + "/';";
+			   msg += "location.href= '" + request.getContextPath() + "';";
 			   msg += "</script>";
 			   
 		HttpHeaders responseHeaders = new HttpHeaders();
@@ -64,26 +64,26 @@ public class MemberController {
 			
 			HttpSession session = request.getSession();
 			session.setAttribute("memberId", memberDto.getMemberId());
-			session.setAttribute("role", "client");
-			session.setAttribute("myOrderCnt", memberService.getMyOrderCnt(memberDto.getMemberId()));
-			session.setAttribute("myCartCnt", memberService.getMyCartCnt(memberDto.getMemberId()));
-			session.setMaxInactiveInterval(60*30);
-			
+			session.setAttribute("role" , "client");
+			session.setAttribute("myOrderCnt" , memberService.getMyOrderCnt(memberDto.getMemberId()));
+			session.setAttribute("myCartCnt" , memberService.getMyCartCnt(memberDto.getMemberId()));
+			session.setMaxInactiveInterval(60 * 30);
 			msg = "<script>";
-			msg += "alert('로그인 완료.');";
+			msg += "alert('success');";
+			msg += "location.href='" + request.getContextPath() + "';";
 			msg += "</script>";
 			
 		}
 		else {
 			msg = "<script>";
-			msg += "alert('로그인 실패. 아이디와 비밀번호를 확인하세요');";
+			msg += "alert('fail');";
 			msg += "history.go(-1);";
 			msg += "</script>";
 			
 		}
 		
 		HttpHeaders responseHeaders = new HttpHeaders();
-		responseHeaders.add("Content-Type", "text/html; chartset=utf-8");
+		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
 		
 		return new ResponseEntity<Object>(msg, responseHeaders, HttpStatus.OK);
 		
@@ -101,7 +101,7 @@ public class MemberController {
 		
 		String js = "<script>";
 			   js += "alert('로그아웃 완료.');";
-			   js += "location.href ='" + request.getContextPath() + "/';";
+			   js += "location.href ='" + request.getContextPath() + "';";
 			   js += "</script>";
 			   
 		return new ResponseEntity<Object>(js , responseHeaders , HttpStatus.OK);

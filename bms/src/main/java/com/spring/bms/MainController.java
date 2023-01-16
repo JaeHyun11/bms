@@ -6,7 +6,13 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 @Controller
 public class MainController {
+	
+	@RequestMapping(value = "/", method = RequestMethod.GET)
+	public String home() {
 
+		return "/main";
+	}
+	
 	@RequestMapping(value="/main", method=RequestMethod.GET)
 	public String main() {
 		return "/main"; 	// jsp가 아니라 main.xml파일의 main으로 이동

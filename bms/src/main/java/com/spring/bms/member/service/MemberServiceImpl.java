@@ -30,10 +30,10 @@ public class MemberServiceImpl implements MemberService {
 		
 		MemberDto checkExsistId = memberDao.selectLogin(memberDto);
 		if (checkExsistId != null) {
-			if (bCryptPasswordEncoder.matches(memberDto.getPasswd(), checkExsistId.getPasswd()))
+			if (bCryptPasswordEncoder.matches(memberDto.getPasswd(), checkExsistId.getPasswd())) {
 				return true;
+			}
 		}
-		
 		return false;
 	}
 
