@@ -1,5 +1,8 @@
 package com.spring.bms.myPage.service;
 
+import java.util.List;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,5 +26,19 @@ public class MyPageServiceImpl implements MyPageService {
 		if (memberDto.getEmailstsYn() == null) memberDto.setEmailstsYn("N");
 		myPageDao.updateMyInfo(memberDto);
 	}
+
+	@Override
+	public void removeMember(String memberId) throws Exception {
+		myPageDao.deleteMember(memberId);
+		myPageDao.deleteCartListByRemoveMember(memberId);
+		myPageDao.deleteOrderListByRemoveMember(memberId);
+	}
+
+	@Override
+	public List<Map<String, Object>> getMyOrderList(String memberId) throws Exception {
+		return myPageDao.selectListMyOrder(memberId);
+	}
+	
+	
 
 }

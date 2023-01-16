@@ -41,7 +41,7 @@ public class MemberController {
 		
 		String msg = "<script>";
 			   msg += "alert('회원가입 완료.');";
-			   msg += "location.href= '" + request.getContextPath() + "';";
+			   msg += "location.href= '" + request.getContextPath() + "/';";
 			   msg += "</script>";
 			   
 		HttpHeaders responseHeaders = new HttpHeaders();
@@ -101,7 +101,7 @@ public class MemberController {
 		
 		String js = "<script>";
 			   js += "alert('로그아웃 완료.');";
-			   js += "location.href ='" + request.getContextPath() + "';";
+			   js += "location.href ='" + request.getContextPath() + "/';";
 			   js += "</script>";
 			   
 		return new ResponseEntity<Object>(js , responseHeaders , HttpStatus.OK);

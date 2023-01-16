@@ -23,7 +23,7 @@
                             <div class="header__top__links">
                             	<c:choose>
                                 	<c:when test="${sessionScope.memberId ne null}">
-                                		<p><a href="${contextPath }/member/login">Logout</a></p>
+                                		<p><a href="${contextPath }/member/logout">Logout</a></p>
                                 	</c:when>
                                 	<c:otherwise>
                                 		<c:if test="${sessionScope.memberId eq null}">
@@ -31,6 +31,32 @@
                                 		</c:if>
                                 	</c:otherwise>
                                 </c:choose>
+                            </div>
+                            <div href="#">MY PAGE
+                            	<c:choose>
+	                        		<c:when test="${sessionScope.role eq 'admin'}">
+			                             <li><a href="#">Management</a>
+			                                <ul class="dropdown">
+			                                 <li><a href="./goods.html"> 상품 관리</a></li>
+			                                 <li><a href="./member.html"> 사용자 관리</a></li>
+			                                 <li><a href="./order.html"> 주문 관리</a></li>
+			                                 <li><a href="./qa.html"> QA 관리</a></li>
+			                           		</ul>
+			                           	</li>
+			                        </c:when>
+			                        <c:otherwise>
+			                        	<li><a href="#"><span class="icon_menu"></span> My Pages</a>
+		                                <ul class="dropdown">
+			                             <li><a href="${contextPath }/myPage/myInfo?memberId=${sessionScope.memberId}"><span class="icon_info"></span> 내 정보</a></li>
+			                             <li><a href="${contextPath }/myPage/myWishList?memberId=${sessionScope.memberId}"><span class="icon_info"></span> 내 위시리스트</a></li>
+			                             <li><a href="${contextPath }/myPage/myOrderList"><span class="icon_chat_alt"></span> 주문조회</a></li>
+			                             <li><a href="${contextPath }/myPage/QA"><span class="icon_chat_alt"></span> 내 QA</a></li>
+		                             	</ul>
+		                             </li>
+			                        </c:otherwise>
+		                        </c:choose>
+                           	</div>
+                           	<div>
                                 <a href="#">FAQs</a>
                             </div>
                             <div class="header__top__hover">
@@ -45,7 +71,7 @@
                     </div>
                 </div>
             </div>
-        </div>
+	        </div>
         <div class="container">
             <div class="row">
                 <div class="col-lg-3 col-md-3">
@@ -57,17 +83,25 @@
                     <nav class="header__menu mobile-menu">
                         <ul>
                             <li class="active"><a href="./index.html">Home</a></li>
-                            <li><a href="./shop.html">Shop</a></li>
-                            <li><a href="#">Pages</a>
-                                <ul class="dropdown">
-                                    <li><a href="./about.html">About Us</a></li>
+                            <li><a href="./shopmens.html">Mens</a>
+                            	<ul class="dropdown">
+                                    <li><a href="./about.html">SALE</a></li>
                                     <li><a href="./shop-details.html">Shop Details</a></li>
                                     <li><a href="./shopping-cart.html">Shopping Cart</a></li>
                                     <li><a href="./checkout.html">Check Out</a></li>
                                     <li><a href="./blog-details.html">Blog Details</a></li>
                                 </ul>
                             </li>
-                            <li><a href="./blog.html">Blog</a></li>
+                            <li><a href="#">Womens</a>
+                                <ul class="dropdown">
+                                    <li><a href="./about.html">SALE</a></li>
+                                    <li><a href="./shop-details.html">Shop Details</a></li>
+                                    <li><a href="./shopping-cart.html">Shopping Cart</a></li>
+                                    <li><a href="./checkout.html">Check Out</a></li>
+                                    <li><a href="./blog-details.html">Blog Details</a></li>
+                                </ul>
+                            </li>
+                            <li><a href="./blog.html">QA 게시판</a></li>
                             <li><a href="./contact.html">Contacts</a></li>
                         </ul>
                     </nav>
