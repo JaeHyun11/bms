@@ -11,6 +11,6 @@ public interface MyPageService {
 	public void modifyMyInfo(MemberDto memberDto) throws Exception;
 	public void removeMember(String memberId) throws Exception;
 	public List<Map<String,Object>> getMyOrderList(String memberId) throws Exception;
-	
+	public Map<String,Object> getMyOrderDetail(Map<String,Object> orderDetailMap) throws Exception;
 	
 }

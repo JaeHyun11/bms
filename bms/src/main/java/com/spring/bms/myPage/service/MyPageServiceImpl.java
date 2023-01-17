@@ -38,6 +38,11 @@ public class MyPageServiceImpl implements MyPageService {
 	public List<Map<String, Object>> getMyOrderList(String memberId) throws Exception {
 		return myPageDao.selectListMyOrder(memberId);
 	}
+
+	@Override
+	public Map<String, Object> getMyOrderDetail(Map<String, Object> orderDetailMap) throws Exception {
+		return myPageDao.selectOneMyOrder(orderDetailMap);
+	}
 	
 	
 

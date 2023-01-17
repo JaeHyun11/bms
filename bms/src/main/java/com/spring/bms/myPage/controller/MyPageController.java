@@ -1,5 +1,7 @@
 package com.spring.bms.myPage.controller;
 
+import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -72,7 +74,7 @@ public class MyPageController {
 		
 	}
 	
-	@RequestMapping(value="myOrderList" , method=RequestMethod.GET)
+	@RequestMapping(value="/myOrderList" , method=RequestMethod.GET)
 	public ModelAndView myOrderList(HttpServletRequest request) throws Exception {
 		
 		HttpSession session = request.getSession();
@@ -80,6 +82,18 @@ public class MyPageController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/myPage/myOrderList");
 		mv.addObject("myOrderList", myPageService.getMyOrderList((String)session.getAttribute("memberId")));
+		
+		return mv;
+		
+	}
+	
+	@RequestMapping(value="/myOrderDetail" , method=RequestMethod.GET)
+	public ModelAndView myOrderDetail(@RequestParam Map<String, Object> orderDetailMap) throws Exception {
+		
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("/myPage/myOrderDetail");
+		mv.addObject("myOrder", myPageService.getMyOrderDetail(orderDetailMap));
 		
 		return mv;
 		

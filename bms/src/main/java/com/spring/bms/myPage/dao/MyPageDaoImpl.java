@@ -44,6 +44,11 @@ public class MyPageDaoImpl implements MyPageDao {
 	public List<Map<String, Object>> selectListMyOrder(String memberId) throws Exception {
 		return sqlSession.selectList("myPage.selectListMyOrder", memberId);
 	}
+
+	@Override
+	public Map<String, Object> selectOneMyOrder(Map<String, Object> orderDetailMap) throws Exception {
+		return sqlSession.selectOne("myPage.selectOneMyOrder" , orderDetailMap);
+	}
 	
 	
 	

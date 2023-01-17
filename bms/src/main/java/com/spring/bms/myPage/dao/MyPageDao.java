@@ -13,6 +13,7 @@ public interface MyPageDao {
 	public void deleteCartListByRemoveMember(String memberId) throws Exception;
 	public void deleteOrderListByRemoveMember(String memberId) throws Exception;
 	public List<Map<String,Object>> selectListMyOrder(String memberId) throws Exception;
+	public Map<String,Object> selectOneMyOrder(Map<String,Object> orderDetailMap) throws Exception;
 	
 	
 }
