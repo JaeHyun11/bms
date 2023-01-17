@@ -13,47 +13,31 @@
 	<insert id="insertGoods" parameterType="GoodsDto">
 		    INSERT INTO 
 		  			GOODS (
-						GOODS_NM,
-					    WRITER,
+						GOODS_CD,
+					    GOODS_GROUP,
+						GOODS_CATEGORY,
+						GOODS_INFO,
+						GOODS_FILE_NAME,
 						PRICE,
 						DISCOUNT_RATE,
 						STOCK,
-						PUBLISHER,
-						SORT,
 						POINT,
-						PUBLISHED_DT ,
-						TOTAL_PAGE,
-						ISBN,
 						DELIVERY_PRICE,
-						PART,
-						WRITER_INTRO,
-						CONTENTS_ORDER,
-						INTRO,
-						PUBLISHER_COMMENT,
-						RECOMMENDATION,
 						GOODS_FILE_NAME,
 						ENROLL_DT				  			
 		  			)
 		    VALUES (
-			        #{goodsNm},
-				    #{writer},
+			        #{goodsCd},
+				    #{goodsGroup},
+				    #{goodsCategory},
+				    #{goodsInfo},
+				    #{goodsFileName},
 				    #{price},
-					#{discountRate},
+				    #{discountRate},
 					#{stock},
-					#{publisher},
-					#{sort},
 					#{point},
-					#{publishedDt},
-					#{totalPage},
-					#{isbn},
 					#{deliveryPrice},
-					#{part},
-					#{writerIntro},
-					#{contentsOrder},
-					#{intro},
-					#{publisherComment},
-					#{recommendation},
-					#{goodsFileName},
+					#{enrollDt},
 					NOW()
  			 )
 	</insert> 
@@ -62,11 +46,20 @@
 	   UPDATE 
 	   			GOODS
 	   <set> 
-	      <if test='goodsNm != null and goodsNm != ""'>
-	        GOODS_NM = #{goodsNm},
+	      <if test='goodsCd != null and goodsCd != ""'>
+	        GOODS_CD = #{goodsCd},
 	      </if>
-	      <if test='writer != null and writer != ""'>
-	        WRITER = #{writer},
+	      <if test='goodsGroup != null and goodsGroup != ""'>
+	        GOODS_GROUP = #{goodsGroup},
+	      </if>
+	      <if test='goodsCategory != null and goodsCategory != ""'>
+	        GOODS_CATEGORY = #{goodsCategory},
+	      </if>
+	      <if test='goodsInfo != null and goodsInfo != ""'>
+	        GOODS_INFO = #{goodsInfo},
+	      </if>
+	      <if test='goodsFileName != null and goodsFileName != ""'>
+	        GOODS_FILE_NAME = #{goodsFileName},
 	      </if>
 	      <if test='price != null and price != ""'>
 	        PRICE = #{price},
@@ -74,50 +67,14 @@
 	      <if test='discountRate != null and discountRate != ""'>
 	        DISCOUNT_RATE = #{discountRate},
 	      </if>
-	      <if test='stock != null and stock != ""'>
-	        STOCK = #{stock},
-	      </if>
-	      <if test='publisher != null and publisher != ""'>
-	        PUBLISHER = #{publisher},
-	      </if>
-	      <if test='sort != null and sort != ""'>
-	        SORT = #{sort},
-	      </if>
 	      <if test='point != null and point != ""'>
-	        POINT = #{point},
-	      </if>
-	      <if test='publishedDt != null'>
-	        PUBLISHED_DT = #{publishedDt},
-	      </if>
-	      <if test='totalPage != null and totalPage != ""'>
-	        TOTAL_PAGE = #{totalPage},
-	      </if>
-	      <if test='isbn != null and isbn != ""'>
-	        ISBN = #{isbn},
+	        STOCK = #{point},
 	      </if>
 	      <if test='deliveryPrice != null and deliveryPrice != ""'>
 	        DELIVERY_PRICE = #{deliveryPrice},
 	      </if>
-	      <if test='part != null and part != ""'>
-	        PART = #{part},
-	      </if>
-	      <if test='writerIntro != null and writerIntro != ""'>
-	        WRITER_INTRO = #{writerIntro},
-	      </if>
-	      <if test='contentsOrder != null and contentsOrder != ""'>
-	        CONTENTS_ORDER = #{contentsOrder},
-	      </if>
-	      <if test='intro != null and intro != ""'>
-	        INTRO = #{intro},
-	      </if>
-	      <if test='publisherComment != null and publisherComment != ""'>
-	        PUBLISHER_COMMENT = #{publisherComment},
-	      </if>
-	      <if test='recommendation != null and recommendation != ""'>
-	        RECOMMENDATION = #{recommendation},
-	      </if>
-	      <if test='goodsFileName != null and goodsFileName != ""'>
-	        GOODS_FILE_NAME = #{goodsFileName},
+	      <if test='enrollDt != null'>
+	        ENROLL_DT = #{enrollDt},
 	      </if>
 	    </set>
 		WHERE 

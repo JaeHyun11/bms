@@ -22,17 +22,17 @@ public class AdminMemberController {
 	@Autowired
 	private AdminMemberService adminMemberService;
 	
-	@RequestMapping(value="/adminLogin", method=RequestMethod.GET)
-	public ModelAndView adminLogin() throws Exception {
-		return new ModelAndView("/admin/member/adminLogin");
+	@RequestMapping(value="/login", method=RequestMethod.GET)
+	public ModelAndView login() throws Exception {
+		return new ModelAndView("/admin/member/login");
 	}
 	
-	@RequestMapping(value="/adminLogin", method=RequestMethod.POST)
+	@RequestMapping(value="/login", method=RequestMethod.POST)
 	public ResponseEntity<Object> login(AdminDto adminDto , HttpServletRequest request) throws Exception {
 	
 		String js = "";
-	
-		if (adminMemberService.adminLogin(adminDto)) {
+		
+		if (adminMemberService.login(adminDto)) {
 		
 			HttpSession session = request.getSession();
 			session.setAttribute("memberId", adminDto.getAdminId());

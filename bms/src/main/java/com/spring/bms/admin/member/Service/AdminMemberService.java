@@ -7,6 +7,6 @@ import com.spring.bms.member.dto.MemberDto;
 
 public interface AdminMemberService {
 
-	public boolean adminLogin(AdminDto adminDto) throws Exception;
+	public boolean login(AdminDto adminDto) throws Exception;
 	public List<MemberDto> getMemberList() throws Exception;
 }

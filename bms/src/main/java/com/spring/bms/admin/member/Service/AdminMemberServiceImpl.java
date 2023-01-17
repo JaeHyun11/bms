@@ -16,7 +16,7 @@ public class AdminMemberServiceImpl implements AdminMemberService {
 	private AdminMemberDao adminMemberDao;
 	
 	@Override
-	public boolean adminLogin(AdminDto adminDto) throws Exception {
+	public boolean login(AdminDto adminDto) throws Exception {
 		
 		if (adminMemberDao.selectAdminLogin(adminDto) != null) {
 			return true;

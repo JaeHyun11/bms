@@ -11,6 +11,7 @@
 		<typeAlias type="com.spring.bms.member.dto.MemberDto"   		alias="MemberDto" />
 		<typeAlias type="com.spring.bms.admin.member.dto.AdminDto"   	alias="AdminDto" />
 		<typeAlias type="com.spring.bms.myPage.dto.CartDto"       		alias="CartDto" />
+		<typeAlias type="com.spring.bms.goods.dto.GoodsDto"       		alias="GoodsDto" />
 		
 	</typeAliases>
 	

@@ -5,9 +5,9 @@
 
 <tiles-definitions>
     
-    <definition name="/admin/member/adminLogin" extends="default">
+    <definition name="/admin/member/login" extends="default">
        <put-attribute name="title" value="관리자 로그인" />
-       <put-attribute name="body" value="/WEB-INF/views/admin/member/adminLogin.jsp" />
+       <put-attribute name="body" value="/WEB-INF/views/admin/member/login.jsp" />
     </definition>
     
 	<definition name="/admin/member/adminMemberList" extends="default">

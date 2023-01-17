@@ -37,10 +37,10 @@
 	                        		<c:when test="${sessionScope.role eq 'admin'}">
 					                    <li><a href="#">Management</a>
 			                                <ul class="dropdown">
-			                                 <li><a href="./goods.html"> 상품 관리</a></li>
-			                                 <li><a href="./member.html"> 사용자 관리</a></li>
-			                                 <li><a href="./order.html"> 주문 관리</a></li>
-			                                 <li><a href="./qa.html"> QA 관리</a></li>
+			                                 <li><a href="${contextPath }/admin/goods/adminGoodsList"> 상품 관리</a></li>
+			                                 <li><a href="${contextPath }/admin/member/adminMemberList"> 사용자 관리</a></li>
+			                                 <li><a href="${contextPath }/admin/order/adminOrderList"> 주문 관리</a></li>
+			                                 <li><a href="${contextPath }/admin/qa/qaList"> QA 관리</a></li>
 			                           		</ul>
 			                           	</li>
 			                        </c:when>
@@ -82,23 +82,28 @@
                 <div class="col-lg-6 col-md-6">
                     <nav class="header__menu mobile-menu">
                         <ul>
-                            <li class="active"><a href="./">Home</a></li>
-                            <li><a href="./shopmens.html">Mens</a>
+                            <li class="active"><a href="${contextPath }/">Home</a></li>
+                            <li><a href="${contextPath }/goods/mensGoodsList">Mens</a>
                             	<ul class="dropdown">
                                     <li><a href="./about.html">SALE</a></li>
-                                    <li><a href="./shop-details.html">Shop Details</a></li>
-                                    <li><a href="./shopping-cart.html">Shopping Cart</a></li>
-                                    <li><a href="./checkout.html">Check Out</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li>
+                                    <li><a href="${contextPath }/goods/mensGoodsList">SHOP ALL</a></li>
+                                    <li><a href="./shopping-cart.html">Jackets</a></li>
+                                    <li><a href="./checkout.html">Sweaters</a></li>
+                                    <li><a href="./blog-details.html">Shirts</a></li>
+                                    <li><a href="./blog-details.html">Pants</a></li>
+                                    <li><a href="./blog-details.html">Shoes</a></li>
                                 </ul>
                             </li>
-                            <li><a href="#">Womens</a>
+                            <li><a href="${contextPath }/goods/womensGoodsList">Womens</a>
                                 <ul class="dropdown">
                                     <li><a href="./about.html">SALE</a></li>
-                                    <li><a href="./shop-details.html">Shop Details</a></li>
-                                    <li><a href="./shopping-cart.html">Shopping Cart</a></li>
-                                    <li><a href="./checkout.html">Check Out</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li>
+                                    <li><a href="${contextPath }/goods/womensGoodsList">SHOP ALL</a></li>
+                                    <li><a href="./shopping-cart.html">Jackets</a></li>
+                                    <li><a href="./checkout.html">Sweaters</a></li>
+                                    <li><a href="./blog-details.html">Dresses</a></li>
+                                    <li><a href="./blog-details.html">Shirts</a></li>
+                                    <li><a href="./blog-details.html">Pants</a></li>
+                                    <li><a href="./blog-details.html">Shoes</a></li>
                                 </ul>
                             </li>
                             <li><a href="./blog.html">QA 게시판</a></li>
