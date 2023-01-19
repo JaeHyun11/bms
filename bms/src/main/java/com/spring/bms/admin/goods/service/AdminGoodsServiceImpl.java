@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.spring.bms.admin.goods.dao.AdminGoodsDao;
+import com.spring.bms.goods.dto.GoodsDto;
 
 @Service
 public class AdminGoodsServiceImpl implements AdminGoodsService {
@@ -16,6 +17,23 @@ public class AdminGoodsServiceImpl implements AdminGoodsService {
 	@Override
 	public List<GoodsDto> getGoodsList() throws Exception {
 		return adminGoodsDao.selectListGoods();
+	}
+
+	@Override
+	public void addNewGoods(GoodsDto goodsDto) throws Exception {
+		adminGoodsDao.insertGoods(goodsDto);
+	}
+
+	@Override
+	public void modifyGoods(GoodsDto goodsDto) throws Exception {
+		adminGoodsDao.updateGoods(goodsDto);
+		
+	}
+
+	@Override
+	public void removeGoods(int goodsCd) throws Exception {
+		adminGoodsDao.deleteGoods(goodsCd);
+		
 	}
 
 }

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE tiles-definitions PUBLIC
+  "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+  "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<tiles-definitions>
+
+	<definition name="/goods/mensGoodsList" extends="default">
+        <put-attribute name="title" value="상품 리스트" />
+        <put-attribute name="body" value="/WEB-INF/views/client/goods/mensGoodsList.jsp" />
+     </definition>  
+	
+	<definition name="/goods/womensGoodsList" extends="default">
+        <put-attribute name="title" value="상품 리스트" />
+        <put-attribute name="body" value="/WEB-INF/views/client/goods/womensGoodsList.jsp" />
+     </definition>
+     
+</tiles-definitions>
+
+
