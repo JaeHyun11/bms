@@ -80,16 +80,17 @@
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6">
-                    <nav class="header__menu mobile-menu">
-                        <ul>
-                            <li class="active"><a href="${contextPath }/">Home</a></li>
+                	<nav class="header__menu mobile-menu">
+                    	<ul>
+                        	<li class="active"><a href="${contextPath }/">Home</a></li>
                             <li><a href="${contextPath }/goods/mensGoodsList">Mens</a>
                             	<ul class="dropdown">
                                     <li><a href="./about.html">SALE</a></li>
                                     <li><a href="${contextPath }/goods/mensGoodsList">SHOP ALL</a></li>
-                                    <li><a href="./shopping-cart.html">Jackets</a></li>
+                                    <li><a href="./shopping-cart.html">Jackets&Coats</a></li>
                                     <li><a href="./checkout.html">Sweaters</a></li>
                                     <li><a href="./blog-details.html">Shirts</a></li>
+                                    <li><a href="./blog-details.html">TShirts</a></li>
                                     <li><a href="./blog-details.html">Pants</a></li>
                                     <li><a href="./blog-details.html">Shoes</a></li>
                                 </ul>
@@ -98,18 +99,19 @@
                                 <ul class="dropdown">
                                     <li><a href="./about.html">SALE</a></li>
                                     <li><a href="${contextPath }/goods/womensGoodsList">SHOP ALL</a></li>
-                                    <li><a href="./shopping-cart.html">Jackets</a></li>
+                                    <li><a href="./shopping-cart.html">Jackets&Coats</a></li>
                                     <li><a href="./checkout.html">Sweaters</a></li>
                                     <li><a href="./blog-details.html">Dresses</a></li>
                                     <li><a href="./blog-details.html">Shirts</a></li>
+                                    <li><a href="./blog-details.html">TShirts</a></li>
                                     <li><a href="./blog-details.html">Pants</a></li>
                                     <li><a href="./blog-details.html">Shoes</a></li>
                                 </ul>
                             </li>
-                            <li><a href="./blog.html">QA 게시판</a></li>
-                            <li><a href="./contact.html">Contacts</a></li>
-                        </ul>
-                    </nav>
+                        	<li><a href="./blog.html">QA 게시판</a></li>
+                        	<li><a href="./contact.html">Contacts</a></li>
+                    	</ul>
+                	</nav>
                 </div>
                 <div class="col-lg-3 col-md-3">
                     <div class="header__nav__option">
