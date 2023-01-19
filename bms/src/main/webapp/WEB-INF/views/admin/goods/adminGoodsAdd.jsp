@@ -120,6 +120,7 @@
 	                            </div>
                                	 <div id="collapseFive" class="collapse show" data-parent="#accordionExample">
                                         <div class="card-body">
+                                        	<p>색상 <span>*</span></p>
                                             <div class="shop__sidebar__color">
                                                 <label class="c-1" for="sp-1">
                                                     <input type="radio" id="sp-1">
