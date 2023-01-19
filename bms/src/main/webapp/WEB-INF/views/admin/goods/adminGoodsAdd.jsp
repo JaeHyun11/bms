@@ -5,7 +5,44 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<script>
+	
+	$(document).ready(function(){
+	
+		$("[name='goodsGroup']").change(function(){
+			var searchType = $("[name='goodsGroup']").val();
+		    
+			var setView = "";
+			
+		 	if (searchType == "mens"){
+		 		setView = '<select name="goodsCategory">';
+	            setView += '<option value="Jackets&Coats">자켓&코트</option>';
+	            setView += '<option value="Sweaters">스웨터</option>';
+	            setView += '<option value="Shirts">셔츠</option>';
+	            setView += '<option value="TShirts">티셔츠</option>';
+	            setView += '<option value="Pants">팬츠</option>';
+	            setView += '<option value="Shoes">슈즈</option>';
+	            setView += '</select>';
+		 	}
+			else if (searchType == "womens") {
+				setView = '<select name="goodsCategory">';
+	            setView += '<option value="Jackets&Coats">자켓&코트</option>';
+	            setView += '<option value="Sweaters">스웨터</option>';
+	            setView += '<option value="Shirts">셔츠</option>';
+	            setView += '<option value="TShirts">티셔츠</option>';
+	            setView += '<option value="Skirts">스커트</option>';
+	            setView += '<option value="Dresses">드레스</option>';
+	            setView += '<option value="Pants">팬츠</option>';
+	            setView += '<option value="Shoes">슈즈</option>';
+	            setView += '</select>';
+			}
+			$("#setCategory").html(setView);
+			
+		});
+		
+	});
+
+</script>
 </head>
 <body>
 <!-- Breadcrumb Section Begin -->
@@ -14,7 +51,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="breadcrumb__text">
-                        <h4>Check Out</h4>
+                        <h4>Add Goods</h4>
                         <div class="breadcrumb__links">
                             <a href="${contextPath }/">Admin</a>
                             <span>Add Goods</span>
@@ -47,130 +84,120 @@
                                     <input type="text" name="goodsNm" placeholder="상품명을 입력하세요.">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="col-sm-12">
-                            	<div class="checkout__input">
-                                	<p>가격 <span>*</span></p>
-                                    <input type="text" name="price" placeholder="가격을 입력하세요.">
-                                </div>
-                            </div>	
-                            <div class="col-sm-12">
-                            	<div class="checkout__input">
-	                                <p>할인률 <span>*</span></p>
-	                                <input type="text" name="discountRate" placeholder="할인률을 입력하세요.">
-	                           	</div>
-                            </div>
-                            <div class="col-sm-12">
-                            	<div class="checkout__input">
-	                                <p>재고	 <span>*</span></p>
-	                                <input type="text" name="stock" placeholder="재고를 입력하세요.">
-	                           	</div>
-                            </div>
-                            <div class="col-sm-12">
-                            	<div class="checkout__input">
-	                                <p>입고일	<span>*</span></p>
-	                                <input type="text" name="enrollDt" placeholder="입고일을 입력하세요.">
-	                           	</div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="checkout__input">
-                                    <p>배송비 <span>*</span></p>
-                                    <input type="text" name="deliveryPrice" placeholder="배송비를 입력하세요.">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="checkout__input">
-                                    <p>그룹<span>*</span></p>
-                                    <select name="goodsGroup">
-                                    	<option value="mens">남성</option>
-                                    	<option value="womens">여성</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="checkout__input">
-                                    <p>카테고리<span>*</span></p>
-                                    <select name="goodsCategory">
-                                    	<option value="Jackets&Coats">자켓&코트</option>
-                                    	<option value="Sweaters">스웨터</option>
-                                    	<option value="Dresses">드레스</option>
-                                    	<option value="Shirts">셔츠</option>
-                                    	<option value="TShirts">티셔츠</option>
-                                    	<option value="Pants">팬츠</option>
-                                    	<option value="Shoes">슈즈</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="acc">
-                                    Create an account?
-                                    <input type="checkbox" id="acc">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <p>Create an account by entering the information below. If you are a returning customer
-                                please login at the top of the page</p>
-                            </div>
-                            <div class="checkout__input">
-                                <p>Account Password<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="diff-acc">
-                                    Note about your order, e.g, special noe for delivery
-                                    <input type="checkbox" id="diff-acc">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <div class="checkout__input">
-                                <p>Order notes<span>*</span></p>
-                                <input type="text"
-                                placeholder="Notes about your order, e.g. special notes for delivery.">
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="checkout__order">
-                                <h4 class="order__title">Your order</h4>
-                                <div class="checkout__order__products">Product <span>Total</span></div>
-                                <ul class="checkout__total__products">
-                                    <li>01. Vanilla salted caramel <span>$ 300.0</span></li>
-                                    <li>02. German chocolate <span>$ 170.0</span></li>
-                                    <li>03. Sweet autumn <span>$ 170.0</span></li>
-                                    <li>04. Cluten free mini dozen <span>$ 110.0</span></li>
-                                </ul>
-                                <ul class="checkout__total__all">
-                                    <li>Subtotal <span>$750.99</span></li>
-                                    <li>Total <span>$750.99</span></li>
-                                </ul>
-                                <div class="checkout__input__checkbox">
-                                    <label for="acc-or">
-                                        Create an account?
-                                        <input type="checkbox" id="acc-or">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua.</p>
-                                <div class="checkout__input__checkbox">
-                                    <label for="payment">
-                                        Check Payment
-                                        <input type="checkbox" id="payment">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="checkout__input__checkbox">
-                                    <label for="paypal">
-                                        Paypal
-                                        <input type="checkbox" id="paypal">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <button type="submit" class="site-btn">PLACE ORDER</button>
+                                 <div class="col-sm-6">
+	                                <div class="checkout__input">
+	                                    <p>그룹<span>*</span></p>
+	                                    <select name="goodsGroup">
+	                                    	<option value="mens">남성</option>
+	                                    	<option value="womens">여성</option>
+	                                    </select>
+	                                </div>
+	                            </div>
+	                            <div class="col-sm-6">
+	                                <div class="checkout__input">
+	                                    <p>카테고리<span>*</span></p> 
+	                                    <span id="setCategory">
+				                            <select name="goodsCategory">
+									            <option value="Jackets&Coats">자켓&코트</option>
+									            <option value="Sweaters">스웨터</option>
+									            <option value="Shirts">셔츠</option>
+									            <option value="TShirts">티셔츠</option>
+									            <option value="Pants">팬츠</option>
+									            <option value="Shoes">슈즈</option>
+									        </select>
+	                                    </span>                                   
+	                                </div>
+	                            </div>
+	                            <div class="col-sm-6">
+                                	<div class="checkout__input">
+	                                    <p>분류 <span>*</span></p>
+	                                    <select name="sort">
+	                                    	<option value="general">일반</option>
+	                                    	<option value="new">신상</option>
+	                                    	<option value="sale">세일</option>
+	                                    </select>
+	                                </div>
+	                            </div>
+                               	 <div id="collapseFive" class="collapse show" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <div class="shop__sidebar__color">
+                                                <label class="c-1" for="sp-1">
+                                                    <input type="radio" id="sp-1">
+                                                </label>
+                                                <label class="c-2" for="sp-2">
+                                                    <input type="radio" id="sp-2">
+                                                </label>
+                                                <label class="c-3" for="sp-3">
+                                                    <input type="radio" id="sp-3">
+                                                </label>
+                                                <label class="c-4" for="sp-4">
+                                                    <input type="radio" id="sp-4">
+                                                </label>
+                                                <label class="c-5" for="sp-5">
+                                                    <input type="radio" id="sp-5">
+                                                </label>
+                                                <label class="c-6" for="sp-6">
+                                                    <input type="radio" id="sp-6">
+                                                </label>
+                                                <label class="c-7" for="sp-7">
+                                                    <input type="radio" id="sp-7">
+                                                </label>
+                                                <label class="c-8" for="sp-8">
+                                                    <input type="radio" id="sp-8">
+                                                </label>
+                                                <label class="c-9" for="sp-9">
+                                                    <input type="radio" id="sp-9">
+                                                </label>
+                                            </div>
+                                        </div>
+                                    </div>
+	                            </div>
+	                            <div class="col-sm-6">
+	                            	<div class="checkout__input">
+	                                	<p>가격 <span>*</span></p>
+	                                    <input type="text" name="price" placeholder="가격을 입력하세요.">
+	                                </div>
+	                            </div>	
+	                            <div class="col-sm-6">
+	                            	<div class="checkout__input">
+		                                <p>할인률 <span>*</span></p>
+		                                <input type="text" name="discountRate" placeholder="할인률을 입력하세요.">
+		                           	</div>
+	                            </div>
+	                            <div class="col-sm-6">
+	                            	<div class="checkout__input">
+		                                <p>재고	 <span>*</span></p>
+		                                <input type="text" name="stock" placeholder="재고를 입력하세요.">
+		                           	</div>
+	                            </div>
+	                            <div class="col-sm-6">
+	                                <div class="checkout__input">
+	                                    <p>배송비 <span>*</span></p>
+	                                    <input type="text" name="deliveryPrice" placeholder="배송비를 입력하세요.">
+	                                </div>
+	                            </div>
+	                            <div class="col-sm-6">
+	                                <div class="checkout__input">
+	                                    <p>적립 포인트 <span>*</span></p>
+	                                    <input type="text" name="point" placeholder="적립 포인트를 입력하세요.">
+	                                </div>
+	                            </div>
+	                            <div class="col-sm-12">
+	                                <div class="checkout__input">
+	                                    <p>상품 설명<span>*</span></p>
+	                                    <textarea rows="5" cols="100" name="intro" placeholder="상품 설명을 입력하세요."></textarea> 
+	                                	<script>CKEDITOR.replace("intro");</script>
+	                                </div>
+	                            </div>
+	                            <div class="col-sm-12" align="right">
+	                                <button type="submit" class="site-btn">추가하기</button>
+	                            </div>
                             </div>
                         </div>
-                    </div>
+                	</div>
                 </form>
             </div>
-        </div>
+		</div>
     </section>
     <!-- Checkout Section End -->
 </body>

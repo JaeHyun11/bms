@@ -1,161 +1,187 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+</head>
+<script>
+	$(document).ready(function(){
+		
+		$("[name='goodsGroup']").change(function(){
+			var searchType = $("[name='goodsGroup']").val();
+		    
+			var setView = "";
+			
+		 	if (searchType == "mens"){
+		 		setView = '<select name="goodsCategory">';
+	            setView += '<option value="Jackets&Coats">자켓&코트</option>';
+	            setView += '<option value="Sweaters">스웨터</option>';
+	            setView += '<option value="Shirts">셔츠</option>';
+	            setView += '<option value="TShirts">티셔츠</option>';
+	            setView += '<option value="Pants">팬츠</option>';
+	            setView += '<option value="Shoes">슈즈</option>';
+	            setView += '</select>';
+		 	}
+			else if (searchType == "womens") {
+				setView = '<select name="goodsCategory">';
+	            setView += '<option value="Jackets&Coats">자켓&코트</option>';
+	            setView += '<option value="Sweaters">스웨터</option>';
+	            setView += '<option value="Shirts">셔츠</option>';
+	            setView += '<option value="TShirts">티셔츠</option>';
+	            setView += '<option value="Skirts">스커트</option>';
+	            setView += '<option value="Dresses">드레스</option>';
+	            setView += '<option value="Pants">팬츠</option>';
+	            setView += '<option value="Shoes">슈즈</option>';
+	            setView += '</select>';
+			}
+			$("#setCategory").html(setView);
+			
+		});
+		
+	});
+	
+</script>
 </head>
 <body>
-<!-- Breadcrumb Section Begin -->
-    <section class="breadcrumb-option">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="breadcrumb__text">
-                        <h4>Check Out</h4>
-                        <div class="breadcrumb__links">
-                            <a href="./index.html">Home</a>
-                            <a href="./shop.html">Shop</a>
-                            <span>Check Out</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Breadcrumb Section End -->
-
-    <!-- Checkout Section Begin -->
-    <section class="checkout spad">
-        <div class="container">
-            <div class="checkout__form">
-                <form action="#">
-                    <div class="row">
-                        <div class="col-lg-8 col-md-6">
-                            <h6 class="coupon__code"><span class="icon_tag_alt"></span> Have a coupon? <a href="#">Click
-                            here</a> to enter your code</h6>
-                            <h6 class="checkout__title">Billing Details</h6>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Fist Name<span>*</span></p>
-                                        <input type="text">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Last Name<span>*</span></p>
-                                        <input type="text">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="checkout__input">
-                                <p>Country<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Address<span>*</span></p>
-                                <input type="text" placeholder="Street Address" class="checkout__input__add">
-                                <input type="text" placeholder="Apartment, suite, unite ect (optinal)">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Town/City<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Country/State<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Postcode / ZIP<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Phone<span>*</span></p>
-                                        <input type="text">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Email<span>*</span></p>
-                                        <input type="text">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="acc">
-                                    Create an account?
-                                    <input type="checkbox" id="acc">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <p>Create an account by entering the information below. If you are a returning customer
-                                please login at the top of the page</p>
-                            </div>
-                            <div class="checkout__input">
-                                <p>Account Password<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="diff-acc">
-                                    Note about your order, e.g, special noe for delivery
-                                    <input type="checkbox" id="diff-acc">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <div class="checkout__input">
-                                <p>Order notes<span>*</span></p>
-                                <input type="text"
-                                placeholder="Notes about your order, e.g. special notes for delivery.">
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="checkout__order">
-                                <h4 class="order__title">Your order</h4>
-                                <div class="checkout__order__products">Product <span>Total</span></div>
-                                <ul class="checkout__total__products">
-                                    <li>01. Vanilla salted caramel <span>$ 300.0</span></li>
-                                    <li>02. German chocolate <span>$ 170.0</span></li>
-                                    <li>03. Sweet autumn <span>$ 170.0</span></li>
-                                    <li>04. Cluten free mini dozen <span>$ 110.0</span></li>
-                                </ul>
-                                <ul class="checkout__total__all">
-                                    <li>Subtotal <span>$750.99</span></li>
-                                    <li>Total <span>$750.99</span></li>
-                                </ul>
-                                <div class="checkout__input__checkbox">
-                                    <label for="acc-or">
-                                        Create an account?
-                                        <input type="checkbox" id="acc-or">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua.</p>
-                                <div class="checkout__input__checkbox">
-                                    <label for="payment">
-                                        Check Payment
-                                        <input type="checkbox" id="payment">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="checkout__input__checkbox">
-                                    <label for="paypal">
-                                        Paypal
-                                        <input type="checkbox" id="paypal">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <button type="submit" class="site-btn">PLACE ORDER</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </section>
-    <!-- Checkout Section End -->
+	<!-- Breadcrumb Section Begin -->
+	<section class="breadcrumb-option">
+	    <div class="container">
+	        <div class="row">
+	            <div class="col-lg-12">
+	                <div class="breadcrumb__text">
+	                    <h4>Modify Goods</h4>
+	                    <div class="breadcrumb__links">
+	                        <a href="${contextPath }/">Admin</a>
+	                        <span>Modify Goods</span>
+	                    </div>
+	                </div>
+	            </div>
+	        </div>
+	    </div>
+	</section>
+	<!-- Breadcrumb Section End -->
+	
+	<!-- Checkout Section Begin -->
+	<section class="checkout spad">
+	    <div class="container">
+	        <div class="checkout__form">
+	            <form action="${contextPath }/admin/goods/adminGoodsModify" method="post" enctype="multipart/form-data" class="checkout__form">
+	                <div class="row">
+	                    <div class="col-lg-8 col-md-6">
+	                        <h5>상품 수정</h5>
+	                        <div class="row">
+	                            <div class="col-sm-12">
+	                                <div class="checkout__input">
+	                                    <p>상품 이미지<span>*</span> <span class="icon_upload"></span></p>
+	                                    <input type="file" name="goodsFileName">
+	                                </div>
+	                            </div>
+	                            <div class="col-sm-12">
+	                            <div class="checkout__input">
+	                                <p>상품명 <span>*</span></p>
+	                                <input type="text" name="goodsNm" placeholder="상품명을 입력하세요.">
+	                                </div>
+	                            </div>
+	                             <div class="col-sm-6">
+	                                <div class="checkout__input">
+	                                    <p>그룹<span>*</span></p>
+	                                    <select name="goodsGroup">
+	                                    	<option value="mens">남성</option>
+	                                    	<option value="womens">여성</option>
+	                                    </select>
+	                                </div>
+	                            </div>
+	                            <div class="col-sm-6">
+	                                <div class="checkout__input">
+	                                    <p>카테고리<span>*</span></p> 
+	                                    <span id="setCategory">
+				                            <select name="goodsCategory">
+									            <option value="Jackets&Coats">자켓&코트</option>
+									            <option value="Sweaters">스웨터</option>
+									            <option value="Shirts">셔츠</option>
+									            <option value="TShirts">티셔츠</option>
+									            <option value="Pants">팬츠</option>
+									            <option value="Shoes">슈즈</option>
+									        </select>
+	                                    </span>                                   
+	                                </div>
+	                            </div>
+	                                <div class="col-sm-6">
+	                            <div class="checkout__form__input">
+	                                <p>분류 <span>*</span></p>
+		                                <select name="sort">
+		                                	<option value="general">일반</option>
+		                                	<option value="new">신상</option>
+		                                	<option value="sale">세일</option>
+		                                </select>
+		                            </div>
+		                        </div>
+		                        <div class="col-sm-6">
+                                	<div class="checkout__input">
+	                                    <p>색상 <span>*</span></p>
+	                                    <select name="color">
+	                                    	<option value="black">블랙</option>
+	                                    	<option value="multi">멀티</option>
+	                                    	<option value="grey">그레이</option>
+	                                    	<option value="beige">베이지</option>
+	                                    	<option value="brown">브라운</option>
+	                                    	<option value="white">화이트</option>
+	                                    	<option value="green">그린</option>
+	                                    	<option value="red">레드</option>
+                                    		<option value="pink">핑크</option>
+	                                    	<option value="yellow">옐로우</option>
+	                                    </select>
+	                                </div>
+	                            </div>
+	                            <div class="col-sm-6">
+	                            	<div class="checkout__input">
+	                                	<p>가격 <span>*</span></p>
+	                                    <input type="text" name="price" placeholder="가격을 입력하세요.">
+	                                </div>
+	                            </div>	
+	                            <div class="col-sm-6">
+	                            	<div class="checkout__input">
+		                                <p>할인률 <span>*</span></p>
+		                                <input type="text" name="discountRate" placeholder="할인률을 입력하세요.">
+		                           	</div>
+	                            </div>
+	                            <div class="col-sm-6">
+	                            	<div class="checkout__input">
+		                                <p>재고	 <span>*</span></p>
+		                                <input type="text" name="stock" placeholder="재고를 입력하세요.">
+		                           	</div>
+	                            </div>
+	                            <div class="col-sm-6">
+	                                <div class="checkout__input">
+	                                    <p>배송비 <span>*</span></p>
+	                                    <input type="text" name="deliveryPrice" placeholder="배송비를 입력하세요.">
+	                                </div>
+	                            </div>
+	                            <div class="col-sm-6">
+	                                <div class="checkout__input">
+	                                    <p>적립 포인트 <span>*</span></p>
+	                                    <input type="text" name="point" placeholder="적립 포인트를 입력하세요.">
+	                                </div>
+	                            </div>
+	                            <div class="col-sm-12">
+	                                <div class="checkout__input">
+	                                    <p>상품 설명<span>*</span></p>
+	                                    <textarea rows="5" cols="100" name="intro" placeholder="상품 설명을 입력하세요."></textarea> 
+	                                	<script>CKEDITOR.replace("intro");</script>
+	                                </div>
+	                            </div>
+	                            <div class="col-sm-12" align="right">
+	                                <button type="submit" class="site-btn">수정하기</button>
+	                            </div>
+	                        </div>
+	                    </div>
+	            	</div>
+	            </form>
+	        </div>
+		</div>
+	</section>
+	<!-- Checkout Section End -->
 </body>
 </html>

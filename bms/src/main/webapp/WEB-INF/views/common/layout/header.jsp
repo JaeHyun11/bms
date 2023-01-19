@@ -90,7 +90,7 @@
                                     <li><a href="./shopping-cart.html">Jackets&Coats</a></li>
                                     <li><a href="./checkout.html">Sweaters</a></li>
                                     <li><a href="./blog-details.html">Shirts</a></li>
-                                    <li><a href="./blog-details.html">TShirts</a></li>
+                                    <li><a href="./blog-details.html">T-Shirts</a></li>
                                     <li><a href="./blog-details.html">Pants</a></li>
                                     <li><a href="./blog-details.html">Shoes</a></li>
                                 </ul>
@@ -103,7 +103,7 @@
                                     <li><a href="./checkout.html">Sweaters</a></li>
                                     <li><a href="./blog-details.html">Dresses</a></li>
                                     <li><a href="./blog-details.html">Shirts</a></li>
-                                    <li><a href="./blog-details.html">TShirts</a></li>
+                                    <li><a href="./blog-details.html">T-Shirts</a></li>
                                     <li><a href="./blog-details.html">Pants</a></li>
                                     <li><a href="./blog-details.html">Shoes</a></li>
                                 </ul>

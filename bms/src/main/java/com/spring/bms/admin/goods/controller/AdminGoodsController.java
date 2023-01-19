@@ -63,7 +63,9 @@ public class AdminGoodsController {
 		GoodsDto goodsDto = new GoodsDto();
 		goodsDto.setGoodsCd(Integer.parseInt("goodsCd"));
 		goodsDto.setGoodsGroup(multipartRequest.getParameter("goodsGroup"));
-		goodsDto.setgoodsCategory(multipartRequest.getParameter("goodsCategory"));
+		goodsDto.setGoodsCategory(multipartRequest.getParameter("goodsCategory"));
+		goodsDto.setColor(multipartRequest.getParameter("color"));
+		goodsDto.setSort(multipartRequest.getParameter("sort"));
 		goodsDto.setGoodsInfo(multipartRequest.getParameter("goodsInfo"));
 		goodsDto.setGoodsFileName(multipartRequest.getParameter("goodsFileName"));
 		goodsDto.setPrice(Integer.parseInt(multipartRequest.getParameter("price")));
@@ -125,7 +127,9 @@ public class AdminGoodsController {
 		GoodsDto goodsDto = new GoodsDto();
 		goodsDto.setGoodsCd(Integer.parseInt("goodsCd"));
 		goodsDto.setGoodsGroup(multipartRequest.getParameter("goodsGroup"));
-		goodsDto.setgoodsCategory(multipartRequest.getParameter("goodsCategory"));
+		goodsDto.setGoodsCategory(multipartRequest.getParameter("goodsCategory"));
+		goodsDto.setColor(multipartRequest.getParameter("color"));
+		goodsDto.setSort(multipartRequest.getParameter("sort"));
 		goodsDto.setGoodsInfo(multipartRequest.getParameter("goodsInfo"));
 		goodsDto.setGoodsFileName(multipartRequest.getParameter("goodsFileName"));
 		goodsDto.setPrice(Integer.parseInt(multipartRequest.getParameter("price")));

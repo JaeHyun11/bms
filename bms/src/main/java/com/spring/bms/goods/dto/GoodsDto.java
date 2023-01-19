@@ -10,6 +10,8 @@ public class GoodsDto {
 	private int goodsCd;
 	private String goodsGroup;
 	private String goodsCategory;
+	private String color;
+	private String sort;
 	private String goodsInfo;
 	private String goodsFileName;
 	private int price;
@@ -31,11 +33,23 @@ public class GoodsDto {
 	public void setGoodsGroup(String goodsGroup) {
 		this.goodsGroup = goodsGroup;
 	}
-	public String getgoodsCategory() {
+	public String getGoodsCategory() {
 		return goodsCategory;
 	}
-	public void setgoodsCategory(String category) {
-		this.goodsCategory = category;
+	public void setGoodsCategory(String goodsCategory) {
+		this.goodsCategory = goodsCategory;
+	}
+	public String getColor() {
+		return color;
+	}
+	public void setColor(String color) {
+		this.color = color;
+	}
+	public String getSort() {
+		return sort;
+	}
+	public void setSort(String sort) {
+		this.sort = sort;
 	}
 	public String getGoodsInfo() {
 		return goodsInfo;
@@ -89,12 +103,10 @@ public class GoodsDto {
 	@Override
 	public String toString() {
 		return "GoodsDto [goodsCd=" + goodsCd + ", goodsGroup=" + goodsGroup + ", goodsCategory=" + goodsCategory
-				+ ", goodsInfo=" + goodsInfo + ", goodsFileName=" + goodsFileName + ", price=" + price
-				+ ", discountRate=" + discountRate + ", stock=" + stock + ", point=" + point + ", deliveryPrice="
-				+ deliveryPrice + ", enrollDt=" + enrollDt + "]";
+				+ ", color=" + color + ", sort=" + sort + ", goodsInfo=" + goodsInfo + ", goodsFileName="
+				+ goodsFileName + ", price=" + price + ", discountRate=" + discountRate + ", stock=" + stock
+				+ ", point=" + point + ", deliveryPrice=" + deliveryPrice + ", enrollDt=" + enrollDt + "]";
 	}
-	
-
 	
 	
 }
