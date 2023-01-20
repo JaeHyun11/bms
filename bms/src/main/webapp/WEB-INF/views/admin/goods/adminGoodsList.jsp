@@ -6,10 +6,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<script>
+	
+	function adminGoodsRemove(goodsCd) {
+		if (confirm("정말로 삭제하시겠습니까?")) {
+			location.href = "${contextPath}/admin/goods/adminGoodsRemove?goodsCd="+goodsCd;
+		}
+	}
+	
+</script>
 </head>
 <body>
-<!-- Breadcrumb Section Begin -->
+	<!-- Breadcrumb Section Begin -->
     <section class="breadcrumb-option">
         <div class="container">
             <div class="row">
@@ -60,7 +68,7 @@
 		                                            <img src="${contextPath }/thumbnails?goodsFileName=${goodsDto.goodsFileName }" width="100" height="100">
 			                                        <div class="product__cart__item__title">
 			                                        	<h6><a href="${contextPath }/goods/goodsDetail?goodsCd=${goodsDto.goodsCd}">${goodsDto.goodsNm }</a></h6>
-			                                        	<p>${goodsDto.writer} | ${goodsDto.publisher} | <fmt:formatNumber value="${goodsDto.price }"/>원</p>
+			                                        	<p>${goodsDto.goodsGroup} | ${goodsDto.goodsCategory} | <fmt:formatNumber value="${goodsDto.price }"/>원</p>
 			                                        </div>
 			                                     </td>
 			                                     <td class="cart__total"><fmt:formatDate value="${goodsDto.enrollDt }" pattern="yyyy-MM-dd"/> </td>

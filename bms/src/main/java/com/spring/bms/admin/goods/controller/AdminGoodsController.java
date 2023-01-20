@@ -59,12 +59,12 @@ public class AdminGoodsController {
 		multipartRequest.setCharacterEncoding("utf-8");
 		
 		SimpleDateFormat fm = new SimpleDateFormat("yyyy-MM-dd");
-
+		
 		GoodsDto goodsDto = new GoodsDto();
-		goodsDto.setGoodsCd(Integer.parseInt("goodsCd"));
+		goodsDto.setGoodsNm(multipartRequest.getParameter("goodsNm"));
 		goodsDto.setGoodsGroup(multipartRequest.getParameter("goodsGroup"));
 		goodsDto.setGoodsCategory(multipartRequest.getParameter("goodsCategory"));
-		goodsDto.setColor(multipartRequest.getParameter("color"));
+		goodsDto.setGoodsColor(multipartRequest.getParameter("goodsColor"));
 		goodsDto.setSort(multipartRequest.getParameter("sort"));
 		goodsDto.setGoodsInfo(multipartRequest.getParameter("goodsInfo"));
 		goodsDto.setGoodsFileName(multipartRequest.getParameter("goodsFileName"));
@@ -72,9 +72,7 @@ public class AdminGoodsController {
 		goodsDto.setDiscountRate(Integer.parseInt(multipartRequest.getParameter("discountRate")));
 		goodsDto.setStock(Integer.parseInt(multipartRequest.getParameter("stock")));
 		goodsDto.setPoint(Integer.parseInt(multipartRequest.getParameter("point")));
-		goodsDto.setDeliveryPrice(Integer.parseInt(multipartRequest.getParameter("deliveryPrice")));
-		goodsDto.setEnrollDt(fm.parse(multipartRequest.getParameter("enrollDt")));
-		
+		goodsDto.setDeliveryPrice(Integer.parseInt(multipartRequest.getParameter("deliveryPrice")));		
 		
 		Iterator<String> file = multipartRequest.getFileNames();
 		if (file.hasNext()) {
@@ -92,15 +90,15 @@ public class AdminGoodsController {
 		
 		adminGoodsService.addNewGoods(goodsDto);
 		
-		String jsScript= "<script>";
-			   jsScript += " alert('상품을 등록하였습니다.');";
-			   jsScript +=" location.href='adminGoodsList';";
-			   jsScript +="</script>";
+		String js= "<script>";
+			   js += "alert('상품을 등록하였습니다.');";
+			   js += "location.href='adminGoodsList';";
+			   js += "</script>";
 		
 		HttpHeaders responseHeaders = new HttpHeaders();
 	    responseHeaders.add("Content-Type", "text/html; charset=utf-8");
 		
-		return new ResponseEntity<Object>(jsScript, responseHeaders, HttpStatus.OK);
+		return new ResponseEntity<Object>(js, responseHeaders, HttpStatus.OK);
 		
 	}
 
@@ -125,10 +123,10 @@ public class AdminGoodsController {
 		SimpleDateFormat fm = new SimpleDateFormat("yyyy-MM-dd");
 
 		GoodsDto goodsDto = new GoodsDto();
-		goodsDto.setGoodsCd(Integer.parseInt("goodsCd"));
+		goodsDto.setGoodsNm(multipartRequest.getParameter("goodsNm"));
 		goodsDto.setGoodsGroup(multipartRequest.getParameter("goodsGroup"));
 		goodsDto.setGoodsCategory(multipartRequest.getParameter("goodsCategory"));
-		goodsDto.setColor(multipartRequest.getParameter("color"));
+		goodsDto.setGoodsColor(multipartRequest.getParameter("goodsColor"));
 		goodsDto.setSort(multipartRequest.getParameter("sort"));
 		goodsDto.setGoodsInfo(multipartRequest.getParameter("goodsInfo"));
 		goodsDto.setGoodsFileName(multipartRequest.getParameter("goodsFileName"));
@@ -137,7 +135,6 @@ public class AdminGoodsController {
 		goodsDto.setStock(Integer.parseInt(multipartRequest.getParameter("stock")));
 		goodsDto.setPoint(Integer.parseInt(multipartRequest.getParameter("point")));
 		goodsDto.setDeliveryPrice(Integer.parseInt(multipartRequest.getParameter("deliveryPrice")));
-		goodsDto.setEnrollDt(fm.parse(multipartRequest.getParameter("enrollDt")));
 		
 		Iterator<String> file = multipartRequest.getFileNames();
 		if (file.hasNext()) {
@@ -158,15 +155,15 @@ public class AdminGoodsController {
 		
 		adminGoodsService.modifyGoods(goodsDto);
 		
-		String jsScript= "<script>";
-				jsScript += " alert('상품정보를 수정하였습니다.');";
-				jsScript +=" location.href='adminGoodsList';";
-				jsScript +="</script>";
+		String js = "<script>";
+			   js += " alert('상품정보를 수정하였습니다.');";
+			   js +=" location.href='adminGoodsList';";
+			   js +="</script>";
 
 		HttpHeaders responseHeaders = new HttpHeaders();
 	    responseHeaders.add("Content-Type", "text/html; charset=utf-8");
 		
-		return new ResponseEntity<Object>(jsScript, responseHeaders, HttpStatus.OK);
+		return new ResponseEntity<Object>(js, responseHeaders, HttpStatus.OK);
 
 	}
 	

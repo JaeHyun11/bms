@@ -118,40 +118,39 @@
 	                                    </select>
 	                                </div>
 	                            </div>
-                               	 <div id="collapseFive" class="collapse show" data-parent="#accordionExample">
-                                        <div class="card-body">
-                                        	<p>색상 <span>*</span></p>
-                                            <div class="shop__sidebar__color">
-                                                <label class="c-1" for="sp-1">
-                                                    <input type="radio" id="sp-1">
-                                                </label>
-                                                <label class="c-2" for="sp-2">
-                                                    <input type="radio" id="sp-2">
-                                                </label>
-                                                <label class="c-3" for="sp-3">
-                                                    <input type="radio" id="sp-3">
-                                                </label>
-                                                <label class="c-4" for="sp-4">
-                                                    <input type="radio" id="sp-4">
-                                                </label>
-                                                <label class="c-5" for="sp-5">
-                                                    <input type="radio" id="sp-5">
-                                                </label>
-                                                <label class="c-6" for="sp-6">
-                                                    <input type="radio" id="sp-6">
-                                                </label>
-                                                <label class="c-7" for="sp-7">
-                                                    <input type="radio" id="sp-7">
-                                                </label>
-                                                <label class="c-8" for="sp-8">
-                                                    <input type="radio" id="sp-8">
-                                                </label>
-                                                <label class="c-9" for="sp-9">
-                                                    <input type="radio" id="sp-9">
-                                                </label>
-                                            </div>
-                                        </div>
-                                    </div>
+                               	<div id="collapseFive" class="collapse show" data-parent="#accordionExample">
+	                                 <div class="card-body">
+	                                 	<p>색상 <span>*</span></p>
+	                                     <div class="shop__color">
+	                                         <label class="c-1" for="sp-1">
+	                                             <input type="radio" id="sp-1" name="color">
+	                                         </label>
+	                                         <label class="c-2" for="sp-2">
+	                                             <input type="radio" id="sp-2" name="color">
+	                                         </label>
+	                                         <label class="c-3" for="sp-3">
+	                                             <input type="radio" id="sp-3" name="color">
+	                                         </label>
+	                                         <label class="c-4" for="sp-4">
+	                                             <input type="radio" id="sp-4" name="color">
+	                                         </label>
+	                                         <label class="c-5" for="sp-5">
+	                                             <input type="radio" id="sp-5" name="color">
+	                                         </label>
+	                                         <label class="c-6" for="sp-6">
+	                                             <input type="radio" id="sp-6" name="color">
+	                                         </label>
+	                                         <label class="c-7" for="sp-7">
+	                                             <input type="radio" id="sp-7" name="color">
+	                                         </label>
+	                                         <label class="c-8" for="sp-8">
+	                                             <input type="radio" id="sp-8" name="color">
+	                                         </label>
+	                                         <label class="c-9" for="sp-9">
+	                                             <input type="radio" id="sp-9" name="color">
+	                                         </label>
+	                                     </div>
+                                     </div>
 	                            </div>
 	                            <div class="col-sm-6">
 	                            	<div class="checkout__input">
@@ -186,8 +185,8 @@
 	                            <div class="col-sm-12">
 	                                <div class="checkout__input">
 	                                    <p>상품 설명<span>*</span></p>
-	                                    <textarea rows="5" cols="100" name="intro" placeholder="상품 설명을 입력하세요."></textarea> 
-	                                	<script>CKEDITOR.replace("intro");</script>
+	                                    <textarea rows="5" cols="100" name="goodsInfo" placeholder="상품 설명을 입력하세요."></textarea> 
+	                                	<script>CKEDITOR.replace("goodsInfo");</script>
 	                                </div>
 	                            </div>
 	                            <div class="col-sm-12" align="right">

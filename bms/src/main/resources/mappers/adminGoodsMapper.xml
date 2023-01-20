@@ -13,9 +13,11 @@
 	<insert id="insertGoods" parameterType="GoodsDto">
 		    INSERT INTO 
 		  			GOODS (
-						GOODS_CD,
+						GOODS_NM,
 					    GOODS_GROUP,
 						GOODS_CATEGORY,
+						GOODS_COLOR,
+						SORT,
 						GOODS_INFO,
 						GOODS_FILE_NAME,
 						PRICE,
@@ -23,13 +25,14 @@
 						STOCK,
 						POINT,
 						DELIVERY_PRICE,
-						GOODS_FILE_NAME,
 						ENROLL_DT				  			
 		  			)
 		    VALUES (
-			        #{goodsCd},
+			        #{goodsNm},
 				    #{goodsGroup},
 				    #{goodsCategory},
+				    #{goodsColor},
+				    #{sort},
 				    #{goodsInfo},
 				    #{goodsFileName},
 				    #{price},
@@ -37,7 +40,6 @@
 					#{stock},
 					#{point},
 					#{deliveryPrice},
-					#{enrollDt},
 					NOW()
  			 )
 	</insert> 
@@ -46,14 +48,20 @@
 	   UPDATE 
 	   			GOODS
 	   <set> 
-	      <if test='goodsCd != null and goodsCd != ""'>
-	        GOODS_CD = #{goodsCd},
+	      <if test='goodsNm != null and goodsNm != ""'>
+	        GOODS_NM = #{goodsNm},
 	      </if>
 	      <if test='goodsGroup != null and goodsGroup != ""'>
 	        GOODS_GROUP = #{goodsGroup},
 	      </if>
 	      <if test='goodsCategory != null and goodsCategory != ""'>
 	        GOODS_CATEGORY = #{goodsCategory},
+	      </if>
+	      <if test='goodsColor != null and goodsColor != ""'>
+	        GOODS_COLOR = #{goodsColor},
+	      </if>
+	      <if test='sort != null and sort != ""'>
+	        SORT = #{sort},
 	      </if>
 	      <if test='goodsInfo != null and goodsInfo != ""'>
 	        GOODS_INFO = #{goodsInfo},
@@ -67,14 +75,14 @@
 	      <if test='discountRate != null and discountRate != ""'>
 	        DISCOUNT_RATE = #{discountRate},
 	      </if>
+	      <if test='stock != null and stock != ""'>
+	        STOCK = #{stock},
+	      </if>
 	      <if test='point != null and point != ""'>
-	        STOCK = #{point},
+	        POINT = #{point},
 	      </if>
 	      <if test='deliveryPrice != null and deliveryPrice != ""'>
 	        DELIVERY_PRICE = #{deliveryPrice},
-	      </if>
-	      <if test='enrollDt != null'>
-	        ENROLL_DT = #{enrollDt},
 	      </if>
 	    </set>
 		WHERE 

@@ -7,10 +7,11 @@ import org.springframework.stereotype.Component;
 @Component
 public class GoodsDto {
 	
+	private String goodsNm;
 	private int goodsCd;
 	private String goodsGroup;
 	private String goodsCategory;
-	private String color;
+	private String goodsColor;
 	private String sort;
 	private String goodsInfo;
 	private String goodsFileName;
@@ -21,6 +22,12 @@ public class GoodsDto {
 	private int deliveryPrice;
 	private Date enrollDt;
 	
+	public String getGoodsNm() {
+		return goodsNm;
+	}
+	public void setGoodsNm(String goodsNm) {
+		this.goodsNm = goodsNm;
+	}
 	public int getGoodsCd() {
 		return goodsCd;
 	}
@@ -39,11 +46,11 @@ public class GoodsDto {
 	public void setGoodsCategory(String goodsCategory) {
 		this.goodsCategory = goodsCategory;
 	}
-	public String getColor() {
-		return color;
+	public String getGoodsColor() {
+		return goodsColor;
 	}
-	public void setColor(String color) {
-		this.color = color;
+	public void setGoodsColor(String color) {
+		this.goodsColor = goodsColor;
 	}
 	public String getSort() {
 		return sort;
@@ -102,11 +109,14 @@ public class GoodsDto {
 	
 	@Override
 	public String toString() {
-		return "GoodsDto [goodsCd=" + goodsCd + ", goodsGroup=" + goodsGroup + ", goodsCategory=" + goodsCategory
-				+ ", color=" + color + ", sort=" + sort + ", goodsInfo=" + goodsInfo + ", goodsFileName="
-				+ goodsFileName + ", price=" + price + ", discountRate=" + discountRate + ", stock=" + stock
-				+ ", point=" + point + ", deliveryPrice=" + deliveryPrice + ", enrollDt=" + enrollDt + "]";
+		return "GoodsDto [goodsNm=" + goodsNm + ", goodsCd=" + goodsCd + ", goodsGroup=" + goodsGroup
+				+ ", goodsCategory=" + goodsCategory + ", goodsColor=" + goodsColor + ", sort=" + sort + ", goodsInfo="
+				+ goodsInfo + ", goodsFileName=" + goodsFileName + ", price=" + price + ", discountRate=" + discountRate
+				+ ", stock=" + stock + ", point=" + point + ", deliveryPrice=" + deliveryPrice + ", enrollDt="
+				+ enrollDt + "]";
 	}
+	
+	
 	
 	
 }

@@ -35,7 +35,6 @@ public class AdminGoodsDaoImpl implements AdminGoodsDao {
 		sqlSession.delete("admin.goods.deleteGoods" , goodsCd);
 		
 	}
-
 	
 	
 }
