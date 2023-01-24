@@ -29,7 +29,7 @@
 		WHERE
 				SORT = #{sort} AND GOODS_CD != #{goodsCd}
 		ORDER BY
-				PUBLISHED_DT DESC
+				ENROLL_DT DESC
 		LIMIT	
 				4            		       
 	</select>
@@ -71,10 +71,10 @@
 		    FROM 
 					GOODS
 			WHERE
-					GOODS_NM  LIKE CONCAT('%' , #{word} , '%') OR
-					WRITER 	  LIKE CONCAT('%' , #{word} , '%') OR
-					PUBLISHER LIKE CONCAT('%' , #{word} , '%') OR
-					INTRO     LIKE CONCAT('%' , #{word} , '%') 
+					GOODS_NM  	   LIKE CONCAT('%' , #{word} , '%') OR
+					GOODS_GROUP    LIKE CONCAT('%' , #{word} , '%') OR
+					GOODS_CATEGORY LIKE CONCAT('%' , #{word} , '%') OR
+					GOODS_COLOR	   LIKE CONCAT('%' , #{word} , '%') OR
 		</if>
 		
 	</select>

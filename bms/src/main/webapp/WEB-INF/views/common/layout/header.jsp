@@ -108,8 +108,8 @@
                                     <li><a href="./blog-details.html">Shoes</a></li>
                                 </ul>
                             </li>
-                        	<li><a href="./blog.html">QA 게시판</a></li>
-                        	<li><a href="./contact.html">Contacts</a></li>
+                        	<li><a href="${contextPath }/QA">QA 게시판</a></li>
+                        	<li><a href="${contextPath }/contact">Contacts</a></li>
                     	</ul>
                 	</nav>
                 </div>
