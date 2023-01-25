@@ -16,24 +16,24 @@
 			
 		 	if (searchType == "mens"){
 		 		setView = '<select name="goodsCategory">';
-	            setView += '<option value="Coats&Jackets">코트&자켓</option>';
-	            setView += '<option value="Sweaters">스웨터</option>';
-	            setView += '<option value="Shirts">셔츠</option>';
-	            setView += '<option value="TShirts">티셔츠</option>';
-	            setView += '<option value="Pants">팬츠</option>';
-	            setView += '<option value="Shoes">슈즈</option>';
+	            setView += '<option value="coats&jackets">코트&자켓</option>';
+	            setView += '<option value="sweaters">스웨터</option>';
+	            setView += '<option value="shirts">셔츠</option>';
+	            setView += '<option value="tshirts">티셔츠</option>';
+	            setView += '<option value="pants">팬츠</option>';
+	            setView += '<option value="shoes">슈즈</option>';
 	            setView += '</select>';
 		 	}
 			else if (searchType == "womens") {
 				setView = '<select name="goodsCategory">';
-	            setView += '<option value="Coats&Jackets">코트&자켓</option>';
-	            setView += '<option value="Sweaters">스웨터</option>';
-	            setView += '<option value="Shirts">셔츠</option>';
-	            setView += '<option value="TShirts">티셔츠</option>';
-	            setView += '<option value="Skirts">스커트</option>';
-	            setView += '<option value="Dresses">드레스</option>';
-	            setView += '<option value="Pants">팬츠</option>';
-	            setView += '<option value="Shoes">슈즈</option>';
+	            setView += '<option value="coats&jackets">코트&자켓</option>';
+	            setView += '<option value="sweaters">스웨터</option>';
+	            setView += '<option value="shirts">셔츠</option>';
+	            setView += '<option value="tshirts">티셔츠</option>';
+	            setView += '<option value="skirts">스커트</option>';
+	            setView += '<option value="dresses">드레스</option>';
+	            setView += '<option value="pants">팬츠</option>';
+	            setView += '<option value="shoes">슈즈</option>';
 	            setView += '</select>';
 			}
 			$("#setCategory").html(setView);
@@ -98,12 +98,12 @@
 	                                    <p>카테고리<span>*</span></p> 
 	                                    <span id="setCategory">
 				                            <select name="goodsCategory">
-									            <option value="Coats&Jackets">코트&자켓</option>
-									            <option value="Sweaters">스웨터</option>
-									            <option value="Shirts">셔츠</option>
-									            <option value="TShirts">티셔츠</option>
-									            <option value="Pants">팬츠</option>
-									            <option value="Shoes">슈즈</option>
+									            <option value="coats&jackets">코트&자켓</option>
+									            <option value="sweaters">스웨터</option>
+									            <option value="shirts">셔츠</option>
+									            <option value="tshirts">티셔츠</option>
+									            <option value="pants">팬츠</option>
+									            <option value="shoes">슈즈</option>
 									        </select>
 	                                    </span>                                   
 	                                </div>
@@ -121,33 +121,33 @@
                                	<div id="collapseFive" class="collapse show" data-parent="#accordionExample">
 	                                 <div class="card-body">
 	                                 	<p>색상 <span>*</span></p>
-	                                     <div class="shop__color">
+	                                     <div class="shop__sidebar__color">
 	                                         <label class="c-1" for="sp-1">
-	                                             <input type="radio" id="sp-1" name="color">
+	                                             <input type="radio" id="sp-1" name="goodsColor" value="black">
 	                                         </label>
 	                                         <label class="c-2" for="sp-2">
-	                                             <input type="radio" id="sp-2" name="color">
+	                                             <input type="radio" id="sp-2" name="goodsColor" value="navy">
 	                                         </label>
 	                                         <label class="c-3" for="sp-3">
-	                                             <input type="radio" id="sp-3" name="color">
+	                                             <input type="radio" id="sp-3" name="goodsColor" value="yellow">
 	                                         </label>
 	                                         <label class="c-4" for="sp-4">
-	                                             <input type="radio" id="sp-4" name="color">
+	                                             <input type="radio" id="sp-4" name="goodsColor" value="grey">
 	                                         </label>
 	                                         <label class="c-5" for="sp-5">
-	                                             <input type="radio" id="sp-5" name="color">
+	                                             <input type="radio" id="sp-5" name="goodsColor" value="khaki">
 	                                         </label>
 	                                         <label class="c-6" for="sp-6">
-	                                             <input type="radio" id="sp-6" name="color">
+	                                             <input type="radio" id="sp-6" name="goodsColor" value="pink">
 	                                         </label>
 	                                         <label class="c-7" for="sp-7">
-	                                             <input type="radio" id="sp-7" name="color">
+	                                             <input type="radio" id="sp-7" name="goodsColor" value="purple">
 	                                         </label>
 	                                         <label class="c-8" for="sp-8">
-	                                             <input type="radio" id="sp-8" name="color">
+	                                             <input type="radio" id="sp-8" name="goodsColor" value="red">
 	                                         </label>
 	                                         <label class="c-9" for="sp-9">
-	                                             <input type="radio" id="sp-9" name="color">
+	                                             <input type="radio" id="sp-9" name="color" value="white">
 	                                         </label>
 	                                     </div>
                                      </div>
@@ -164,12 +164,31 @@
 		                                <input type="text" name="discountRate" placeholder="할인률을 입력하세요.">
 		                           	</div>
 	                            </div>
-	                            <div class="col-sm-6">
-	                            	<div class="checkout__input">
-		                                <p>재고	 <span>*</span></p>
-		                                <input type="text" name="stock" placeholder="재고를 입력하세요.">
-		                           	</div>
-	                            </div>
+	                            <div class="card">
+                                    <div class="card-heading">
+                                        <a data-toggle="collapse" data-target="#collapseFour">사이즈별 재고</a>
+                                    </div>
+                                    <div id="collapseFour" class="collapse show" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <div class="shop__sidebar__size">
+                                            
+                                                    <input type="text" name="stock" id="xs" value="xs">
+                            
+                                             
+                                                    <input type="text" name="stock" id="sm" value="sm">
+                                                
+                                               
+                                                    <input type="text" name="stock" id="md" value="md">
+                                                
+                                                    <input type="text" name="stock" id="xl" value="xl">
+                                            
+                                                
+                                                    <input type="text" name="stock" id="xxl" value="xxl">
+                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
 	                            <div class="col-sm-6">
 	                                <div class="checkout__input">
 	                                    <p>배송비 <span>*</span></p>

@@ -16,10 +16,15 @@ public class GoodsDaoImpl implements GoodsDao {
 	private SqlSession sqlSession;
 	
 	@Override
-	public List<GoodsDto> selectGoodsList(Map<String, String> goodsListMap) throws Exception {
-		return sqlSession.selectList("goods.selectListGoods", goodsListMap);
+	public List<GoodsDto> selectMensGoodsList(Map<String, String> goodsListMap) throws Exception {
+		return sqlSession.selectList("goods.selectMensListGoods", goodsListMap);
 	}
-
+	
+	@Override
+	public List<GoodsDto> selectWomensGoodsList(Map<String, String> goodsListMap) throws Exception {
+		return sqlSession.selectList("goods.selectWomensListGoods", goodsListMap);
+	}
+	
 	@Override
 	public GoodsDto selectOneGoods(int goodsCd) throws Exception {
 		return sqlSession.selectOne("goods.selectOneGoods" , goodsCd);
@@ -27,7 +32,7 @@ public class GoodsDaoImpl implements GoodsDao {
 
 	@Override
 	public List<GoodsDto> selectRelatedGoodsList(Map<String, Object> goodsMap) throws Exception {
-		return sqlSession.selectList("goods.selectListSearchGoods" , goodsMap);
+		return sqlSession.selectList("goods.selectListRelatedGoods" , goodsMap);
 	}
 
 	@Override

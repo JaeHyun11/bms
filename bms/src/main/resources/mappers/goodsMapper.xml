@@ -3,20 +3,26 @@
 
 <mapper namespace="goods">
 	
-	<select id="selectListGoods" parameterType="String" resultType="GoodsDto" >
+	<select id="selectMensListGoods" parameterType="String" resultType="GoodsDto" >
 		SELECT 
 	   			*
 	    FROM 
 				GOODS
 		<where>
-			<if test='!sort.equals("all") and !part.equals("all")'>
-				SORT = #{sort} AND PART = #{part}
+			<if test='!sort.equals("all") and !goodsGroup.equals("mens")'>
+				SORT = #{sort} AND GOODS_GROUP = 'mens'
 			</if>
-			<if test='!sort.equals("all") and part.equals("all")'>
-				SORT = #{sort} AND PART IN ('programming' , 'network' , 'server' , 'cloud' , 'bigDate' , 'artificialIntelligence' , 'certificate')
-			</if>
-			<if test='sort.equals("all") and part.equals("all")'>
-				SORT IN ('new' , 'best' , 'steady' , 'general') AND PART IN ('programming' , 'network' , 'server' , 'cloud' , 'bigDate' , 'artificialIntelligence' , 'certificate')
+		</where> 	            		       
+	</select>
+	
+	<select id="selectWomensListGoods" parameterType="String" resultType="GoodsDto" >
+		SELECT 
+	   			*
+	    FROM 
+				GOODS
+		<where>
+			<if test='!sort.equals("all") and !goodsGroup.equals("womens")'>
+				SORT = #{sort} AND GOODS_GROUP = 'womens'
 			</if>
 		</where> 	            		       
 	</select>
@@ -52,9 +58,6 @@
 		    FROM 
 					GOODS
 			ORDER BY
-				<if test='keyword == "publishedDt"'>
-					PUBLISHED_DT DESC
-				</if>
 				<if test='keyword == "highPrice"'>
 					PRICE DESC
 				</if>

@@ -21,18 +21,25 @@ public class GoodsController {
 	private GoodsService goodsService;
 	
 	@RequestMapping(value="/mensGoodsList" , method=RequestMethod.GET)
-	public String mensGoodsList() throws Exception {
+	public ModelAndView mensGoodsList(@RequestParam Map<String,String> goodsListMap) throws Exception {
 		
-		return "/goods/mensGoodsList";
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/goods/mensGoodsList");
+		mv.addObject("mensGoodsList", goodsService.getMensGoodsList(goodsListMap));
 		
+		return mv;
 	
 	}
 	
 	@RequestMapping(value="/womensGoodsList" , method=RequestMethod.GET)
-	public String womensGoodsList() throws Exception {
+	public ModelAndView womensGoodsList(@RequestParam Map<String,String> goodsListMap) throws Exception {
+
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("/goods/womensGoodsList");
+		mv.addObject("womensGoodsList", goodsService.getWomensGoodsList(goodsListMap));
+		mv.addObject("goodsGroup", "womens");
 		
-		return "/goods/womensGoodsList";
-		
+		return mv;
 	
 	}
 	
@@ -57,10 +64,6 @@ public class GoodsController {
 	}
 	
 	
-	
-	
-	
-	
 	@RequestMapping(value="/searchGoods" , method = RequestMethod.GET)
 	public ModelAndView goodsDetail(@RequestParam Map<String,Object> searchMap)throws Exception {
 		
@@ -72,4 +75,5 @@ public class GoodsController {
 		return mv;
 		
 	}
+	
 }

@@ -16,10 +16,15 @@ public class GoodsServiceImpl implements GoodsService {
 	private GoodsDao goodsDao;
 	
 	@Override
-	public List<GoodsDto> getGoodsList(Map<String, String> goodsListMap) throws Exception {
-		return goodsDao.selectGoodsList(goodsListMap);
+	public List<GoodsDto> getMensGoodsList(Map<String, String> goodsListMap) throws Exception {
+		return goodsDao.selectMensGoodsList(goodsListMap);
 	}
-
+	
+	@Override
+	public List<GoodsDto> getWomensGoodsList(Map<String, String> goodsListMap) throws Exception {
+		return goodsDao.selectWomensGoodsList(goodsListMap);
+	}
+	
 	@Override
 	public GoodsDto getGoodsDetail(int goodsCd) throws Exception {
 		return goodsDao.selectOneGoods(goodsCd);

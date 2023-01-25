@@ -13,21 +13,8 @@
 	function processToCart(goodsCd) {
 		
 		if ("${sessionId == null}" == "true") {
-			alert("로그인을 진행해주세요.");
-			location.href = "${contextPath }/member/login";
-		}
-		else {
 			
-			$.ajax({
-				url : "${contextPath }/myPage/addCart",
-				method : "get",
-				data : {"goodsCd" : goodsCd , "cartGoodsQty" : $("#orderGoodsQty").val()},
-				success : function(result) {	
-					
-					alert("장바구니에 추가되었습니다.");
-					
-				}
-			})
+			alert("장바구니에 추가되었습니다.");
 			
 		}
 	}

@@ -7,6 +7,39 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+
+	function processToCart(goodsCd) {
+	
+		$.ajax({
+			url : "${contextPath }/myPage/addCart",
+			method : "get",
+			data : {"goodsCd" : goodsCd , "cartGoodsQty" + 1},
+			success : function(result) {
+				alert("장바구니에 추가되었습니다.");
+				
+			}
+		})
+		
+	}
+	
+	function processToOrder(goodsCd) {
+		
+		if ("${sessionId == null}" == "true") {
+			alert("로그인을 진행해주세요.");
+			location.href = "${contextPath }/member/login";
+		}
+		else {
+			location.href = "${contextPath }/order/orderGoods?goodsCd="+goodsCd+"&orderGoodsQty=1";	
+		}
+		
+	}
+	
+	function getGoodsListByPrice(){
+		location.href =  "${contextPath }/goods/searchGoods?method=price&min="+$("#minamount").val() + "&max=" + $("#maxamount").val();
+	}
+	
+</script>
 </head>
 <body>
   <!-- Breadcrumb Section Begin -->
@@ -49,15 +82,15 @@
                                         <div class="card-body">
                                             <div class="shop__sidebar__categories">
                                                 <ul class="nice-scroll">
-                                                    <li><a href="${contextPath }/goods/mensGoodsList">Mens </a></li>
-                                                    <li><a href="${contextPath }/goods/womensGoodsList">Womens </a></li>
-                                                    <li><a href="${contextPath }/goods/goodsList?sort=new&category=coats&jackets">Coats&Jackets</a></li>
-                                                    <li><a href="${contextPath }/goods/goodsList?sort=new&category=sweaters">Sweaters </a></li>
-                                                    <li><a href="${contextPath }/goods/goodsList?sort=new&category=dresses">Dresses </a></li>
-                                                    <li><a href="${contextPath }/goods/goodsList?sort=new&category=shirts">Shirts </a></li>
-                                                    <li><a href="${contextPath }/goods/goodsList?sort=new&category=tshirts">T-Shirts </a></li>
-                                                    <li><a href="${contextPath }/goods/goodsList?sort=new&category=pants">Pants </a></li>
-                                                    <li><a href="${contextPath }/goods/goodsList?sort=new&category=shoes">Shoes </a></li>
+                                                    <li><a href="${contextPath }/goods/mensGoodsList?sort=all&goodsGroup=mens&goodsCategory=all">Mens </a></li>
+                                                    <li><a href="${contextPath }/goods/womensGoodsList?sort=all&goodsGroup=womens&goodsCategory=all">Womens </a></li>
+                                                    <li><a href="${contextPath }/goods/womensGoodsList?sort=all&goodsGroup=mens&goodsCategory=coats&jackets">Coats&Jackets</a></li>
+                                                    <li><a href="${contextPath }/goods/womensGoodsList?sort=all&goodsGroup=mens&goodsCategory=sweaters">Sweaters </a></li>
+                                                    <li><a href="${contextPath }/goods/womensGoodsList?sort=all&goodsGroup=mens&goodsCategory=dresses">Dresses </a></li>
+                                                    <li><a href="${contextPath }/goods/womensGoodsList?sort=all&goodsGroup=mens&goodsCategory=shirts">Shirts </a></li>
+                                                    <li><a href="${contextPath }/goods/womensGoodsList?sort=all&goodsGroup=mens&goodsCategory=tshirts">T-Shirts </a></li>
+                                                    <li><a href="${contextPath }/goods/womensGoodsList?sort=all&goodsGroup=mens&goodsCategory=pants">Pants </a></li>
+                                                    <li><a href="${contextPath }/goods/womensGoodsList?sort=all&goodsGroup=mens&goodsCategory=shoes">Shoes </a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -65,18 +98,15 @@
                                 </div>
                                 <div class="card">
                                     <div class="card-heading">
-                                        <a data-toggle="collapse" data-target="#collapseThree">Filter Price</a>
+                                        <a data-toggle="collapse" data-target="#collapseThree">Filter</a>
                                     </div>
                                     <div id="collapseThree" class="collapse show" data-parent="#accordionExample">
                                         <div class="card-body">
                                             <div class="shop__sidebar__price">
                                                 <ul>
-                                                    <li><a href="#">$0.00 - $50.00</a></li>
-                                                    <li><a href="#">$50.00 - $100.00</a></li>
-                                                    <li><a href="#">$100.00 - $150.00</a></li>
-                                                    <li><a href="#">$150.00 - $200.00</a></li>
-                                                    <li><a href="#">$200.00 - $250.00</a></li>
-                                                    <li><a href="#">250.00+</a></li>
+                                                    <li><a href="${contextPath }/goods/searchGoods?method=keyword&keyword=lowPrice">낮은 가격순</a></li>
+                                                    <li><a href="${contextPath }/goods/searchGoods?method=keyword&keyword=highPrice">높은 가격순</a></li>
+                                                    <li><a href="${contextPath }/goods/searchGoods?method=keyword&keyword=discountRate">할인률 높은순</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -116,33 +146,33 @@
                                         <div class="card-body">
                                             <div class="shop__sidebar__color">
                                                 <label class="c-1" for="sp-1">
-                                                    <input type="radio" id="sp-1">
-                                                </label>
-                                                <label class="c-2" for="sp-2">
-                                                    <input type="radio" id="sp-2">
-                                                </label>
-                                                <label class="c-3" for="sp-3">
-                                                    <input type="radio" id="sp-3">
-                                                </label>
-                                                <label class="c-4" for="sp-4">
-                                                    <input type="radio" id="sp-4">
-                                                </label>
-                                                <label class="c-5" for="sp-5">
-                                                    <input type="radio" id="sp-5">
-                                                </label>
-                                                <label class="c-6" for="sp-6">
-                                                    <input type="radio" id="sp-6">
-                                                </label>
-                                                <label class="c-7" for="sp-7">
-                                                    <input type="radio" id="sp-7">
-                                                </label>
-                                                <label class="c-8" for="sp-8">
-                                                    <input type="radio" id="sp-8">
-                                                </label>
-                                                <label class="c-9" for="sp-9">
-                                                    <input type="radio" id="sp-9">
-                                                </label>
-                                            </div>
+	                                             <input type="radio" id="sp-1" name="goodsColor" value="black">
+		                                         </label>
+		                                         <label class="c-2" for="sp-2">
+		                                             <input type="radio" id="sp-2" name="goodsColor" value="navy">
+		                                         </label>
+		                                         <label class="c-3" for="sp-3">
+		                                             <input type="radio" id="sp-3" name="goodsColor" value="yellow">
+		                                         </label>
+		                                         <label class="c-4" for="sp-4">
+		                                             <input type="radio" id="sp-4" name="goodsColor" value="grey">
+		                                         </label>
+		                                         <label class="c-5" for="sp-5">
+		                                             <input type="radio" id="sp-5" name="goodsColor" value="khaki">
+		                                         </label>
+		                                         <label class="c-6" for="sp-6">
+		                                             <input type="radio" id="sp-6" name="goodsColor" value="pink">
+		                                         </label>
+		                                         <label class="c-7" for="sp-7">
+		                                             <input type="radio" id="sp-7" name="goodsColor" value="purple">
+		                                         </label>
+		                                         <label class="c-8" for="sp-8">
+		                                             <input type="radio" id="sp-8" name="goodsColor" value="red">
+		                                         </label>
+		                                         <label class="c-9" for="sp-9">
+		                                             <input type="radio" id="sp-9" name="color" value="white">
+	                                       		 </label>
+	                                         </div>
                                         </div>
                                     </div>
                                 </div>
@@ -175,8 +205,8 @@
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="shop__product__option__right">
                                     <p>Sort by</p>
-                                    <select>
-                                        <option value="">New</option>
+                                    <select name="sort">
+                                        <option value="new">New</option>
                                         <option value="">Popular</option>
                                         <option value="">Price Low To High</option>
                                     </select>
@@ -187,13 +217,13 @@
                 <div class="col-lg-9">
                 	<div class="row">
                     	<c:choose>
-                    		<c:when test="${empty goodsList}">
+                    		<c:when test="${goodsGroup != 'womens'}">
 	                            <div class="product__item">
 	                    			<h3>등록된 상품이 없습니다.</h3>
 	                            </div>
                     		</c:when>
                     		<c:otherwise>
-                    			<c:forEach var="goodsDto" items="${goodsList }">
+                    			<c:forEach var="goodsDto" items="${womensGoodsList }">
 			                        <div class="col-lg-4 col-md-6">
 			                            <div class="product__item">
 			                                <div class="product__item__pic set-bg" data-setbg="${contextPath }/thumbnails?goodsFileName=${goodsDto.goodsFileName}">
@@ -202,22 +232,23 @@
 			                                    	<c:when test="${goodsDto.sort eq 'sale' }">  <div class="label sale">Sale</div></c:when>
 			                                    	<c:when test="${goodsDto.sort eq 'general' }"> <div class="label stockout stockblue">General</div></c:when>
 			                                    </c:choose>
-			                                    <ul class="product__hover">
-			                                        <li><a href="${contextPath }/thumbnails?goodsFileName=${goodsDto.goodsFileName}" class="image-popup"><span class="arrow_expand"></span></a></li>
-			                                        <li><a href="javascript:processToCart(${goodsDto.goodsCd})"><span class="add-cart"></span></a></li>
-			                                        <li><a href="javascript:processToOrder(${goodsDto.goodsCd})"><span class="icon_bag_alt"></span></a></li>
-			                                    </ul>
 			                                </div>
-			                                <div class="product__item__text">
+			                                <div>
+			                                    <ul class="product__item__text">
+			                                        <li><a href="${contextPath }/thumbnails?goodsFileName=${goodsDto.goodsFileName}" class="image-popup"><span class="arrow_expand"></span></a></li>
+			                                        <li><a href=""><span class="add-cart">+ Add To Cart</span></a></li>
+			                                        <li><a href=""><span class="icon_bag_alt"></span></a></li>
+			                                    </ul>
 			                                	<c:choose>
-			                                    	<c:when test="${goodsDto.group eq womens }">
+			                                    	<c:when test="${goodsDto.goodsGroup=='womens'}">
 					                                    <h6>
 					                                    	<a href="${contextPath }/goods/goodsDetail?goodsCd=${goodsDto.goodsCd }">${goodsDto.goodsNm }<br>
-						                                    ${goodsDto.group } | ${goodsDto.category }
+						                                    ${goodsDto.goodsGroup } | ${goodsDto.goodsCategory }
 					                                    	</a>
 					                                    </h6>
 					                                    <div class="product__price" style="text-decoration: line-through; color: gray"><fmt:formatNumber value="${goodsDto.price }"/>원 (${goodsDto.discountRate}%)</div>
 					                                    <div class="product__price"><fmt:formatNumber value="${goodsDto.price - goodsDto.price * goodsDto.discountRate / 100 }"/>원</div>
+				                            			<div class="product__color__select"><name="goodsColor" value="${goodsDto.goodsColor }"/>색</div>
 				                            		</c:when>
 				                            	</c:choose>   
 				                        	</div>

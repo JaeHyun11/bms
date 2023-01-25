@@ -83,29 +83,29 @@
                 	<nav class="header__menu mobile-menu">
                     	<ul>
                         	<li class="active"><a href="${contextPath }/">Home</a></li>
-                            <li><a href="${contextPath }/goods/mensGoodsList">Mens</a>
+                            <li><a href="${contextPath }/goods/mensGoodsList?sort=all&goodsGroup=mens&goodsCategory=all">Mens</a>
                             	<ul class="dropdown">
-                                    <li><a href="./about.html">SALE</a></li>
-                                    <li><a href="${contextPath }/goods/mensGoodsList">SHOP ALL</a></li>
-                                    <li><a href="./shopping-cart.html">Coats&Jackets</a></li>
-                                    <li><a href="./checkout.html">Sweaters</a></li>
-                                    <li><a href="./blog-details.html">Shirts</a></li>
-                                    <li><a href="./blog-details.html">T-Shirts</a></li>
-                                    <li><a href="./blog-details.html">Pants</a></li>
-                                    <li><a href="./blog-details.html">Shoes</a></li>
+                                    <li><a href="${contextPath }/goods/mensGoodsList?sort=sale&goodsGroup=mens&goodsCategory=all">SALE</a></li>
+                                    <li><a href="${contextPath }/goods/mensGoodsList?sort=all&goodsGroup=mens&goodsCategory=all">SHOP ALL</a></li>
+                                    <li><a href="${contextPath }/goods/goodsDetail?sort=all&goodsGroup=mens&goodsCategory=coats&jackets}">Coats&Jackets</a></li>
+                                    <li><a href="${contextPath }/goods/goodsDetail?sort=all&goodsGroup=mens&goodsCategory=sweaters}">Sweaters</a></li>
+                                    <li><a href="${contextPath }/goods/goodsDetail?sort=all&goodsGroup=mens&goodsCategory=shirts}">Shirts</a></li>
+                                    <li><a href="${contextPath }/goods/goodsDetail?sort=all&goodsGroup=mens&goodsCategory=tshirts}">T-Shirts</a></li>
+                                    <li><a href="${contextPath }/goods/goodsDetail?sort=all&goodsGroup=mens&goodsCategory=pants}">Pants</a></li>
+                                    <li><a href="${contextPath }/goods/goodsDetail?sort=all&goodsGroup=mens&goodsCategory=shoes}">Shoes</a></li>
                                 </ul>
                             </li>
-                            <li><a href="${contextPath }/goods/womensGoodsList">Womens</a>
+                            <li><a href="${contextPath }/goods/womensGoodsList?sort=all&goodsGroup=womens&goodsCategory=all">Womens</a>
                                 <ul class="dropdown">
-                                    <li><a href="./about.html">SALE</a></li>
-                                    <li><a href="${contextPath }/goods/womensGoodsList">SHOP ALL</a></li>
-                                    <li><a href="./shopping-cart.html">Coats&Jackets</a></li>
-                                    <li><a href="./checkout.html">Sweaters</a></li>
-                                    <li><a href="./blog-details.html">Dresses</a></li>
-                                    <li><a href="./blog-details.html">Shirts</a></li>
-                                    <li><a href="./blog-details.html">T-Shirts</a></li>
-                                    <li><a href="./blog-details.html">Pants</a></li>
-                                    <li><a href="./blog-details.html">Shoes</a></li>
+                                    <li><a href="${contextPath }/goods/womensGoodsList?sort=sale&goodsGroup=womens&goodsCategory=all">SALE</a></li>
+                                    <li><a href="${contextPath }/goods/womensGoodsList?sort=all&goodsGroup=womens&goodsCategory=all">SHOP ALL</a></li>
+                                    <li><a href="${contextPath }/goods/womensGoodsList?sort=all&goodsGroup=womens&goodsCategory=coats&jackets">Coats&Jackets</a></li>
+                                    <li><a href="${contextPath }/goods/womensGoodsList?sort=all&goodsGroup=womens&goodsCategory=sweaters">Sweaters</a></li>
+                                    <li><a href="${contextPath }/goods/womensGoodsList?sort=all&goodsGroup=womens&goodsCategory=dresses">Dresses</a></li>
+                                    <li><a href="${contextPath }/goods/womensGoodsList?sort=all&goodsGroup=womens&goodsCategory=shirts">Shirts</a></li>
+                                    <li><a href="${contextPath }/goods/womensGoodsList?sort=all&goodsGroup=womens&goodsCategory=tshirts">T-Shirts</a></li>
+                                    <li><a href="${contextPath }/goods/womensGoodsList?sort=all&goodsGroup=womens&goodsCategory=pants">Pants</a></li>
+                                    <li><a href="${contextPath }/goods/womensGoodsList?sort=all&goodsGroup=womens&goodsCategory=shoes">Shoes</a></li>
                                 </ul>
                             </li>
                         	<li><a href="${contextPath }/QA">QA 게시판</a></li>
