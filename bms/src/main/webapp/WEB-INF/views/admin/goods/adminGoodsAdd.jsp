@@ -16,7 +16,7 @@
 			
 		 	if (searchType == "mens"){
 		 		setView = '<select name="goodsCategory">';
-	            setView += '<option value="Jackets&Coats">자켓&코트</option>';
+	            setView += '<option value="Coats&Jackets">코트&자켓</option>';
 	            setView += '<option value="Sweaters">스웨터</option>';
 	            setView += '<option value="Shirts">셔츠</option>';
 	            setView += '<option value="TShirts">티셔츠</option>';
@@ -26,7 +26,7 @@
 		 	}
 			else if (searchType == "womens") {
 				setView = '<select name="goodsCategory">';
-	            setView += '<option value="Jackets&Coats">자켓&코트</option>';
+	            setView += '<option value="Coats&Jackets">코트&자켓</option>';
 	            setView += '<option value="Sweaters">스웨터</option>';
 	            setView += '<option value="Shirts">셔츠</option>';
 	            setView += '<option value="TShirts">티셔츠</option>';
@@ -98,7 +98,7 @@
 	                                    <p>카테고리<span>*</span></p> 
 	                                    <span id="setCategory">
 				                            <select name="goodsCategory">
-									            <option value="Jackets&Coats">자켓&코트</option>
+									            <option value="Coats&Jackets">코트&자켓</option>
 									            <option value="Sweaters">스웨터</option>
 									            <option value="Shirts">셔츠</option>
 									            <option value="TShirts">티셔츠</option>

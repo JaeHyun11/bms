@@ -87,7 +87,7 @@
                             	<ul class="dropdown">
                                     <li><a href="./about.html">SALE</a></li>
                                     <li><a href="${contextPath }/goods/mensGoodsList">SHOP ALL</a></li>
-                                    <li><a href="./shopping-cart.html">Jackets&Coats</a></li>
+                                    <li><a href="./shopping-cart.html">Coats&Jackets</a></li>
                                     <li><a href="./checkout.html">Sweaters</a></li>
                                     <li><a href="./blog-details.html">Shirts</a></li>
                                     <li><a href="./blog-details.html">T-Shirts</a></li>
@@ -99,7 +99,7 @@
                                 <ul class="dropdown">
                                     <li><a href="./about.html">SALE</a></li>
                                     <li><a href="${contextPath }/goods/womensGoodsList">SHOP ALL</a></li>
-                                    <li><a href="./shopping-cart.html">Jackets&Coats</a></li>
+                                    <li><a href="./shopping-cart.html">Coats&Jackets</a></li>
                                     <li><a href="./checkout.html">Sweaters</a></li>
                                     <li><a href="./blog-details.html">Dresses</a></li>
                                     <li><a href="./blog-details.html">Shirts</a></li>

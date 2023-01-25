@@ -49,7 +49,7 @@ public class GoodsDto {
 	public String getGoodsColor() {
 		return goodsColor;
 	}
-	public void setGoodsColor(String color) {
+	public void setGoodsColor(String goodsColor) {
 		this.goodsColor = goodsColor;
 	}
 	public String getSort() {

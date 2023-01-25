@@ -47,15 +47,14 @@
                                         <div class="card-body">
                                             <div class="shop__sidebar__categories">
                                                 <ul class="nice-scroll">
-                                                    <li><a href="#">Men (20)</a></li>
-                                                    <li><a href="#">Women (20)</a></li>
-                                                    <li><a href="#">Bags (20)</a></li>
-                                                    <li><a href="#">Clothing (20)</a></li>
-                                                    <li><a href="#">Shoes (20)</a></li>
-                                                    <li><a href="#">Accessories (20)</a></li>
-                                                    <li><a href="#">Kids (20)</a></li>
-                                                    <li><a href="#">Kids (20)</a></li>
-                                                    <li><a href="#">Kids (20)</a></li>
+                                                    <li><a href="${contextPath }/goods/mensGoodsList">Mens </a></li>
+                                                    <li><a href="${contextPath }/goods/womensGoodsList">Women </a></li>
+                                                    <li><a href="#">Coats&Jackets</a></li>
+                                                    <li><a href="#">Sweaters </a></li>
+                                                    <li><a href="#">Shirts </a></li>
+                                                    <li><a href="#">T-Shirts </a></li>
+                                                    <li><a href="#">Pants </a></li>
+                                                    <li><a href="#">Shoes </a></li>
                                                 </ul>
                                             </div>
                                         </div>
