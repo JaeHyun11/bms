@@ -37,30 +37,27 @@
 	                        		<c:when test="${sessionScope.role eq 'admin'}">
 					                    <li><a href="#">Management</a>
 			                                <ul class="dropdown">
-			                                 <li><a href="${contextPath }/admin/goods/adminGoodsList"> 상품 관리</a></li>
-			                                 <li><a href="${contextPath }/admin/member/adminMemberList"> 사용자 관리</a></li>
-			                                 <li><a href="${contextPath }/admin/order/adminOrderList"> 주문 관리</a></li>
-			                                 <li><a href="${contextPath }/admin/qa/qaList"> QA 관리</a></li>
+				                                <li><a href="${contextPath }/admin/goods/adminGoodsList"> 상품 관리</a></li>
+				                                <li><a href="${contextPath }/admin/member/adminMemberList"> 사용자 관리</a></li>
+				                                <li><a href="${contextPath }/admin/order/adminOrderList"> 주문 관리</a></li>
+				                                <li><a href="${contextPath }/admin/qa/qaList"> QA 관리</a></li>
 			                           		</ul>
 			                           	</li>
 			                        </c:when>
 			                        <c:otherwise>
-			                        	<li><a href="#">MY PAGE</a>
+			                        	<li><a href="#"> MY PAGE</a>
 		                                	<ul class="dropdown">
-			                             	 <li><a href="${contextPath }/myPage/myInfo?memberId=${sessionScope.memberId}"> 내 정보</a></li>
-			                             	 <li><a href="${contextPath }/myPage/myWishList?memberId=${sessionScope.memberId}"> 내 위시리스트</a></li>
-			                             	 <li><a href="${contextPath }/myPage/myOrderList"> 주문조회</a></li>
-			                            	 <li><a href="${contextPath }/myPage/QA"> 내 QA</a></li>
+				                             	<li><a href="${contextPath }/myPage/myInfo?memberId=${sessionScope.memberId}"> 내 정보</a></li>
+				                             	<li><a href="${contextPath }/myPage/myWishList?memberId=${sessionScope.memberId}"> 내 위시리스트</a></li>
+				                             	<li><a href="${contextPath }/myPage/myOrderList?memberId=${sessionScope.memberId}"> 주문조회</a></li>
+				                            	<li><a href="${contextPath }/myPage/QA?memberId=${sessionScope.memberId}"> 내 QA</a></li>
 		                             		</ul>
 		                            	</li>
 			                        </c:otherwise>
 		                        </c:choose>
                            	</div>
-                           	<div>
-                                <a href="#">FAQs</a>
-                            </div>
                             <div class="header__top__hover">
-                                <span>Usd <i class="arrow_carrot-down"></i></span>
+                                <span>USD <i class="arrow_carrot-down"></i></span>
                                 <ul>
                                     <li>USD</li>
                                     <li>EUR</li>

@@ -17,10 +17,15 @@ public class GoodsDto {
 	private String goodsFileName;
 	private int price;
 	private int discountRate;
-	private int stock;
+	private int xsStock;
+	private int smStock;
+	private int mdStock;
+	private int lgStock;
+	private int xlStock;
 	private int point;
 	private int deliveryPrice;
 	private Date enrollDt;
+	
 	
 	public String getGoodsNm() {
 		return goodsNm;
@@ -82,11 +87,35 @@ public class GoodsDto {
 	public void setDiscountRate(int discountRate) {
 		this.discountRate = discountRate;
 	}
-	public int getStock() {
-		return stock;
+	public int getXsStock() {
+		return xsStock;
 	}
-	public void setStock(int stock) {
-		this.stock = stock;
+	public void setXsStock(int xsStock) {
+		this.xsStock = xsStock;
+	}
+	public int getSmStock() {
+		return smStock;
+	}
+	public void setSmStock(int smStock) {
+		this.smStock = smStock;
+	}
+	public int getMdStock() {
+		return mdStock;
+	}
+	public void setMdStock(int mdStock) {
+		this.mdStock = mdStock;
+	}
+	public int getLgStock() {
+		return lgStock;
+	}
+	public void setLgStock(int lStock) {
+		this.lgStock = lStock;
+	}
+	public int getXlStock() {
+		return xlStock;
+	}
+	public void setXlStock(int xlStock) {
+		this.xlStock = xlStock;
 	}
 	public int getPoint() {
 		return point;
@@ -112,11 +141,10 @@ public class GoodsDto {
 		return "GoodsDto [goodsNm=" + goodsNm + ", goodsCd=" + goodsCd + ", goodsGroup=" + goodsGroup
 				+ ", goodsCategory=" + goodsCategory + ", goodsColor=" + goodsColor + ", sort=" + sort + ", goodsInfo="
 				+ goodsInfo + ", goodsFileName=" + goodsFileName + ", price=" + price + ", discountRate=" + discountRate
-				+ ", stock=" + stock + ", point=" + point + ", deliveryPrice=" + deliveryPrice + ", enrollDt="
+				+ ", xsStock=" + xsStock + ", smStock=" + smStock + ", mdStock=" + mdStock + ", lgStock=" + lgStock
+				+ ", xlStock=" + xlStock + ", point=" + point + ", deliveryPrice=" + deliveryPrice + ", enrollDt="
 				+ enrollDt + "]";
 	}
-	
-	
 	
 	
 }

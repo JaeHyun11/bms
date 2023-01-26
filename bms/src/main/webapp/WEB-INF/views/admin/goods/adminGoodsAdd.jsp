@@ -147,7 +147,7 @@
 	                                             <input type="radio" id="sp-8" name="goodsColor" value="red">
 	                                         </label>
 	                                         <label class="c-9" for="sp-9">
-	                                             <input type="radio" id="sp-9" name="color" value="white">
+	                                             <input type="radio" id="sp-9" name="goodsColor" value="white">
 	                                         </label>
 	                                     </div>
                                      </div>
@@ -164,30 +164,35 @@
 		                                <input type="text" name="discountRate" placeholder="할인률을 입력하세요.">
 		                           	</div>
 	                            </div>
-	                            <div class="card">
-                                    <div class="card-heading">
-                                        <a data-toggle="collapse" data-target="#collapseFour">사이즈별 재고</a>
+	                            <div class="col-sm-6">
+	                            	<div class="checkout__input">
+	                            		<p>XS사이즈 재고 <span>*</span></p>
+                                            <input type="text" name="xsStock" placeholder="xs">
                                     </div>
-                                    <div id="collapseFour" class="collapse show" data-parent="#accordionExample">
-                                        <div class="card-body">
-                                            <div class="shop__sidebar__size">
-                                            
-                                                    <input type="text" name="stock" id="xs" value="xs">
-                            
-                                             
-                                                    <input type="text" name="stock" id="sm" value="sm">
-                                                
-                                               
-                                                    <input type="text" name="stock" id="md" value="md">
-                                                
-                                                    <input type="text" name="stock" id="xl" value="xl">
-                                            
-                                                
-                                                    <input type="text" name="stock" id="xxl" value="xxl">
-                                               
-                                            </div>
+                                </div>
+                                <div class="col-sm-6">
+	                            	<div class="checkout__input">
+	                            		<p>SM사이즈 재고 <span>*</span></p>
+                                            <input type="text" name="smStock" placeholder="sm">
                                         </div>
-                                    </div>
+                                </div>    
+                               <div class="col-sm-6">
+	                            	<div class="checkout__input">
+	                            		<p>MD사이즈 재고 <span>*</span></p>
+                                            <input type="text" name="mdStock" placeholder="md">
+                                       	</div>
+                                </div>
+                                <div class="col-sm-6">
+	                            	<div class="checkout__input">
+	                            		<p>L사이즈 재고 <span>*</span></p>
+                                            <input type="text" name="lgStock" placeholder="lg">
+                                        </div>
+                                </div>
+                                <div class="col-sm-6">
+	                            	<div class="checkout__input">
+	                            		<p>XL사이즈 재고 <span>*</span></p>    
+                                            <input type="text" name="xlStock" placeholder="xl">
+                                        </div>
                                 </div>
 	                            <div class="col-sm-6">
 	                                <div class="checkout__input">

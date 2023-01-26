@@ -14,7 +14,7 @@
 		$.ajax({
 			url : "${contextPath }/myPage/addCart",
 			method : "get",
-			data : {"goodsCd" : goodsCd , "cartGoodsQty" + 1},
+			data : {"goodsCd" : goodsCd , "cartGoodsQty" : + 1},
 			success : function(result) {
 				alert("장바구니에 추가되었습니다.");
 				
@@ -84,13 +84,13 @@
                                                 <ul class="nice-scroll">
                                                     <li><a href="${contextPath }/goods/mensGoodsList?sort=all&goodsGroup=mens&goodsCategory=all">Mens </a></li>
                                                     <li><a href="${contextPath }/goods/womensGoodsList?sort=all&goodsGroup=womens&goodsCategory=all">Womens </a></li>
-                                                    <li><a href="${contextPath }/goods/womensGoodsList?sort=all&goodsGroup=mens&goodsCategory=coats&jackets">Coats&Jackets</a></li>
-                                                    <li><a href="${contextPath }/goods/womensGoodsList?sort=all&goodsGroup=mens&goodsCategory=sweaters">Sweaters </a></li>
-                                                    <li><a href="${contextPath }/goods/womensGoodsList?sort=all&goodsGroup=mens&goodsCategory=dresses">Dresses </a></li>
-                                                    <li><a href="${contextPath }/goods/womensGoodsList?sort=all&goodsGroup=mens&goodsCategory=shirts">Shirts </a></li>
-                                                    <li><a href="${contextPath }/goods/womensGoodsList?sort=all&goodsGroup=mens&goodsCategory=tshirts">T-Shirts </a></li>
-                                                    <li><a href="${contextPath }/goods/womensGoodsList?sort=all&goodsGroup=mens&goodsCategory=pants">Pants </a></li>
-                                                    <li><a href="${contextPath }/goods/womensGoodsList?sort=all&goodsGroup=mens&goodsCategory=shoes">Shoes </a></li>
+                                                    <li><a href="${contextPath }/goods/womensGoodsList?sort=all&goodsGroup=womens&goodsCategory=coats&jackets">Coats&Jackets</a></li>
+                                                    <li><a href="${contextPath }/goods/womensGoodsList?sort=all&goodsGroup=womens&goodsCategory=sweaters">Sweaters </a></li>
+                                                    <li><a href="${contextPath }/goods/womensGoodsList?sort=all&goodsGroup=womens&goodsCategory=dresses">Dresses </a></li>
+                                                    <li><a href="${contextPath }/goods/womensGoodsList?sort=all&goodsGroup=womens&goodsCategory=shirts">Shirts </a></li>
+                                                    <li><a href="${contextPath }/goods/womensGoodsList?sort=all&goodsGroup=womens&goodsCategory=tshirts">T-Shirts </a></li>
+                                                    <li><a href="${contextPath }/goods/womensGoodsList?sort=all&goodsGroup=womens&goodsCategory=pants">Pants </a></li>
+                                                    <li><a href="${contextPath }/goods/womensGoodsList?sort=all&goodsGroup=womens&goodsCategory=shoes">Shoes </a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -128,11 +128,11 @@
                                                 <label for="md">m
                                                     <input type="radio" id="md">
                                                 </label>
+                                                <label for="lg">l
+                                                    <input type="radio" id="lg">
+                                                </label>
                                                 <label for="xl">xl
                                                     <input type="radio" id="xl">
-                                                </label>
-                                                <label for="xxl">xxl
-                                                    <input type="radio" id="xxl">
                                                 </label>
                                             </div>
                                         </div>
@@ -170,7 +170,7 @@
 		                                             <input type="radio" id="sp-8" name="goodsColor" value="red">
 		                                         </label>
 		                                         <label class="c-9" for="sp-9">
-		                                             <input type="radio" id="sp-9" name="color" value="white">
+		                                             <input type="radio" id="sp-9" name="goodsColor" value="white">
 	                                       		 </label>
 	                                         </div>
                                         </div>

@@ -26,7 +26,8 @@ public class GoodsController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/goods/mensGoodsList");
 		mv.addObject("mensGoodsList", goodsService.getMensGoodsList(goodsListMap));
-		
+		mv.addObject("goodsGroup", "mens");
+
 		return mv;
 	
 	}

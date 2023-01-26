@@ -22,7 +22,11 @@
 						GOODS_FILE_NAME,
 						PRICE,
 						DISCOUNT_RATE,
-						STOCK,
+						XS_STOCK,
+						SM_STOCK,
+						MD_STOCK,
+						LG_STOCK,
+						XL_STOCK,
 						POINT,
 						DELIVERY_PRICE,
 						ENROLL_DT				  			
@@ -37,7 +41,11 @@
 				    #{goodsFileName},
 				    #{price},
 				    #{discountRate},
-					#{stock},
+					#{xsStock},
+					#{smStock},
+					#{mdStock},
+					#{lgStock},
+					#{xlStock},
 					#{point},
 					#{deliveryPrice},
 					NOW()
@@ -75,8 +83,20 @@
 	      <if test='discountRate != null and discountRate != ""'>
 	        DISCOUNT_RATE = #{discountRate},
 	      </if>
-	      <if test='stock != null and stock != ""'>
-	        STOCK = #{stock},
+	      <if test='xsStock != null and xsStock != ""'>
+	        XS_STOCK = #{xsStock},
+	      </if>
+	      <if test='smStock != null and smStock != ""'>
+	        SM_STOCK = #{smStock},
+	      </if>
+	      <if test='mdStock != null and mdStock != ""'>
+	        MD_STOCK = #{mdStock},
+	      </if>
+	      <if test='lgStock != null and lgStock != ""'>
+	        LG_STOCK = #{lgStock},
+	      </if>
+	      <if test='xlStock != null and xlStock != ""'>
+	        XL_STOCK = #{xlStock},
 	      </if>
 	      <if test='point != null and point != ""'>
 	        POINT = #{point},

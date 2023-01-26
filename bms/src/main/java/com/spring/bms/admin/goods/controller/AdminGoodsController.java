@@ -70,7 +70,11 @@ public class AdminGoodsController {
 		goodsDto.setGoodsFileName(multipartRequest.getParameter("goodsFileName"));
 		goodsDto.setPrice(Integer.parseInt(multipartRequest.getParameter("price")));
 		goodsDto.setDiscountRate(Integer.parseInt(multipartRequest.getParameter("discountRate")));
-		goodsDto.setStock(Integer.parseInt(multipartRequest.getParameter("stock")));
+		goodsDto.setXsStock(Integer.parseInt(multipartRequest.getParameter("xsStock")));
+		goodsDto.setSmStock(Integer.parseInt(multipartRequest.getParameter("smStock")));
+		goodsDto.setMdStock(Integer.parseInt(multipartRequest.getParameter("mdStock")));
+		goodsDto.setLgStock(Integer.parseInt(multipartRequest.getParameter("lgStock")));
+		goodsDto.setXlStock(Integer.parseInt(multipartRequest.getParameter("xlStock")));
 		goodsDto.setPoint(Integer.parseInt(multipartRequest.getParameter("point")));
 		goodsDto.setDeliveryPrice(Integer.parseInt(multipartRequest.getParameter("deliveryPrice")));		
 		
@@ -132,7 +136,11 @@ public class AdminGoodsController {
 		goodsDto.setGoodsFileName(multipartRequest.getParameter("goodsFileName"));
 		goodsDto.setPrice(Integer.parseInt(multipartRequest.getParameter("price")));
 		goodsDto.setDiscountRate(Integer.parseInt(multipartRequest.getParameter("discountRate")));
-		goodsDto.setStock(Integer.parseInt(multipartRequest.getParameter("stock")));
+		goodsDto.setXsStock(Integer.parseInt(multipartRequest.getParameter("xsStock")));
+		goodsDto.setSmStock(Integer.parseInt(multipartRequest.getParameter("smStock")));
+		goodsDto.setMdStock(Integer.parseInt(multipartRequest.getParameter("mdStock")));
+		goodsDto.setLgStock(Integer.parseInt(multipartRequest.getParameter("lgStock")));
+		goodsDto.setXlStock(Integer.parseInt(multipartRequest.getParameter("xlStock")));
 		goodsDto.setPoint(Integer.parseInt(multipartRequest.getParameter("point")));
 		goodsDto.setDeliveryPrice(Integer.parseInt(multipartRequest.getParameter("deliveryPrice")));
 		
