@@ -213,6 +213,13 @@
 	                                	<script>CKEDITOR.replace("goodsInfo");</script>
 	                                </div>
 	                            </div>
+	                            <div class="col-sm-12">
+	                                <div class="checkout__input">
+	                                    <p>상품 구성 및 추가 정보<span>*</span></p>
+	                                    <textarea rows="5" cols="100" name="goodsDetail" placeholder="상품 구성 및 추가 정보를 입력하세요."></textarea> 
+	                                	<script>CKEDITOR.replace("goodsDetail");</script>
+	                                </div>
+	                            </div>
 	                            <div class="col-sm-12" align="right">
 	                                <button type="submit" class="site-btn">추가하기</button>
 	                            </div>

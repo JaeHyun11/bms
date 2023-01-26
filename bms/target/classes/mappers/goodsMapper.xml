@@ -8,11 +8,8 @@
 	   			*
 	    FROM 
 				GOODS
-		<where>
-			<if test='!sort.equals("all") and !goodsGroup.equals("mens")'>
-				SORT = #{sort} AND GOODS_GROUP = 'mens'
-			</if>
-		</where> 	            		       
+		WHERE
+				GOODS_GROUP = 'mens'
 	</select>
 	
 	<select id="selectWomensListGoods" parameterType="String" resultType="GoodsDto" >
@@ -20,11 +17,8 @@
 	   			*
 	    FROM 
 				GOODS
-		<where>
-			<if test='!sort.equals("all") and !goodsGroup.equals("womens")'>
-				SORT = #{sort} AND GOODS_GROUP = 'womens'
-			</if>
-		</where> 	            		       
+		WHERE
+				GOODS_GROUP = 'womens'
 	</select>
 	
 	<select id="selectListRelatedGoods" parameterType="hashmap" resultType="GoodsDto" >

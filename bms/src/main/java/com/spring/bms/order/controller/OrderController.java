@@ -64,57 +64,6 @@ public class OrderController {
 		
 	}
 	
-	@RequestMapping(value="/orderCartGoods" , method=RequestMethod.GET)
-	public ModelAndView orderCartGoods(@RequestParam("goodsCdList") String goodsCds , 
-								       @RequestParam("cartGoodsQtyList") String cartGoodsQtyList , 
-								       @RequestParam("cartCdList") String cartCdList ,
-								       HttpServletRequest request) throws Exception{
-
-		String[] temp = goodsCds.split(",");
-		int[] goodsCdList = new int[temp.length];
-		
-		for (int i = 0; i < goodsCdList.length; i++) {
-			goodsCdList[i] = Integer.parseInt(temp[i]);
-		}
-		
-		ModelAndView mv = new ModelAndView();  			
-		mv.setViewName("/order/orderCartGoods");
-		
-		HttpSession session = request.getSession();
-		session.setAttribute("myOrderCnt" , memberService.getMyOrderCnt((String)session.getAttribute("memberId")));
-		session.setAttribute("myCartCnt" , memberService.getMyCartCnt((String)session.getAttribute("memberId")));
-		
-		mv.addObject("orderer" , orderService.getOrdererDetail((String)session.getAttribute("memberId")));
-		mv.addObject("goodsList" , orderService.getGoodsListByCart(goodsCdList));
-		mv.addObject("orderGoodsQtyList" , cartGoodsQtyList);
-		mv.addObject("goodsCdList" , goodsCds);
-		mv.addObject("cartCdList" , cartCdList);
-		
-		return mv;
-		
-	}
 	
-	
-	@RequestMapping(value="/orderCartGoods" , method=RequestMethod.POST)
-	public ResponseEntity<Object> orderCartGoods(@RequestParam Map<String,String> orderListMap ,  HttpServletRequest request) throws Exception{
-		
-		orderService.addOrderByCart(orderListMap);
-		
-		HttpSession session = request.getSession();
-		session.setAttribute("myOrderCnt" , memberService.getMyOrderCnt(orderListMap.get("memberId")));
-		session.setAttribute("myCartCnt" , memberService.getMyCartCnt(orderListMap.get("memberId")));
-
-		
-		String js = "<script>";
-			   js += "alert('상품 주문 완료.');";
-			   js += "location.href='" + request.getContextPath() + "/myPage/myOrderList'";
-			   js +="</script>";
-		
-	    HttpHeaders responseHeaders = new HttpHeaders();
-	    responseHeaders.add("Content-Type", "text/html; charset=utf-8");
-		
-	    return new ResponseEntity<Object>(js, responseHeaders, HttpStatus.OK);
-		
-	}
 	
 }

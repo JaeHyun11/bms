@@ -12,17 +12,15 @@
 
 	function processToCart(goodsCd) {
 		
-		if ("${sessionId == null}" == "true") {
-			
-			alert("장바구니에 추가되었습니다.");
-			
-		}
+		locaton.href = "${contextPath }/myPage/addCart";
+		alert("장바구니에 추가되었습니다.");
+		
 	}
 	
 	function processToOrder(goodsCd) {
 		
 		if ("${sessionId == null}" == "true") {
-			alert("로그인을 진행해주세요.");
+			alert("로그인 먼저 진행해주세요.");
 			location.href = "${contextPath }/member/login";
 		}
 		else {
@@ -35,119 +33,22 @@
 </script>
 </head>
 <body>
-     <!-- Page Preloder -->
-    <div id="preloder">
-        <div class="loader"></div>
-    </div>
-
-    <!-- Offcanvas Menu Begin -->
-    <div class="offcanvas-menu-overlay"></div>
-    <div class="offcanvas-menu-wrapper">
-        <div class="offcanvas__option">
-            <div class="offcanvas__links">
-                <a href="#">Sign in</a>
-                <a href="#">FAQs</a>
-            </div>
-            <div class="offcanvas__top__hover">
-                <span>Usd <i class="arrow_carrot-down"></i></span>
-                <ul>
-                    <li>USD</li>
-                    <li>EUR</li>
-                    <li>USD</li>
-                </ul>
-            </div>
-        </div>
-        <div class="offcanvas__nav__option">
-            <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
-            <a href="#"><img src="img/icon/heart.png" alt=""></a>
-            <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
-            <div class="price">$0.00</div>
-        </div>
-        <div id="mobile-menu-wrap"></div>
-        <div class="offcanvas__text">
-            <p>Free shipping, 30-day return or refund guarantee.</p>
-        </div>
-    </div>
-    <!-- Offcanvas Menu End -->
-
-    <!-- Header Section Begin -->
-    <header class="header">
-        <div class="header__top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6 col-md-7">
-                        <div class="header__top__left">
-                            <p>Free shipping, 30-day return or refund guarantee.</p>
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-md-5">
-                        <div class="header__top__right">
-                            <div class="header__top__links">
-                                <a href="#">Sign in</a>
-                                <a href="#">FAQs</a>
-                            </div>
-                            <div class="header__top__hover">
-                                <span>Usd <i class="arrow_carrot-down"></i></span>
-                                <ul>
-                                    <li>USD</li>
-                                    <li>EUR</li>
-                                    <li>USD</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-3 col-md-3">
-                    <div class="header__logo">
-                        <a href="./inex.html"><img src="img/logo.png" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-6">
-                    <nav class="header__menu mobile-menu">
-                        <ul>
-                            <li><a href="./inex.html">Home</a></li>
-                            <li class="active"><a href="./shop.html">Shop</a></li>
-                            <li><a href="#">Pages</a>
-                                <ul class="dropdown">
-                                    <li><a href="./about.html">About Us</a></li>
-                                    <li><a href="./shop-details.html">Shop Details</a></li>
-                                    <li><a href="./shopping-cart.html">Shopping Cart</a></li>
-                                    <li><a href="./checkout.html">Check Out</a></li>
-                                    <li><a href="./blog-details.html">Blog Details</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="./blog.html">Blog</a></li>
-                            <li><a href="./contact.html">Contacts</a></li>
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-lg-3 col-md-3">
-                    <div class="header__nav__option">
-                        <a href="#" class="search-switch"><img src="img/icon/search.png" alt=""></a>
-                        <a href="#"><img src="img/icon/heart.png" alt=""></a>
-                        <a href="#"><img src="img/icon/cart.png" alt=""> <span>0</span></a>
-                        <div class="price">$0.00</div>
-                    </div>
-                </div>
-            </div>
-            <div class="canvas__open"><i class="fa fa-bars"></i></div>
-        </div>
-    </header>
-    <!-- Header Section End -->
-
-    <!-- Shop Details Section Begin -->
+     <!-- Shop Details Section Begin -->
     <section class="shop-details">
         <div class="product__details__pic">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="product__details__breadcrumb">
-                            <a href="./index.html">Home</a>
-                            <a href="./shop.html">Shop</a>
+                            <a href="${contextPath }/">Home</a>
+                            <c:choose>
+                            	<c:when test="${goodsGroup == 'mens' }">
+                            		<a href="${contextPath }/goods/mensGoodsList?sort=all&goodsGroup=mens&goodsCategory=all">Shop Mens</a>
+                            	</c:when>
+                            	<c:otherwise>
+                            		<a href="${contextPath }/goods/womensGoodsList?sort=all&goodsGroup=womens&goodsCategory=all">Shop Womens</a>
+                            	</c:otherwise>
+                            </c:choose>
                             <span>Product Details</span>
                         </div>
                     </div>
@@ -157,25 +58,25 @@
                         <ul class="nav nav-tabs" role="tablist">
                             <li class="nav-item">
                                 <a class="nav-link active" data-toggle="tab" href="#tabs-1" role="tab">
-                                    <div class="product__thumb__pic set-bg" data-setbg="img/shop-details/thumb-1.png">
+                                    <div class="product__thumb__pic set-bg" data-setbg="${contextPath }/thumbnails?goodsFileName=${goodsDto.goodsFileName }">
                                     </div>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="tab" href="#tabs-2" role="tab">
-                                    <div class="product__thumb__pic set-bg" data-setbg="img/shop-details/thumb-2.png">
+                                    <div class="product__thumb__pic set-bg" data-setbg="${contextPath }/thumbnails?goodsFileName=${goodsDto.goodsFileName }">
                                     </div>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="tab" href="#tabs-3" role="tab">
-                                    <div class="product__thumb__pic set-bg" data-setbg="img/shop-details/thumb-3.png">
+                                    <div class="product__thumb__pic set-bg" data-setbg="${contextPath }/thumbnails?goodsFileName=${goodsDto.goodsFileName }">
                                     </div>
                                 </a>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" data-toggle="tab" href="#tabs-4" role="tab">
-                                    <div class="product__thumb__pic set-bg" data-setbg="img/shop-details/thumb-4.png">
+                                    <div class="product__thumb__pic set-bg" data-setbg="${contextPath }/thumbnails?goodsFileName=${goodsDto.goodsFileName }">
                                         <i class="fa fa-play"></i>
                                     </div>
                                 </a>
@@ -186,23 +87,22 @@
                         <div class="tab-content">
                             <div class="tab-pane active" id="tabs-1" role="tabpanel">
                                 <div class="product__details__pic__item">
-                                    <img src="img/shop-details/product-big-2.png" alt="">
+                                    <img src="${contextPath }/thumbnails?goodsFileName=${goodsDto.goodsFileName }" alt="">
                                 </div>
                             </div>
                             <div class="tab-pane" id="tabs-2" role="tabpanel">
                                 <div class="product__details__pic__item">
-                                    <img src="img/shop-details/product-big-3.png" alt="">
+                                    <img src="${contextPath }/thumbnails?goodsFileName=${goodsDto.goodsFileName }" alt="">
                                 </div>
                             </div>
                             <div class="tab-pane" id="tabs-3" role="tabpanel">
                                 <div class="product__details__pic__item">
-                                    <img src="img/shop-details/product-big.png" alt="">
+                                    <img src="${contextPath }/thumbnails?goodsFileName=${goodsDto.goodsFileName }" alt="">
                                 </div>
                             </div>
                             <div class="tab-pane" id="tabs-4" role="tabpanel">
                                 <div class="product__details__pic__item">
-                                    <img src="img/shop-details/product-big-4.png" alt="">
-                                    <a href="https://www.youtube.com/watch?v=8PJ3_p7VqHw&list=RD8PJ3_p7VqHw&start_radio=1" class="video-popup"><i class="fa fa-play"></i></a>
+                                    <img src="${contextPath }/thumbnails?goodsFileName=${goodsDto.goodsFileName }" alt="">
                                 </div>
                             </div>
                         </div>
@@ -215,73 +115,63 @@
                 <div class="row d-flex justify-content-center">
                     <div class="col-lg-8">
                         <div class="product__details__text">
-                            <h4>Hooded thermal anorak</h4>
-                            <div class="rating">
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star"></i>
-                                <i class="fa fa-star-o"></i>
-                                <span> - 5 Reviews</span>
-                            </div>
-                            <h3>$270.00 <span>70.00</span></h3>
-                            <p>Coat with quilted lining and an adjustable hood. Featuring long sleeves with adjustable
-                                cuff tabs, adjustable asymmetric hem with elastic side tabs and a front zip fastening
-                            with placket.</p>
+                            <h4>${goodsDto.goodsNm }</h4>
+                            <h3>${goodsDto.price - goodsDto.price * goodsDto.discountRate / 100 } 원<span>${goodsDto.price } 원</span></h3>
+                            <p>${goodsDto.goodsInfo }</p>
                             <div class="product__details__option">
                                 <div class="product__details__option__size">
                                     <span>Size:</span>
-                                    <label for="xxl">xxl
-                                        <input type="radio" id="xxl">
+                                    <label for="xs">xs
+                                        <input type="radio" id="xs" name="xs_stock">
                                     </label>
-                                    <label class="active" for="xl">xl
-                                        <input type="radio" id="xl">
+                                    <label for="sm">sm
+                                        <input type="radio" id="sm" name="sm_stock">
                                     </label>
-                                    <label for="l">l
-                                        <input type="radio" id="l">
+                                    <label for="md">md
+                                        <input type="radio" id="md" name="md_stock">
                                     </label>
-                                    <label for="sm">s
-                                        <input type="radio" id="sm">
+                                    <label class="active" for="l">l
+                                        <input type="radio" id="l" name="lg_stock">
+                                    </label>
+                                    <label for="xl">xl
+                                        <input type="radio" id="xl" name="xl_stock">
                                     </label>
                                 </div>
                                 <div class="product__details__option__color">
                                     <span>Color:</span>
-                                    <label class="c-1" for="sp-1">
-                                        <input type="radio" id="sp-1">
-                                    </label>
-                                    <label class="c-2" for="sp-2">
-                                        <input type="radio" id="sp-2">
-                                    </label>
-                                    <label class="c-3" for="sp-3">
-                                        <input type="radio" id="sp-3">
-                                    </label>
-                                    <label class="c-4" for="sp-4">
-                                        <input type="radio" id="sp-4">
-                                    </label>
-                                    <label class="c-9" for="sp-9">
-                                        <input type="radio" id="sp-9">
-                                    </label>
+                						<label class="c-1" for="sp-1">
+                                             <input type="radio" id="sp-1" name="goodsColor" value="black">
+                                        </label>
+                                        <label class="c-2" for="sp-2">
+                                            <input type="radio" id="sp-2" name="goodsColor" value="navy">
+                                        </label>
+                                        <label class="c-3" for="sp-3">
+                                            <input type="radio" id="sp-3" name="goodsColor" value="yellow">
+                                        </label>
+                                        <label class="c-4" for="sp-4">
+                                            <input type="radio" id="sp-4" name="goodsColor" value="grey">
+                                        </label>                         
                                 </div>
                             </div>
                             <div class="product__details__cart__option">
                                 <div class="quantity">
+                                	<span>수량 : </span>
                                     <div class="pro-qty">
-                                        <input type="text" value="1">
+                                        <input type="text" value="1" id="orderGoodsQty">
                                     </div>
                                 </div>
                                 <a href="#" class="primary-btn">add to cart</a>
+                                <a href="javascript:processToOrder(${goodsDto.goodsCd });" class="primary-btn">Order</a>
                             </div>
                             <div class="product__details__btns__option">
                                 <a href="#"><i class="fa fa-heart"></i> add to wishlist</a>
-                                <a href="#"><i class="fa fa-exchange"></i> Add To Compare</a>
                             </div>
                             <div class="product__details__last__option">
                                 <h5><span>Guaranteed Safe Checkout</span></h5>
                                 <img src="img/shop-details/details-payment.png" alt="">
                                 <ul>
-                                    <li><span>SKU:</span> 3812912</li>
-                                    <li><span>Categories:</span> Clothes</li>
-                                    <li><span>Tag:</span> Clothes, Skin, Body</li>
+                                    <li><span>SKU:</span> ${goodsDto.goodsCd }</li>
+                                    <li><span>Categories:</span> ${goodsDto.goodsCategory }</li>
                                 </ul>
                             </div>
                         </div>
@@ -307,19 +197,10 @@
                             <div class="tab-content">
                                 <div class="tab-pane active" id="tabs-5" role="tabpanel">
                                     <div class="product__details__tab__content">
-                                        <p class="note">Nam tempus turpis at metus scelerisque placerat nulla deumantos
-                                            solicitud felis. Pellentesque diam dolor, elementum etos lobortis des mollis
-                                            ut risus. Sedcus faucibus an sullamcorper mattis drostique des commodo
-                                        pharetras loremos.</p>
+                                        <p class="note">${goodsDto.goodsDetail }</p>
                                         <div class="product__details__tab__content__item">
                                             <h5>Products Infomation</h5>
-                                            <p>A Pocket PC is a handheld computer, which features many of the same
-                                                capabilities as a modern PC. These handy little devices allow
-                                                individuals to retrieve and store e-mail messages, create a contact
-                                                file, coordinate appointments, surf the internet, exchange text messages
-                                                and more. Every product that is labeled as a Pocket PC must be
-                                                accompanied with specific software to operate the unit and must feature
-                                            a touchscreen and touchpad.</p>
+                                            <p>${goodsDto.goodsDetail }</p>
                                             <p>As is the case with any new technology product, the cost of a Pocket PC
                                                 was substantial during it’s early release. For approximately $700.00,
                                                 consumers could purchase one of top-of-the-line Pocket PCs in 2003.

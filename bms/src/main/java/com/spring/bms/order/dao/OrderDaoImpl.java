@@ -1,5 +1,6 @@
 package com.spring.bms.order.dao;
 
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -39,6 +40,12 @@ public class OrderDaoImpl implements OrderDao {
 	@Override
 	public void insertOrder(OrderDto orderDto) throws Exception {
 		sqlSession.insert("order.insertOrder" , orderDto);
+	}
+
+	@Override
+	public List<GoodsDto> selectListCartGoods(int[] goodsCdList) throws Exception {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 

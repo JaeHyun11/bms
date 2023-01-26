@@ -6,14 +6,20 @@
 <tiles-definitions>
 
 	<definition name="/goods/mensGoodsList" extends="default">
-        <put-attribute name="title" value="상품 리스트" />
+        <put-attribute name="title" value="남성상품 리스트" />
         <put-attribute name="body" value="/WEB-INF/views/client/goods/mensGoodsList.jsp" />
      </definition>  
 	
 	<definition name="/goods/womensGoodsList" extends="default">
-        <put-attribute name="title" value="상품 리스트" />
+        <put-attribute name="title" value="여성상품 리스트" />
         <put-attribute name="body" value="/WEB-INF/views/client/goods/womensGoodsList.jsp" />
      </definition>
+     
+     <definition name="/goods/goodsDetail" extends="default">
+        <put-attribute name="title" value="상품 상세페이지" />
+        <put-attribute name="body" value="/WEB-INF/views/client/goods/goodsDetail.jsp" />
+     </definition>
+     
      
 </tiles-definitions>
 

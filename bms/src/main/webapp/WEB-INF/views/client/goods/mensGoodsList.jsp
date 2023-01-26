@@ -50,7 +50,7 @@
                     <div class="breadcrumb__text">
                         <h4>Shop Mens</h4>
                         <div class="breadcrumb__links">
-                            <a href="./index.html">Home</a>
+                            <a href="${contextPath }/">Home</a>
                             <span>Shop Mens</span>
                         </div>
                     </div>
@@ -181,7 +181,7 @@
                                     </div>
                                     <div id="collapseSix" class="collapse show" data-parent="#accordionExample">
                                         <div class="card-body">
-                                            <form action="${contextPath }/goods/searchGoods"method="get">
+                                            <form action="${contextPath }/goods/searchGoods" method="get">
 				                            	<input type="text" name="word">
 				                            	<input type="hidden" name="method" value="search">
 				                            	<input type="submit" value="검색">
@@ -222,40 +222,51 @@
 	                            </div>
                     		</c:when>
                     		<c:otherwise>
-                    			<c:if test="${goodsDto.goodsGroup=='mens'}">
-	                    			<c:forEach var="goodsDto" items="${mensGoodsList }">
-				                        <div class="col-lg-4 col-md-6">
-				                            <div class="product__item">
-				                                <div class="product__item__pic set-bg" data-setbg="${contextPath }/thumbnails?goodsFileName=${goodsDto.goodsFileName}">
-				                                    <c:choose>
-				                                    	<c:when test="${goodsDto.sort eq 'new' }"> <div class="label new">New</div></c:when>
-				                                    	<c:when test="${goodsDto.sort eq 'sale' }">  <div class="label sale">Sale</div></c:when>
-				                                    	<c:when test="${goodsDto.sort eq 'general' }"> <div class="label stockout stockblue">General</div></c:when>
-				                                    </c:choose>
-				                                </div>
-				                                <div>
-				                                    <ul class="product__item__text">
-				                                        <li><a href="${contextPath }/thumbnails?goodsFileName=${goodsDto.goodsFileName}" class="image-popup"><span class="arrow_expand"></span></a></li>
-				                                        <li><a href=""><span class="add-cart">+ Add To Cart</span></a></li>
-				                                        <li><a href=""><span class="icon_bag_alt"></span></a></li>
-				                                    </ul>
-				                                	<c:choose>
-				                                    	<c:when test="${goodsDto.goodsGroup=='mens'}">
-						                                    <h6>
-						                                    	<a href="${contextPath }/goods/goodsDetail?goodsCd=${goodsDto.goodsCd }">${goodsDto.goodsNm }<br>
-							                                    ${goodsDto.goodsGroup } | ${goodsDto.goodsCategory }
-						                                    	</a>
-						                                    </h6>
-						                                    <div class="product__price" style="text-decoration: line-through; color: gray"><fmt:formatNumber value="${goodsDto.price }"/>원 (${goodsDto.discountRate}%)</div>
-						                                    <div class="product__price"><fmt:formatNumber value="${goodsDto.price - goodsDto.price * goodsDto.discountRate / 100 }"/>원</div>
-					                            			<div class="product__color__select"><name="goodsColor" value="${goodsDto.goodsColor }"/>색</div>
-					                            		</c:when>
-					                            	</c:choose>   
-					                        	</div>
-				                            </div>
-				                        </div>
-			                    	</c:forEach>
-		                    	</c:if>
+                    			<c:forEach var="goodsDto" items="${mensGoodsList }">
+			                        <div class="col-lg-4 col-md-6">
+			                            <div class="product__item">
+			                                <div class="product__item__pic set-bg" data-setbg="${contextPath }/thumbnails?goodsFileName=${goodsDto.goodsFileName}">
+			                                    <c:choose>
+			                                    	<c:when test="${goodsDto.sort eq 'new' }"> <div class="label new">New</div></c:when>
+			                                    	<c:when test="${goodsDto.sort eq 'sale' }">  <div class="label sale">Sale</div></c:when>
+			                                    	<c:when test="${goodsDto.sort eq 'general' }"> <div class="label stockout stockblue">General</div></c:when>
+			                                    </c:choose>
+			                                </div>
+			                                <div>
+			                                    <ul class="product__item__text">
+			                                        <li><a href="${contextPath }/thumbnails?goodsFileName=${goodsDto.goodsFileName}" class="image-popup"><span class="arrow_expand"></span></a></li>
+			                                        <li><a href=""><span class="add-cart">+ Add To Cart</span></a></li>
+			                                        <li><a href=""><span class="icon_bag_alt"></span></a></li>
+			                                    </ul>
+			                                	<c:choose>
+			                                    	<c:when test="${goodsDto.goodsGroup=='mens'}">
+					                                    <h6>
+					                                    	<a href="${contextPath }/goods/goodsDetail?goodsCd=${goodsDto.goodsCd }">${goodsDto.goodsNm }<br>
+						                                    ${goodsDto.goodsGroup } | ${goodsDto.goodsCategory }
+					                                    	</a>
+					                                    </h6>
+					                                    <div class="product__price" style="text-decoration: line-through; color: gray"><fmt:formatNumber value="${goodsDto.price }"/>원 (${goodsDto.discountRate}%)</div>
+					                                    <div class="product__price"><fmt:formatNumber value="${goodsDto.price - goodsDto.price * goodsDto.discountRate / 100 }"/>원</div>
+				                            			<div class="product__color__select">
+					                            			<label class="c-1" for="sp-1">
+						                                    	<input type="radio" id="sp-1" name="goodsColor" value="black">
+					                                     	</label>
+						                                    <label class="c-2" for="sp-2">
+						                                    	<input type="radio" id="sp-2" name="goodsColor" value="navy">
+						                                    </label>
+						                                    <label class="c-3" for="sp-3">
+						                                    	<input type="radio" id="sp-3" name="goodsColor" value="yellow">
+						                                    </label>
+						                                    <label class="c-4" for="sp-4">
+						                                    	<input type="radio" id="sp-4" name="goodsColor" value="grey">
+						                                    </label>
+					                                    </div>
+				                            		</c:when>
+				                            	</c:choose>   
+				                        	</div>
+			                            </div>
+			                        </div>
+		                    	</c:forEach>
                     		</c:otherwise>
                     	</c:choose>
                 	</div>    

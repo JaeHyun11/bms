@@ -248,7 +248,20 @@
 					                                    </h6>
 					                                    <div class="product__price" style="text-decoration: line-through; color: gray"><fmt:formatNumber value="${goodsDto.price }"/>원 (${goodsDto.discountRate}%)</div>
 					                                    <div class="product__price"><fmt:formatNumber value="${goodsDto.price - goodsDto.price * goodsDto.discountRate / 100 }"/>원</div>
-				                            			<div class="product__color__select"><name="goodsColor" value="${goodsDto.goodsColor }"/>색</div>
+				                            			<div class="product__color__select">
+				                            				<label for="sp-1">
+						                                    	<input type="radio" id="sp-1" name="goodsColor" value="black">
+					                                     	</label>
+						                                    <label class="c-2" for="sp-2">
+						                                    	<input type="radio" id="sp-2" name="goodsColor" value="navy">
+						                                    </label>
+						                                    <label class="c-3" for="sp-3">
+						                                    	<input type="radio" id="sp-3" name="goodsColor" value="yellow">
+						                                    </label>
+						                                    <label class="c-4" for="sp-4">
+						                                    	<input type="radio" id="sp-4" name="goodsColor" value="grey">
+						                                    </label>
+				                            			</div>
 				                            		</c:when>
 				                            	</c:choose>   
 				                        	</div>

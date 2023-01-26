@@ -19,6 +19,7 @@
 						GOODS_COLOR,
 						SORT,
 						GOODS_INFO,
+						GOODS_DETAIL,
 						GOODS_FILE_NAME,
 						PRICE,
 						DISCOUNT_RATE,
@@ -38,6 +39,7 @@
 				    #{goodsColor},
 				    #{sort},
 				    #{goodsInfo},
+				    #{goodsDetail},
 				    #{goodsFileName},
 				    #{price},
 				    #{discountRate},
@@ -73,6 +75,9 @@
 	      </if>
 	      <if test='goodsInfo != null and goodsInfo != ""'>
 	        GOODS_INFO = #{goodsInfo},
+	      </if>
+	      <if test='goodsDetail != null and goodsDetailo != ""'>
+	        GOODS_DETAIL = #{goodsDetail},
 	      </if>
 	      <if test='goodsFileName != null and goodsFileName != ""'>
 	        GOODS_FILE_NAME = #{goodsFileName},
