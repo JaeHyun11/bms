@@ -54,18 +54,18 @@
                 <input type="hidden" name="point" value="${goodsDto.point * orderGoodsQty}">
                 <div class="row">
                    <div class="col-lg-8 col-md-6">
-                       <h6 class="checkout__title">My Order</h6>
+                       <h6 class="checkout__title">내 주문</h6>
                        <div class="row">
                            <div class="col-lg-6">
                                <div class="checkout__input">
-                                   <p>고객 성함<span>*</span></p>
+                                   <p>주문자 성함<span>*</span></p>
                                    <input type="text" name="ordererNm" value="${orderer.memberNm }">
                                </div>
                            </div>
                        </div>
                        <div class="checkout__input">
-                           <p>고객 연락처<span>*</span></p>
-                           <input type="text" name="ordererHp" , value="${orderer.hp }">
+                           <p>주문자 연락처<span>*</span></p>
+                           <input type="text" name="ordererHp" value="${orderer.hp }">
                        </div>
                        <div class="checkout__input">
                            <p>선물 포장<span>*</span></p>
