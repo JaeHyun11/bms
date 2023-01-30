@@ -34,8 +34,7 @@
                     <div class="breadcrumb__text">
                         <h4>Check Out</h4>
                         <div class="breadcrumb__links">
-                            <a href="./index.html">Home</a>
-                            <a href="./shop.html">Shop</a>
+                            <a href="${contextPath }/">Home</a>
                             <span>Check Out</span>
                         </div>
                     </div>
@@ -48,131 +47,129 @@
     <!-- Checkout Section Begin -->
     <section class="checkout spad">
         <div class="container">
-            <div class="checkout__form">
-                <form action="#">
-                    <div class="row">
-                        <div class="col-lg-8 col-md-6">
-                            <h6 class="coupon__code"><span class="icon_tag_alt"></span> Have a coupon? <a href="#">Click
-                            here</a> to enter your code</h6>
-                            <h6 class="checkout__title">Billing Details</h6>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Fist Name<span>*</span></p>
-                                        <input type="text">
-                                    </div>
+            <form action="${contextPath }/order/orderGoods" method="post" class="checkout__form">
+                <input type="hidden" name="goodsCd" value="${goodsDto.goodsCd }">
+                <input type="hidden" name="orderGoodsQty" value="${orderGoodsQty}">
+                <input type="hidden" name="memberId" value="${orderer.memberId}">
+                <input type="hidden" name="point" value="${goodsDto.point * orderGoodsQty}">
+                <div class="row">
+                   <div class="col-lg-8 col-md-6">
+                       <h6 class="checkout__title">My Order</h6>
+                       <div class="row">
+                           <div class="col-lg-6">
+                               <div class="checkout__input">
+                                   <p>고객 성함<span>*</span></p>
+                                   <input type="text" name="ordererNm" value="${orderer.memberNm }">
+                               </div>
+                           </div>
+                       </div>
+                       <div class="checkout__input">
+                           <p>고객 연락처<span>*</span></p>
+                           <input type="text" name="ordererHp" , value="${orderer.hp }">
+                       </div>
+                       <div class="checkout__input">
+                           <p>선물 포장<span>*</span></p>
+                           <input type="radio" id="giftWrapping" name="giftWrapping" value="yes"> 예&emsp;&emsp;
+                           <input type="radio" id="giftWrapping" name="giftWrapping" checked value="no"> 아니요
+                       </div>
+                       <div class="checkout__input">
+	                           <p>배송방법<span>*</span></p>
+	                           <input type="radio" name="deliveryMethod" value="일반택배" checked> 일반택배 &emsp; 
+						   	   <input type="radio" name="deliveryMethod" value="편의점택배"> 편의점택배 &emsp;
+							   <input type="radio" name="deliveryMethod" value="해외배송"> 해외배송 &emsp;
+                       </div>
+                       <div class="checkout__order__widget">
+                           <p>결제 방법<span>*</span></p>
+                           <select name="payMethod" onchange="setPayMethod()">
+	                           	<option value="card">카드 결제</option>
+	                           	<option value="phone">휴대폰 결제</option>
+                           </select>
+                       </div>
+                       <div class="checkout__input">
+                           <div id="cardCompanyNm">
+                                <div class="checkout__input">
+                                    <p>카드회사 <span>*</span></p>
+	                                <select name="cardCompanyNm">
+										<option value="삼성">삼성</option>
+										<option value="하나SK">하나SK</option>
+										<option value="현대">현대</option>
+										<option value="우리">우리</option>
+										<option value="신한">신한</option>
+										<option value="KB">KB</option>
+										<option value="롯데">롯데</option>
+										<option value="BC">BC</option>
+										<option value="시티">시티</option>
+										<option value="NH농협">NH농협</option>
+								   </select>
                                 </div>
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Last Name<span>*</span></p>
-                                        <input type="text">
-                                    </div>
+                            </div>
+                       </div>
+                       <div class="row">
+                           <div id="cardPayMonth" class="col-lg-6 col-md-6 col-sm-6">
+                                <div class="checkout__order__widget">
+                                    <p>할부개월 <span>*</span></p>
+                                    <select name="cardPayMonth">
+										<option value="0">일시불</option>                                    
+										<option value="1">1개월</option>                                    
+										<option value="2">2개월</option>                                    
+										<option value="3">3개월</option>                                    
+										<option value="4">4개월</option>                                    
+										<option value="5">5개월</option>                                    
+										<option value="6">6개월</option>                                    
+                                    </select>
                                 </div>
                             </div>
-                            <div class="checkout__input">
-                                <p>Country<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Address<span>*</span></p>
-                                <input type="text" placeholder="Street Address" class="checkout__input__add">
-                                <input type="text" placeholder="Apartment, suite, unite ect (optinal)">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Town/City<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Country/State<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="checkout__input">
-                                <p>Postcode / ZIP<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="row">
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Phone<span>*</span></p>
-                                        <input type="text">
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="checkout__input">
-                                        <p>Email<span>*</span></p>
-                                        <input type="text">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="acc">
-                                    Create an account?
-                                    <input type="checkbox" id="acc">
-                                    <span class="checkmark"></span>
-                                </label>
-                                <p>Create an account by entering the information below. If you are a returning customer
-                                please login at the top of the page</p>
-                            </div>
-                            <div class="checkout__input">
-                                <p>Account Password<span>*</span></p>
-                                <input type="text">
-                            </div>
-                            <div class="checkout__input__checkbox">
-                                <label for="diff-acc">
-                                    Note about your order, e.g, special noe for delivery
-                                    <input type="checkbox" id="diff-acc">
-                                    <span class="checkmark"></span>
-                                </label>
-                            </div>
-                            <div class="checkout__input">
-                                <p>Order notes<span>*</span></p>
-                                <input type="text"
-                                placeholder="Notes about your order, e.g. special notes for delivery.">
-                            </div>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <div class="checkout__order">
-                                <h4 class="order__title">Your order</h4>
-                                <div class="checkout__order__products">Product <span>Total</span></div>
-                                <ul class="checkout__total__products">
-                                    <li>01. Vanilla salted caramel <span>$ 300.0</span></li>
-                                    <li>02. German chocolate <span>$ 170.0</span></li>
-                                    <li>03. Sweet autumn <span>$ 170.0</span></li>
-                                    <li>04. Cluten free mini dozen <span>$ 110.0</span></li>
-                                </ul>
-                                <ul class="checkout__total__all">
-                                    <li>Subtotal <span>$750.99</span></li>
-                                    <li>Total <span>$750.99</span></li>
-                                </ul>
-                                <div class="checkout__input__checkbox">
-                                    <label for="acc-or">
-                                        Create an account?
-                                        <input type="checkbox" id="acc-or">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <p>Lorem ipsum dolor sit amet, consectetur adip elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua.</p>
-                                <div class="checkout__input__checkbox">
-                                    <label for="payment">
-                                        Check Payment
-                                        <input type="checkbox" id="payment">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <div class="checkout__input__checkbox">
-                                    <label for="paypal">
-                                        Paypal
-                                        <input type="checkbox" id="paypal">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <button type="submit" class="site-btn">PLACE ORDER</button>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
+                       </div>
+                       <div id="payOrdererHp" class="col-lg-6 col-md-6 col-sm-6" style="display: none">
+                           <div class="checkout__input">
+                               <p>결제 휴대폰 번호 <span>*</span></p>
+                               <input type="text" name="payOrdererHp">
+                           </div>
+                       </div>
+                       <div class="checkout__input">
+                           <p>배송 메세지<span>*</span></p>
+                           <input type="text" name="deliveryMessage" placeholder="배송메세지를 입력하세요.">
+                       </div>
+                       <div class="col-lg-12">
+                           <div class="checkout__input">
+                               <p>우편번호 <span>*</span></p>
+                               <input type="text" id="zipcode" name="zipcode" value="${orderer.zipcode }" style="width: 10%;">
+                               <input type="button" value="주소 검색" onclick="execDaumPostcode();" style="width: 7%; padding-left: 0">
+                           </div>
+                           <div class="checkout__input">
+                               <p>도로명 주소 <span>*</span></p>
+                               <input type="text" id="roadAddress" name="roadAddress" value="${orderer.roadAddress }">
+                           </div>
+                           <div class="checkout__input">
+                               <p>지번 주소 <span>*</span></p>
+                               <input type="text" id="jibunAddress" name="jibunAddress" value="${orderer.jibunAddress }">
+                           </div>
+                           <div class="checkout__input">
+                               <p>나머지 주소 <span>*</span></p>
+                               <input type="text" id="namujiAddress" name="namujiAddress" value="${orderer.namujiAddress }">
+                           </div>
+                       </div>
+                   </div>
+                   <div class="col-lg-4 col-md-6">
+                       <div class="checkout__order">
+                           <h4 class="order__title">내 주문목록</h4>
+                           <div class="checkout__order__products">Product <span>Total</span></div>
+                           <ul class="checkout__total__products">
+                               <li>01. ${goodsDto.goodsNm } , <span>${orderGoodsQty }개</span></li>
+                               <li>상품 금액 <span><fmt:formatNumber value="${(goodsDto.price - (goodsDto.price * goodsDto.discountRate / 100)) * orderGoodsQty}"/>원</span></li>
+                           </ul>
+                           <ul class="checkout__total__all">
+                               <li>배송비 <span><fmt:formatNumber value="${goodsDto.deliveryPrice}"/>원</span></li>
+                               <li>포인트 <span><fmt:formatNumber value="${goodsDto.point * orderGoodsQty}"/>P 적립</span></li>
+                           	   <c:set var="paymentAmt" value="${(goodsDto.price - (goodsDto.price * goodsDto.discountRate / 100)) * orderGoodsQty + goodsDto.deliveryPrice}"/>
+                           	   <li>합계 <span><fmt:formatNumber value="${paymentAmt }"/>원</span></li>
+                           </ul>
+                           <input type="hidden" name="paymentAmt" value='<fmt:parseNumber integerOnly="true" value="${paymentAmt }"/>'/>
+                           <button type="submit" class="site-btn"> 주문하기</button>
+                       </div>
+                   </div>
+               </div>
+           </form>
         </div>
     </section>
     <!-- Checkout Section End -->

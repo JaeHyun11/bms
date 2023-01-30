@@ -18,8 +18,6 @@ public class OrderDto {
 	private int paymentAmt;
 	private String ordererNm;
 	private String ordererHp;
-	private String receiverNm;
-	private String receiverHp;
 	private String zipcode;
 	private String roadAddress;
 	private String jibunAddress;
@@ -29,7 +27,6 @@ public class OrderDto {
 	private String deliveryStatus;
 	private String giftWrapping;
 	private String payMethod;
-	private String payOrdererHp;
 	private String cardCompanyNm;
 	private String cardPayMonth;
 	private Date payOrderTime;
@@ -100,18 +97,6 @@ public class OrderDto {
 	public void setOrdererHp(String ordererHp) {
 		this.ordererHp = ordererHp;
 	}
-	public String getReceiverNm() {
-		return receiverNm;
-	}
-	public void setReceiverNm(String receiverNm) {
-		this.receiverNm = receiverNm;
-	}
-	public String getReceiverHp() {
-		return receiverHp;
-	}
-	public void setReceiverHp(String receiverHp) {
-		this.receiverHp = receiverHp;
-	}
 	public String getZipcode() {
 		return zipcode;
 	}
@@ -166,12 +151,6 @@ public class OrderDto {
 	public void setPayMethod(String payMethod) {
 		this.payMethod = payMethod;
 	}
-	public String getPayOrdererHp() {
-		return payOrdererHp;
-	}
-	public void setPayOrdererHp(String payOrdererHp) {
-		this.payOrdererHp = payOrdererHp;
-	}
 	public String getCardCompanyNm() {
 		return cardCompanyNm;
 	}
@@ -196,14 +175,16 @@ public class OrderDto {
 		return "OrderDto [orderCd=" + orderCd + ", memberId=" + memberId + ", goodsCd=" + goodsCd + ", xsOrderGoodsQty="
 				+ xsOrderGoodsQty + ", smOrderGoodsQty=" + smOrderGoodsQty + ", mdOrderGoodsQty=" + mdOrderGoodsQty
 				+ ", lgOrderGoodsQty=" + lgOrderGoodsQty + ", xlOrderGoodsQty=" + xlOrderGoodsQty + ", paymentAmt="
-				+ paymentAmt + ", ordererNm=" + ordererNm + ", ordererHp=" + ordererHp + ", receiverNm=" + receiverNm
-				+ ", receiverHp=" + receiverHp + ", zipcode=" + zipcode + ", roadAddress=" + roadAddress
-				+ ", jibunAddress=" + jibunAddress + ", namujiAddress=" + namujiAddress + ", deliveryMethod="
-				+ deliveryMethod + ", deliveryMessage=" + deliveryMessage + ", deliveryStatus=" + deliveryStatus
-				+ ", giftWrapping=" + giftWrapping + ", payMethod=" + payMethod + ", payOrdererHp=" + payOrdererHp
-				+ ", cardCompanyNm=" + cardCompanyNm + ", cardPayMonth=" + cardPayMonth + ", payOrderTime="
-				+ payOrderTime + "]";
+				+ paymentAmt + ", ordererNm=" + ordererNm + ", ordererHp=" + ordererHp + ", zipcode=" + zipcode
+				+ ", roadAddress=" + roadAddress + ", jibunAddress=" + jibunAddress + ", namujiAddress=" + namujiAddress
+				+ ", deliveryMethod=" + deliveryMethod + ", deliveryMessage=" + deliveryMessage + ", deliveryStatus="
+				+ deliveryStatus + ", giftWrapping=" + giftWrapping + ", payMethod=" + payMethod + ", cardCompanyNm="
+				+ cardCompanyNm + ", cardPayMonth=" + cardPayMonth + ", payOrderTime=" + payOrderTime + "]";
 	}
+	
+
+	
+	
 	
 	
 	

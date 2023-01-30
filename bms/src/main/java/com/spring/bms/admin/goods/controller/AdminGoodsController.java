@@ -67,6 +67,7 @@ public class AdminGoodsController {
 		goodsDto.setGoodsColor(multipartRequest.getParameter("goodsColor"));
 		goodsDto.setSort(multipartRequest.getParameter("sort"));
 		goodsDto.setGoodsInfo(multipartRequest.getParameter("goodsInfo"));
+		goodsDto.setGoodsInfo(multipartRequest.getParameter("goodsDetail"));
 		goodsDto.setGoodsFileName(multipartRequest.getParameter("goodsFileName"));
 		goodsDto.setPrice(Integer.parseInt(multipartRequest.getParameter("price")));
 		goodsDto.setDiscountRate(Integer.parseInt(multipartRequest.getParameter("discountRate")));
@@ -133,6 +134,7 @@ public class AdminGoodsController {
 		goodsDto.setGoodsColor(multipartRequest.getParameter("goodsColor"));
 		goodsDto.setSort(multipartRequest.getParameter("sort"));
 		goodsDto.setGoodsInfo(multipartRequest.getParameter("goodsInfo"));
+		goodsDto.setGoodsInfo(multipartRequest.getParameter("goodsDetail"));
 		goodsDto.setGoodsFileName(multipartRequest.getParameter("goodsFileName"));
 		goodsDto.setPrice(Integer.parseInt(multipartRequest.getParameter("price")));
 		goodsDto.setDiscountRate(Integer.parseInt(multipartRequest.getParameter("discountRate")));
