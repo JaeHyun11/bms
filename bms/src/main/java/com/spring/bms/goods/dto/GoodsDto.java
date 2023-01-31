@@ -153,6 +153,9 @@ public class GoodsDto {
 				+ deliveryPrice + ", enrollDt=" + enrollDt + "]";
 	}
 	
+
+
+	
 	
 	
 	

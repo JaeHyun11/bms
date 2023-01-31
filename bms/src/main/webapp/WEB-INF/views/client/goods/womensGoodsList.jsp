@@ -206,9 +206,10 @@
                                 <div class="shop__product__option__right">
                                     <p>Sort by</p>
                                     <select name="sort">
-                                        <option value="new">New</option>
-                                        <option value="">Popular</option>
-                                        <option value="">Price Low To High</option>
+                                        <option value="${contextPath }/goods/searchGoods?method=keyword&keyword=enrollDt">최신순</option>
+                                        <option value="${contextPath }/goods/searchGoods?method=keyword&keyword=highPrice">높은가격순</option>
+                                		<option value="${contextPath }/goods/searchGoods?method=keyword&keyword=lowPrice">낮은가격순</option>
+                                		<option value="${contextPath }/goods/searchGoods?method=keyword&keyword=discountRate">할인률 높은순</option>
                                     </select>
                                 </div>
                             </div>
@@ -239,31 +240,27 @@
 			                                        <li><a href=""><span class="add-cart">+ Add To Cart</span></a></li>
 			                                        <li><a href=""><span class="icon_bag_alt"></span></a></li>
 			                                    </ul>
-			                                	<c:choose>
-			                                    	<c:when test="${goodsDto.goodsGroup=='womens'}">
-					                                    <h6>
-					                                    	<a href="${contextPath }/goods/goodsDetail?goodsCd=${goodsDto.goodsCd }">${goodsDto.goodsNm }<br>
-						                                    ${goodsDto.goodsGroup } | ${goodsDto.goodsCategory }
-					                                    	</a>
-					                                    </h6>
-					                                    <div class="product__price" style="text-decoration: line-through; color: gray"><fmt:formatNumber value="${goodsDto.price }"/>원 (${goodsDto.discountRate}%)</div>
-					                                    <div class="product__price"><fmt:formatNumber value="${goodsDto.price - goodsDto.price * goodsDto.discountRate / 100 }"/>원</div>
-				                            			<div class="product__color__select">
-				                            				<label for="sp-1">
-						                                    	<input type="radio" id="sp-1" name="goodsColor" value="black">
-					                                     	</label>
-						                                    <label class="c-2" for="sp-2">
-						                                    	<input type="radio" id="sp-2" name="goodsColor" value="navy">
-						                                    </label>
-						                                    <label class="c-3" for="sp-3">
-						                                    	<input type="radio" id="sp-3" name="goodsColor" value="yellow">
-						                                    </label>
-						                                    <label class="c-4" for="sp-4">
-						                                    	<input type="radio" id="sp-4" name="goodsColor" value="grey">
-						                                    </label>
-				                            			</div>
-				                            		</c:when>
-				                            	</c:choose>   
+			                                    <h6>
+			                                    	<a href="${contextPath }/goods/goodsDetail?goodsCd=${goodsDto.goodsCd }">${goodsDto.goodsNm }<br>
+				                                    ${goodsDto.goodsGroup } | ${goodsDto.goodsCategory }
+			                                    	</a>
+			                                    </h6>
+			                                    <div class="product__price" style="text-decoration: line-through; color: gray"><fmt:formatNumber value="${goodsDto.price }"/>원 (${goodsDto.discountRate}%)</div>
+			                                    <div class="product__price"><fmt:formatNumber value="${goodsDto.price - goodsDto.price * goodsDto.discountRate / 100 }"/>원</div>
+		                            			<div class="product__color__select">
+		                            				<label for="sp-1">
+				                                    	<input type="radio" id="sp-1" name="goodsColor" value="black">
+			                                     	</label>
+				                                    <label class="c-2" for="sp-2">
+				                                    	<input type="radio" id="sp-2" name="goodsColor" value="navy">
+				                                    </label>
+				                                    <label class="c-3" for="sp-3">
+				                                    	<input type="radio" id="sp-3" name="goodsColor" value="yellow">
+				                                    </label>
+				                                    <label class="c-4" for="sp-4">
+				                                    	<input type="radio" id="sp-4" name="goodsColor" value="grey">
+				                                    </label>
+		                            			</div>
 				                        	</div>
 			                            </div>
 			                        </div>

@@ -33,7 +33,7 @@
 </script>
 </head>
 <body>
-     <!-- Shop Details Section Begin -->
+    <!-- Shop Details Section Begin -->
     <section class="shop-details">
         <div class="product__details__pic">
             <div class="container">

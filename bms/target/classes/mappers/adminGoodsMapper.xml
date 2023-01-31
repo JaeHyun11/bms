@@ -76,7 +76,7 @@
 	      <if test='goodsInfo != null and goodsInfo != ""'>
 	        GOODS_INFO = #{goodsInfo},
 	      </if>
-	      <if test='goodsDetail != null and goodsDetailo != ""'>
+	      <if test='goodsDetail != null and goodsDetail != ""'>
 	        GOODS_DETAIL = #{goodsDetail},
 	      </if>
 	      <if test='goodsFileName != null and goodsFileName != ""'>
