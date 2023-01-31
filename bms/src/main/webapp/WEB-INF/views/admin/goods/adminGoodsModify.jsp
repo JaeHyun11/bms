@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <head>
 <script>
+
 	$(document).ready(function(){
 		
 		$("[name='goodsGroup']").change(function(){
@@ -40,6 +41,9 @@
 			
 		});
 		
+		$("[name='goodsGroup']").val("${goodsDto.goodsGroup}");
+		$("[name='goodsCategory']").val("${goodsDto.goodsCategory}");
+		
 	});
 	
 </script>
@@ -67,10 +71,10 @@
 	<section class="checkout spad">
 	    <div class="container">
 	        <div class="checkout__form">
-	            <form action="${contextPath }/admin/goods/adminGoodsModify" method="post" enctype="multipart/form-data" class="checkout__form">
+	            <form action="${contextPath }/admin/goods/adminGoodsModify" method="post" enctype="multipart/form-data">
 	            	<input type="hidden" name="goodsCd" value="${goodsDto.goodsCd }">
 		                <div class="row">
-		                    <div class="col-lg-8 col-md-6">
+		                    <div class="col-lg-17 col-md-17">
 		                        <h5>상품 수정</h5>
 		                        <div class="row">
 		                            <div class="col-sm-12">
@@ -82,7 +86,7 @@
 		                            <div class="col-sm-12">
 		                            <div class="checkout__input">
 		                                <p>상품명 <span>*</span></p>
-		                                <input type="text" name="goodsNm" placeholder="상품명을 입력하세요.">
+		                                <input type="text" name="goodsNm" value="${goodsDto.goodsNm }">
 		                                </div>
 		                            </div>
 		                             <div class="col-sm-6">
@@ -97,7 +101,7 @@
 		                            <div class="col-sm-6">
 		                                <div class="checkout__input">
 		                                    <p>카테고리<span>*</span></p> 
-	                                    <span id="setCategory">
+	                                    	<span id="setCategory">
 				                            <select name="goodsCategory">
 									            <option value="coats&jackets">코트&자켓</option>
 									            <option value="sweaters">스웨터</option>
@@ -156,68 +160,68 @@
 	                            <div class="col-sm-6">
 	                            	<div class="checkout__input">
 	                                	<p>가격 <span>*</span></p>
-	                                    <input type="text" name="price" placeholder="가격을 입력하세요.">
+	                                    <input type="text" name="price" value="${goodsDto.price}">
 	                                </div>
 	                            </div>	
 	                            <div class="col-sm-6">
 	                            	<div class="checkout__input">
 		                                <p>할인률 <span>*</span></p>
-		                                <input type="text" name="discountRate" placeholder="할인률을 입력하세요.">
+		                                <input type="text" name="discountRate" value="${goodsDto.discountRate}">
 		                           	</div>
 	                            </div>
 	                            <div class="col-sm-6">
 	                            	<div class="checkout__input">
 	                            		<p>XS사이즈 재고 <span>*</span></p>
-                                            <input type="text" name="xsStock" placeholder="xs">
+                                            <input type="text" name="xsStock" value="${goodsDto.xsStock}">
                                     </div>
                                 </div>
                                 <div class="col-sm-6">
 	                            	<div class="checkout__input">
 	                            		<p>SM사이즈 재고 <span>*</span></p>
-                                            <input type="text" name="smStock" placeholder="sm">
+                                            <input type="text" name="smStock" value="${goodsDto.smStock}">
                                         </div>
                                 </div>    
                                <div class="col-sm-6">
 	                            	<div class="checkout__input">
 	                            		<p>MD사이즈 재고 <span>*</span></p>
-                                            <input type="text" name="mdStock" placeholder="md">
+                                            <input type="text" name="mdStock" value="${goodsDto.mdStock}">
                                        	</div>
                                 </div>
                                 <div class="col-sm-6">
 	                            	<div class="checkout__input">
 	                            		<p>L사이즈 재고 <span>*</span></p>
-                                            <input type="text" name="lgStock" placeholder="lg">
+                                            <input type="text" name="lgStock" value="${goodsDto.lgStock}">
                                         </div>
                                 </div>
                                 <div class="col-sm-6">
 	                            	<div class="checkout__input">
 	                            		<p>XL사이즈 재고 <span>*</span></p>    
-                                            <input type="text" name="xlStock" placeholder="xl">
+                                            <input type="text" name="xlStock" value="${goodsDto.xlStock}">
                                         </div>
                                 </div>
 	                            <div class="col-sm-6">
 	                                <div class="checkout__input">
 	                                    <p>배송비 <span>*</span></p>
-	                                    <input type="text" name="deliveryPrice" placeholder="배송비를 입력하세요.">
+	                                    <input type="text" name="deliveryPrice" value="${goodsDto.deliveryPrice}">
 	                                </div>
 	                            </div>
 	                            <div class="col-sm-6">
 	                                <div class="checkout__input">
 	                                    <p>적립 포인트 <span>*</span></p>
-	                                    <input type="text" name="point" placeholder="적립 포인트를 입력하세요.">
+	                                    <input type="text" name="point" value="${goodsDto.point}">
 	                                </div>
 	                            </div>
 	                            <div class="col-sm-12">
 	                                <div class="checkout__input">
 	                                    <p>상품 설명<span>*</span></p>
-	                                    <textarea rows="5" cols="100" name="goodsInfo" placeholder="상품 설명을 입력하세요."></textarea> 
+	                                    <textarea rows="5" cols="100" name="goodsInfo" >${goodsDto.goodsInfo }</textarea> 
 	                                	<script>CKEDITOR.replace("goodsInfo");</script>
 	                                </div>
 	                            </div>
 	                            <div class="col-sm-12">
 	                                <div class="checkout__input">
 	                                    <p>상품 구성 및 추가 정보<span>*</span></p>
-	                                    <textarea rows="5" cols="100" name="goodsDetail" placeholder="상품 구성 및 추가 정보를 입력하세요."></textarea> 
+	                                    <textarea rows="5" cols="100" name="goodsDetail">${goodsDto.goodsDetail }</textarea> 
 	                                	<script>CKEDITOR.replace("goodsDetail");</script>
 	                                </div>
 	                            </div>

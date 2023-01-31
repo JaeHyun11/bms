@@ -124,10 +124,9 @@ public class AdminGoodsController {
 	public ResponseEntity<Object> adminGoodsModify(MultipartHttpServletRequest multipartRequest) throws Exception {
 		
 		multipartRequest.setCharacterEncoding("utf-8");
-
-		SimpleDateFormat fm = new SimpleDateFormat("yyyy-MM-dd");
-
+		
 		GoodsDto goodsDto = new GoodsDto();
+		goodsDto.setGoodsCd(Integer.parseInt(multipartRequest.getParameter("goodsCd")));
 		goodsDto.setGoodsNm(multipartRequest.getParameter("goodsNm"));
 		goodsDto.setGoodsGroup(multipartRequest.getParameter("goodsGroup"));
 		goodsDto.setGoodsCategory(multipartRequest.getParameter("goodsCategory"));
@@ -162,19 +161,18 @@ public class AdminGoodsController {
 			}
 		
 		}
-		
+		System.out.println(goodsDto);
 		adminGoodsService.modifyGoods(goodsDto);
-		
 		String js = "<script>";
 			   js += " alert('상품정보를 수정하였습니다.');";
 			   js +=" location.href='adminGoodsList';";
 			   js +="</script>";
-
+			   
 		HttpHeaders responseHeaders = new HttpHeaders();
 	    responseHeaders.add("Content-Type", "text/html; charset=utf-8");
 		
 		return new ResponseEntity<Object>(js, responseHeaders, HttpStatus.OK);
-
+		
 	}
 	
 	

@@ -27,7 +27,6 @@ public class AdminGoodsDaoImpl implements AdminGoodsDao {
 	@Override
 	public void updateGoods(GoodsDto goodsDto) throws Exception {
 		sqlSession.update("admin.goods.updateGoods", goodsDto);
-		
 	}
 
 	@Override
