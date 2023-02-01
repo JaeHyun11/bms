@@ -50,8 +50,8 @@ public class MyPageController {
 		String js = "<script>";
 			   js += "alert('수정되었습니다.');";
 			   js += "location.href='" + request.getContextPath() + "/myPage/myInfo?memberId=" + memberDto.getMemberId() + "';";
-			   js += " </script>";
-
+			   js += "</script>";
+			   
 		return new ResponseEntity<Object>(js, responseHeaders, HttpStatus.OK);   
 	}
 	

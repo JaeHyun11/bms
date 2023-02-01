@@ -8,8 +8,16 @@
 <head>
 <script>
 
-	$(document).ready(function(){
+		$().ready(function(){
 		
+		$("[name='goodsGroup']").val("${goodsDto.goodsGroup}");
+		$("[name='goodsCategory']").val("${goodsDto.goodsCategory}");
+		$("[name='goodsColor']").val("${goodsDto.goodsColor}");
+		$("[name='sort']").val("${goodsDto.sort}");
+		});
+		
+		$(document).ready(function(){	
+			
 		$("[name='goodsGroup']").change(function(){
 			var searchType = $("[name='goodsGroup']").val();
 		    
@@ -40,10 +48,7 @@
 			$("#setCategory").html(setView);
 			
 		});
-		
-		$("[name='goodsGroup']").val("${goodsDto.goodsGroup}");
-		$("[name='goodsCategory']").val("${goodsDto.goodsCategory}");
-		
+				
 	});
 	
 </script>

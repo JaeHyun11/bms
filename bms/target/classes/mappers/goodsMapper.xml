@@ -72,6 +72,7 @@
 					GOODS_GROUP    LIKE CONCAT('%' , #{word} , '%') OR
 					GOODS_CATEGORY LIKE CONCAT('%' , #{word} , '%') OR
 					GOODS_COLOR	   LIKE CONCAT('%' , #{word} , '%') OR
+					GOODS_INFO	   LIKE CONCAT('%' , #{word} , '%')
 		</if>
 		
 	</select>

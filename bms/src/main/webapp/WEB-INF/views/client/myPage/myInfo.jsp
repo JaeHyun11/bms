@@ -102,8 +102,8 @@
 	                            <div class="checkout__input">
 	                                <p>생년월일 <span>*</span></p>
 	                                    <select id="birthY">
-	                                    	<c:forEach var="i" begin="0" end="2022" >
-	                                    		<option>${2022 - i}</option>
+	                                    	<c:forEach var="i" begin="0" end="2023" >
+	                                    		<option>${2023 - i}</option>
 	                                    	</c:forEach>
 	                                    </select>년 
 	                                    <select id="birthM">
@@ -180,10 +180,9 @@
                                 <button type="submit" class="site-btn">수정하기</button>
                             </div>
                         </div>
-                    </div>
-                </form>
+	                </form>
+	            </div>
             </div>
-        </div>
     </section>
     <!-- Checkout Section End -->
 </body>
