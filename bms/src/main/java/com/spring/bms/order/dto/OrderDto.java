@@ -27,6 +27,7 @@ public class OrderDto {
 	private String deliveryStatus;
 	private String giftWrapping;
 	private String payMethod;
+	private String payOrdererHp;
 	private String cardCompanyNm;
 	private String cardPayMonth;
 	private Date payOrderTime;
@@ -151,6 +152,12 @@ public class OrderDto {
 	public void setPayMethod(String payMethod) {
 		this.payMethod = payMethod;
 	}
+	public String getPayOrdererHp() {
+		return payOrdererHp;
+	}
+	public void setPayOrdererHp(String payOrdererHp) {
+		this.payOrdererHp = payOrdererHp;
+	}
 	public String getCardCompanyNm() {
 		return cardCompanyNm;
 	}
@@ -178,14 +185,9 @@ public class OrderDto {
 				+ paymentAmt + ", ordererNm=" + ordererNm + ", ordererHp=" + ordererHp + ", zipcode=" + zipcode
 				+ ", roadAddress=" + roadAddress + ", jibunAddress=" + jibunAddress + ", namujiAddress=" + namujiAddress
 				+ ", deliveryMethod=" + deliveryMethod + ", deliveryMessage=" + deliveryMessage + ", deliveryStatus="
-				+ deliveryStatus + ", giftWrapping=" + giftWrapping + ", payMethod=" + payMethod + ", cardCompanyNm="
-				+ cardCompanyNm + ", cardPayMonth=" + cardPayMonth + ", payOrderTime=" + payOrderTime + "]";
+				+ deliveryStatus + ", giftWrapping=" + giftWrapping + ", payMethod=" + payMethod + ", payOrdererHp="
+				+ payOrdererHp + ", cardCompanyNm=" + cardCompanyNm + ", cardPayMonth=" + cardPayMonth
+				+ ", payOrderTime=" + payOrderTime + "]";
 	}
-	
-
-	
-	
-	
-	
 	
 }

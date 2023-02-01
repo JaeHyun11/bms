@@ -18,7 +18,7 @@
                             <p>Free shipping, 30-day return or refund guarantee.</p>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-5">
+                    <div class="col-lg-12 col-md-12">
                         <div class="header__top__right">
                             <div class="header__top__links">
                             	<c:choose>
@@ -32,10 +32,10 @@
                                 	</c:otherwise>
                                 </c:choose>
                             </div>
-                            <div class="header__top__links">
+                            <div class="header__top__hover">
                             	<c:choose>
 	                        		<c:when test="${sessionScope.role eq 'admin'}">
-					                    <li><a href="#">Management</a>
+					                    <li><a href="${contextPath }/admin/goods/adminGoodsList">Management</a>
 			                                <ul class="dropdown">
 				                                <li><a href="${contextPath }/admin/goods/adminGoodsList"> 상품 관리</a></li>
 				                                <li><a href="${contextPath }/admin/member/adminMemberList"> 사용자 관리</a></li>
@@ -45,14 +45,14 @@
 			                           	</li>
 			                        </c:when>
 			                        <c:otherwise>
-			                        	<li><a href="#"> MY PAGE</a>
-		                                	<ul class="dropdown">
+			                        	<a href="${contextPath }/myPage/myInfo?memberId=${sessionScope.memberId}">MY PAGE</a>
+			                        	<i class="arrow_carrot-down"></i>
+		                                	<ul>
 				                             	<li><a href="${contextPath }/myPage/myInfo?memberId=${sessionScope.memberId}"> 내 정보</a></li>
 				                             	<li><a href="${contextPath }/myPage/myWishList?memberId=${sessionScope.memberId}"> 내 위시리스트</a></li>
 				                             	<li><a href="${contextPath }/myPage/myOrderList?memberId=${sessionScope.memberId}"> 주문조회</a></li>
 				                            	<li><a href="${contextPath }/myPage/QA?memberId=${sessionScope.memberId}"> 내 QA</a></li>
 		                             		</ul>
-		                            	</li>
 			                        </c:otherwise>
 		                        </c:choose>
                            	</div>

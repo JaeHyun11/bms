@@ -214,62 +214,62 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-9">
-                	<div class="row">
-                    	<c:choose>
-                    		<c:when test="${goodsGroup != 'womens'}">
-	                            <div class="product__item">
-	                    			<h3>등록된 상품이 없습니다.</h3>
-	                            </div>
-                    		</c:when>
-                    		<c:otherwise>
-                    			<c:forEach var="goodsDto" items="${womensGoodsList }">
-			                        <div class="col-lg-4 col-md-6">
-			                            <div class="product__item">
-			                                <div class="product__item__pic set-bg" data-setbg="${contextPath }/thumbnails?goodsFileName=${goodsDto.goodsFileName}">
-			                                    <span class="label">
-			                                    <c:choose>
-			                                    	<c:when test="${goodsDto.sort eq 'new' }"> <div class="label new">New</div></c:when>
-			                                    	<c:when test="${goodsDto.sort eq 'sale' }">  <div class="label sale">Sale</div></c:when>
-			                                    	<c:when test="${goodsDto.sort eq 'general' }"> <div class="label stockout stockblue">General</div></c:when>
-			                                    </c:choose>
-			                                    </span>
-			                                </div>
-			                                <div>
-			                                    <ul class="product__item__text">
-			                                        <li><a href="${contextPath }/thumbnails?goodsFileName=${goodsDto.goodsFileName}" class="image-popup"><span class="arrow_expand"></span></a></li>
-			                                        <li><a href="" class="add-cart">+ Add To Cart</a></li>
-			                                        <li><a href=""><span class="icon_bag_alt"></span></a></li>
-			                                    </ul>
-			                                    <h6>
-			                                    	<a href="${contextPath }/goods/goodsDetail?goodsCd=${goodsDto.goodsCd }">${goodsDto.goodsNm }<br>
-				                                    ${goodsDto.goodsGroup } | ${goodsDto.goodsCategory }
-			                                    	</a>
-			                                    </h6>
-			                                    <div class="product__price" style="text-decoration: line-through; color: gray"><fmt:formatNumber value="${goodsDto.price }"/>원 (${goodsDto.discountRate}%)</div>
-			                                    <div class="product__price"><fmt:formatNumber value="${goodsDto.price - goodsDto.price * goodsDto.discountRate / 100 }"/>원</div>
-		                            			<div class="product__color__select">
-		                            				<label for="sp-1">
-				                                    	<input type="radio" id="sp-1" name="goodsColor" value="black">
-			                                     	</label>
-				                                    <label class="c-2" for="sp-2">
-				                                    	<input type="radio" id="sp-2" name="goodsColor" value="navy">
-				                                    </label>
-				                                    <label class="c-3" for="sp-3">
-				                                    	<input type="radio" id="sp-3" name="goodsColor" value="yellow">
-				                                    </label>
-				                                    <label class="c-4" for="sp-4">
-				                                    	<input type="radio" id="sp-4" name="goodsColor" value="grey">
-				                                    </label>
-		                            			</div>
-				                        	</div>
-			                            </div>
-			                        </div>
-		                    	</c:forEach>
-                    		</c:otherwise>
-                    	</c:choose>
-                	</div>    
+	                <div class="col-lg-9">
+	                	<div class="row">
+	                    	<c:choose>
+	                    		<c:when test="${goodsGroup != 'womens'}">
+		                            <div class="product__item">
+		                    			<h3>등록된 상품이 없습니다.</h3>
+		                            </div>
+	                    		</c:when>
+	                    		<c:otherwise>
+	                    			<c:forEach var="goodsDto" items="${womensGoodsList }">
+				                        <div class="col-lg-4 col-md-6">
+				                            <div class="product__item">
+				                                <div class="product__item__pic set-bg" data-setbg="${contextPath }/thumbnails?goodsFileName=${goodsDto.goodsFileName}">
+				                                    <span class="label">
+				                                    <c:choose>
+				                                    	<c:when test="${goodsDto.sort eq 'new' }"> <div class="label new">New</div></c:when>
+				                                    	<c:when test="${goodsDto.sort eq 'sale' }">  <div class="label sale">Sale</div></c:when>
+				                                    	<c:when test="${goodsDto.sort eq 'general' }"> <div class="label stockout stockblue">General</div></c:when>
+				                                    </c:choose>
+				                                    </span>
+				                                </div>
+				                                <div>
+				                                    <ul class="product__item__text">
+				                                        <li><a href="${contextPath }/thumbnails?goodsFileName=${goodsDto.goodsFileName}" class="image-popup"><span class="arrow_expand"></span></a></li>
+				                                        <li><a href="" class="add-cart">+ Add To Cart</a></li>
+				                                        <li><a href=""><span class="icon_bag_alt"></span></a></li>
+				                                    </ul>
+				                                    <h6>
+				                                    	<a href="${contextPath }/goods/goodsDetail?goodsCd=${goodsDto.goodsCd }">${goodsDto.goodsNm }<br>
+					                                    ${goodsDto.goodsGroup } | ${goodsDto.goodsCategory }
+				                                    	</a>
+				                                    </h6>
+				                                    <div class="product__price" style="text-decoration: line-through; color: gray"><fmt:formatNumber value="${goodsDto.price }"/>원 (${goodsDto.discountRate}%)</div>
+				                                    <div class="product__price"><fmt:formatNumber value="${goodsDto.price - goodsDto.price * goodsDto.discountRate / 100 }"/>원</div>
+			                            			<div class="product__color__select">
+			                            				<label for="sp-1">
+					                                    	<input type="radio" id="sp-1" name="goodsColor" value="black">
+				                                     	</label>
+					                                    <label class="c-2" for="sp-2">
+					                                    	<input type="radio" id="sp-2" name="goodsColor" value="navy">
+					                                    </label>
+					                                    <label class="c-3" for="sp-3">
+					                                    	<input type="radio" id="sp-3" name="goodsColor" value="yellow">
+					                                    </label>
+					                                    <label class="c-4" for="sp-4">
+					                                    	<input type="radio" id="sp-4" name="goodsColor" value="grey">
+					                                    </label>
+			                            			</div>
+					                        	</div>
+				                            </div>
+				                        </div>
+			                    	</c:forEach>
+	                    		</c:otherwise>
+	                    	</c:choose>
+	                	</div>    
+	                </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-12">

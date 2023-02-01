@@ -156,12 +156,12 @@
                            <div class="checkout__order__products">Product <span>Total</span></div>
                            <ul class="checkout__total__products">
                                <li>01. ${goodsDto.goodsNm } , <span>${orderGoodsQty }개</span></li>
-                               <li>상품 금액 <span><fmt:formatNumber value="${(goodsDto.price - (goodsDto.price * goodsDto.discountRate / 100)) * orderGoodsQty}"/>원</span></li>
+                               <li>상품 금액 <span><fmt:formatNumber value="${(goodsDto.price - (goodsDto.price * goodsDto.discountRate / 100)) * (xsOrderGoodsQty+smOrderGoodsQty+mdOrderGoodsQty+lgOrderGoodsQty+xlOrderGoodsQty)}"/>원</span></li>
                            </ul>
                            <ul class="checkout__total__all">
                                <li>배송비 <span><fmt:formatNumber value="${goodsDto.deliveryPrice}"/>원</span></li>
-                               <li>포인트 <span><fmt:formatNumber value="${goodsDto.point * orderGoodsQty}"/>P 적립</span></li>
-                           	   <c:set var="paymentAmt" value="${(goodsDto.price - (goodsDto.price * goodsDto.discountRate / 100)) * orderGoodsQty + goodsDto.deliveryPrice}"/>
+                               <li>포인트 <span><fmt:formatNumber value="${goodsDto.point * (xsOrderGoodsQty+smOrderGoodsQty+mdOrderGoodsQty+lgOrderGoodsQty+xlOrderGoodsQty)}"/>P 적립</span></li>
+                           	   <c:set var="paymentAmt" value="${(goodsDto.price - (goodsDto.price * goodsDto.discountRate / 100)) * (xsOrderGoodsQty+smOrderGoodsQty+mdOrderGoodsQty+lgOrderGoodsQty+xlOrderGoodsQty) + goodsDto.deliveryPrice}"/>
                            	   <li>합계 <span><fmt:formatNumber value="${paymentAmt }"/>원</span></li>
                            </ul>
                            <input type="hidden" name="paymentAmt" value='<fmt:parseNumber integerOnly="true" value="${paymentAmt }"/>'/>

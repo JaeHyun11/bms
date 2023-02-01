@@ -161,7 +161,7 @@ public class AdminGoodsController {
 			}
 		
 		}
-		System.out.println(goodsDto);
+		
 		adminGoodsService.modifyGoods(goodsDto);
 		String js = "<script>";
 			   js += " alert('상품정보를 수정하였습니다.');";

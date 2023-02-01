@@ -7,16 +7,8 @@
 <meta charset="UTF-8">
 <head>
 <script>
-
-		$().ready(function(){
 		
-		$("[name='goodsGroup']").val("${goodsDto.goodsGroup}");
-		$("[name='goodsCategory']").val("${goodsDto.goodsCategory}");
-		$("[name='goodsColor']").val("${goodsDto.goodsColor}");
-		$("[name='sort']").val("${goodsDto.sort}");
-		});
-		
-		$(document).ready(function(){	
+	$(document).ready(function(){	
 			
 		$("[name='goodsGroup']").change(function(){
 			var searchType = $("[name='goodsGroup']").val();
@@ -45,15 +37,21 @@
 	            setView += '<option value="Shoes">슈즈</option>';
 	            setView += '</select>';
 			}
+		 	
 			$("#setCategory").html(setView);
 			
 		});
-				
+		
+		$("[name='goodsGroup']").val("${goodsDto.goodsGroup}");
+		$("[name='goodsCategory']").val("${goodsDto.goodsCategory}");
+		$("[name='goodsColor']").val("${goodsDto.goodsColor}");
+		$("[name='sort']").val("${goodsDto.sort}");
+		
 	});
 	
 </script>
 </head>
-<body>
+
 	<!-- Breadcrumb Section Begin -->
 	<section class="breadcrumb-option">
 	    <div class="container">

@@ -38,7 +38,7 @@ public class OrderController {
 		HttpSession session = request.getSession();
 		
 		mv.addObject("orderer" , orderService.getOrdererDetail((String)session.getAttribute("memberId")));
-		mv.addObject("goodDto" , orderService.getGoodsDetail(goodsCd));
+		mv.addObject("goodsDto" , orderService.getGoodsDetail(goodsCd));
 		mv.addObject("orderGoodsQty" , orderGoodsQty);
 		
 		return mv;
@@ -59,7 +59,7 @@ public class OrderController {
 			   
 		HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
-		
+		System.out.println(orderDto);
 		return new ResponseEntity<Object>(js , responseHeaders, HttpStatus.OK);
 		
 	}

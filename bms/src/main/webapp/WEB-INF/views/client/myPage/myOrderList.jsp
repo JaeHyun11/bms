@@ -52,7 +52,7 @@
                             </thead>
                             <tbody>
                             	<c:choose>
-                            		<c:when test="${empty myOrderList}">
+                            		<c:when test="${empty myOrderList }">
                             			<tr>
 		                                    <td colspan="4" align="center"><h6>조회된 상품이 없습니다.</h6></td>
 		                                </tr>	
@@ -60,7 +60,7 @@
                             		<c:otherwise>
                             			<c:forEach var="myOrder" items="${myOrderList }" varStatus="i">
 			                                <tr>
-			                                    <td class="product__cart__item" align="center">
+			                                	<td class="product__cart__item" align="center">
 			                                    	<h6>${myOrder.orderCd }</h6>
 			                                    </td>
 			                                    <td class="product__cart__item">
@@ -68,10 +68,10 @@
 			                                        <div class="product__cart__item__title">
 			                                        	<h6><a href="${contextPath }/myPage/myOrderDetail?orderCd=${myOrder.orderCd}&memberId=${myOrder.memberId}">${myOrder.goodsNm } / ${myOrder.orderGoodsQty }개</a></h6>
 			                                        </div>
-			                                     </td>
-			                                     <td class="cart__total"><fmt:formatDate value="${myOrder.price }"/>원</td>
-			                                	<td class="cart__close">
-			                                		<fmt:formatDate value="${myOrder.payOrderTime }" pattern="yyyy-MM-dd"/><span class="icon_trash_alt"></span>
+												</td>
+			                                    <td class="cart__price"><fmt:formatNumber value="${myOrder.price }"/>원</td>
+			                                	<td class="cart__total"><fmt:formatDate value="${myOrder.payOrderTime }" pattern="yyyy-MM-dd"/> </td>
+			                               		<td class="cart__close">
 			                                	</td>
 			                                </tr>
                                     	</c:forEach>
@@ -79,9 +79,6 @@
                             	</c:choose>
                             </tbody>
                         </table>
-                    </div>
-                    <div align="right">
-						<button type="button" onclick="javascript:location.href='${contextPath}/admin/goods/adminGoodsAdd'" class="site-btn"><span class="icon_plus"></span> 등록</button>
                     </div>
                 </div>
             </div>

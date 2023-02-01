@@ -29,6 +29,17 @@
 		
 	}
 	
+	$(document).ready(function () {
+		
+		$("[name='xs_stock']").click(function() {
+			$("#sizeTarget").prop("xsorderGoodsQty");
+		}
+		
+		
+		
+		
+		
+	}
 	
 </script>
 </head>
@@ -157,7 +168,7 @@
                                 <div class="quantity">
                                 	<span>수량 : </span>
                                     <div class="pro-qty">
-                                        <input type="text" value="1" id="orderGoodsQty">
+                                    	<input type="text" value="1" id="sizeTarget">
                                     </div>
                                 </div>
                                 <a href="#" class="primary-btn">장바구니에 담기</a>
@@ -186,52 +197,40 @@
                                     role="tab">Description</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#tabs-6" role="tab">Customer
-                                    Previews(5)</a>
+                                    <a class="nav-link" data-toggle="tab" href="#tabs-6" role="tab">Additional Details</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#tabs-7" role="tab">Additional
-                                    information</a>
+                                    <a class="nav-link" data-toggle="tab" href="#tabs-7" role="tab" href="#">Q&A</a>
                                 </li>
                             </ul>
                             <div class="tab-content">
                                 <div class="tab-pane active" id="tabs-5" role="tabpanel">
                                     <div class="product__details__tab__content">
-                                        <p class="note">${goodsDto.goodsDetail }</p>
+                                        <p class="note"></p>
                                         <div class="product__details__tab__content__item">
                                             <h5>Products Infomation</h5>
                                             <p>${goodsDto.goodsInfo }</p>
-                                        </div>
-                                        <div class="product__details__tab__content__item">
-                                            <h5>Material used</h5>
-                                            <p>${goodsDto.goodsDetail }</p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="tabs-6" role="tabpanel">
                                     <div class="product__details__tab__content">
                                         <div class="product__details__tab__content__item">
-                                            <h5>Products Infomation</h5>
-                                            <p>A Pocket PC is a handheld computer, which features many of the same
-                                                capabilities as a modern PC. These handy little devices allow
-                                                </p>
+                                            <h5>Additional Details</h5>
+                                            <p>${goodsDto.goodsDetail }</p>
                                         </div>
                                         <div class="product__details__tab__content__item">
-                                            <h5>Material used</h5>
-                                            <p>Polyester is deemed lower quality due to its none natural quality’s. Made
-                                                from synthetic materials, not natural like wool. </p>
+                                            <h5></h5>
+                                            <p></p>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="tab-pane" id="tabs-7" role="tabpanel">
                                     <div class="product__details__tab__content">
-                                        <p class="note">Nam tempus turpis at metus scelerisque placerat nulla deumantos
-                                            solicitud felis.</p>
+                                        <p class="note"></p>
                                         <div class="product__details__tab__content__item">
                                             <h5>Products Infomation</h5>
-                                            <p>A Pocket PC is a handheld computer, which features many of the same
-                                                capabilities as a modern PC. </p>
-                                            
+                                            <p></p>
                                         </div>
                                         <div class="product__details__tab__content__item">
                                             <h5>Material used</h5>
