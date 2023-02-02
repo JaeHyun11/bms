@@ -22,40 +22,49 @@
 				url : "${contextPath }/myPage/addCart",
 				method : "get",
 				data : {"goodsCd" : goodsCd , "cartGoodsQty" : $("#orderGoodsQty").val()},
-				success : function {
-					alert("상품이 추가되었습니다.")
+				success : function() {
+					alert("상품이 추가되었습니다.");
 				}
-			}
-		
+			})
+		}
 	}
 	
 	function processToOrder(goodsCd) {
+		
+		
 		
 		if ("${sessionId == null}" == "true") {
 			alert("로그인 먼저 진행해주세요.");
 			location.href = "${contextPath }/member/login";
 		}
 		else {
-			location.href = "${contextPath }/order/orderGoods?goodsCd="+goodsCd+"&orderGoodsQty=" + $("#orderGoodsQty").val();	
+			
+			//$("[name='size']").val(size);
+			
+			location.href = "${contextPath }/order/orderGoods?goodsCd="+goodsCd+"&size="+$("#size").val()+"&orderGoodsQty=" + $("#orderGoodsQty").val();	
 		}
 		
 	}
 	
 	
 	$().ready(function () {
-		
-		$("[name='xsStock']").click(function() {
-			$('.pro-qty').attr("sizeTarget",$("[name='xsOrderGoodsQty']"));
+		/*
+		$("#xs").click(function() {
+			size = "xs";
 		});
-		$("[name='smStock']").click(function() {
-			$('.pro-qty').attr("sizeTarget","smOrderGoodsQty");
+		$("#sm").click(function() {
+			size = "sm";
 		});
-		$("[name='mdStock']").click(function() {
-			$("[name='sizeTarget']").attr("mdOrderGoodsQty");
+		$("#md").click(function() {
+			size = "md";
 		});
-		
-		
-		
+		$("#lg").click(function() {
+			size = "lg";
+		});
+		$("#xl").click(function() {
+			size = "xl";
+		});
+		*/
 	});
 	
 </script>
@@ -150,26 +159,26 @@
                                 <div class="product__details__option__size">
                                     <span>Size:</span>
                                     <label for="xs">xs
-                                        <input type="radio" id="xs" name="xs_stock">
+                                        <input type="radio" id="xs" name="size" value="xsStock">
                                     </label>
                                     <label for="sm">sm
-                                        <input type="radio" id="sm" name="sm_stock">
+                                        <input type="radio" id="sm" name="size" value="smStock">
                                     </label>
                                     <label for="md">md
-                                        <input type="radio" id="md" name="md_stock">
+                                        <input type="radio" id="md" name="size" value="mdStock">
                                     </label>
                                     <label class="active" for="l">l
-                                        <input type="radio" id="l" name="lg_stock">
+                                        <input type="radio" id="lg" name="size" value="lgStock">
                                     </label>
                                     <label for="xl">xl
-                                        <input type="radio" id="xl" name="xl_stock">
+                                        <input type="radio" id="xl" name="size" value="xlStock">
                                     </label>
                                 </div>
 	                            <div class="product__details__cart__option">
 	                                <div class="quantity">
 	                                	<span>수량: </span>
 	                                    <div class="pro-qty">
-	                                    	<input type="text" value="1" name="sizeTarget">
+	                                    	<input type="text" value="1" name="orderGoodsQty">
 	                                    </div>
 	                                </div>
 	                                <a href="javascript:processToCart(${goodsDto.goodsCd });" class="primary-btn">장바구니에 담기</a>

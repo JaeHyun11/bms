@@ -116,7 +116,7 @@ public class MyPageController {
 		myPageService.addCart(cartDto);
 		session.setAttribute("myCartCnt" , memberService.getMyCartCnt((memberId)));
 		
-		return request.getContextPath();
+		return null;
 		
 	}
 	
@@ -127,7 +127,7 @@ public class MyPageController {
 		HttpSession session = request.getSession();
 		
 		ModelAndView mv = new ModelAndView();
-		mv.setViewName("/cart/myCartList");
+		mv.setViewName("/myPage/myCartList");
 		
 		String memberId = (String)session.getAttribute("memberId");
 		mv.addObject("myCartList" , myPageService.getMyCartList(memberId));

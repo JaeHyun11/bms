@@ -29,17 +29,18 @@ public class OrderController {
 	@Autowired
 	private MemberService memberService;
 	
-	@RequestMapping(value="/orderGoods", method=RequestMethod.GET)
-	public ModelAndView orderGoods(@RequestParam("goodsCd") int goodsCd , @RequestParam("orderGoodsQty") int orderGoodsQty , HttpServletRequest request) throws Exception {
+	@RequestMapping(value="/orderGoods", method=RequestMethod.GET)				// 종류(xsstock,s,m)					수량(1,3)
+	public ModelAndView orderGoods(@RequestParam("goodsCd") int goodsCd , @RequestParam("size") String size, @RequestParam("orderGoodsQty") int orderGoodsQty,
+									HttpServletRequest request) throws Exception {
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName("/order/orderGoods");
 		
 		HttpSession session = request.getSession();
 		
-		mv.addObject("orderer" , orderService.getOrdererDetail((String)session.getAttribute("memberId")));
+		mv.addObject("orderer" , orderService.getOrdererDetail((String)session.getAttribute("memberId")));  // service로
 		mv.addObject("goodsDto" , orderService.getGoodsDetail(goodsCd));
-		mv.addObject("orderGoodsQty" , orderGoodsQty);
+		mv.addObject("orderGoodsQty" , orderGoodsQty);		 // jsp로
 		
 		return mv;
 	}

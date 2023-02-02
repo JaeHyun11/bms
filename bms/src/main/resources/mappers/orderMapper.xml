@@ -8,11 +8,8 @@
 			 `ORDER` (
 			    MEMBER_ID,
 			    GOODS_CD,
-				XS_ORDER_GOODS_QTY,
-				SM_ORDER_GOODS_QTY,
-				MD_ORDER_GOODS_QTY,
-				LG_ORDER_GOODS_QTY,
-				XL_ORDER_GOODS_QTY,
+			    SIZE,
+				ORDER_GOODS_QTY,
 				PAYMENT_AMT,
 			    ORDERER_NM,
 			    ORDERER_HP,
@@ -33,11 +30,8 @@
 		VALUES (
 			    #{memberId},
 			    #{goodsCd},
-			    #{xsOrderGoodsQty},
-			    #{smOrderGoodsQty},
-			    #{mdOrderGoodsQty},
-			    #{lgOrderGoodsQty},
-			    #{xlOrderGoodsQty},
+			    #{size},
+			    #{orderGoodsQty},
 			    #{paymentAmt},
 			    #{ordererNm},
                 #{ordererHp},
@@ -95,11 +89,8 @@
 		INSERT INTO `ORDER` (
 			    MEMBER_ID,
 			    GOODS_CD,
-				XS_ORDER_GOODS_QTY,
-				SM_ORDER_GOODS_QTY,
-				MD_ORDER_GOODS_QTY,
-				LG_ORDER_GOODS_QTY,
-				XL_ORDER_GOODS_QTY,
+			    SIZE,
+				ORDER_GOODS_QTY,
 				PAYMENT_AMT,
 			    ORDERER_NM,
 			    ORDERER_HP,
@@ -122,11 +113,8 @@
 				(
 				    #{orderDto.memberId},
 				    #{orderDto.goodsCd},
-				    #{orderDto.xsOrderGoodsQty},
-				    #{orderDto.smOrderGoodsQty},
-				    #{orderDto.mdOrderGoodsQty},
-				    #{orderDto.lgOrderGoodsQty},
-				    #{orderDto.xlOrderGoodsQty},
+				    #{orderDto.size},
+				    #{orderDto.orderGoodsQty},
 				    #{orderDto.paymentAmt},
 				    #{orderDto.ordererNm},
 	                #{orderDto.ordererHp},
@@ -152,11 +140,22 @@
 		UPDATE
 				GOODS
 		SET
-				XS_STOCK = XS_STOCK - #{xsOrderGoodsQty},
-				SM_STOCK = SM_STOCK - #{smOrderGoodsQty},
-				MD_STOCK = MD_STOCK - #{mdOrderGoodsQty},
-				LG_STOCK = LG_STOCK - #{lgOrderGoodsQty},
-				XL_STOCK = XL_STOCK - #{xlOrderGoodsQty}
+			<if test='size == "xs"'>
+				XS_STOCK = XS_STOCK - #{orderGoodsQty}
+			</if>
+			<if test='size == "sm"'>
+				SM_STOCK = SM_STOCK - #{orderGoodsQty}
+			</if>
+			<if test='size == "md"'>
+				MD_STOCK = MD_STOCK - #{orderGoodsQty}
+			</if>
+			<if test='size == "lg"'>
+				LG_STOCK = LG_STOCK - #{orderGoodsQty}
+			</if>
+			<if test='size == "xl"'>
+				XL_STOCK = XL_STOCK - #{orderGoodsQty}
+			</if>
+				
 		WHERE
 				GOODS_CD = #{goodsCd}
 	</update>
@@ -169,40 +168,6 @@
 		WHERE
 				MEMBER_ID = #{memberId}
 	</update>
-	
-	<update id="updateGoodsStockCntByCart" >
-		<foreach collection="list" item="goodsMap" separator=";" >
-			UPDATE
-					GOODS
-			SET
-					XS_STOCK = XS_STOCK - #{goodsMap.xsOrderGoodsQty},
-					SM_STOCK = SM_STOCK - #{goodsMap.smOrderGoodsQty},
-					MD_STOCK = MD_STOCK - #{goodsMap.mdOrderGoodsQty},
-					LG_STOCK = LG_STOCK - #{goodsMap.lgOrderGoodsQty},
-					XL_STOCK = XL_STOCK - #{goodsMap.xlOrderGoodsQty}
-			WHERE
-					GOODS_CD = #{goodsMap.goodsCd}
-		</foreach> 
-	</update>
 
-	<update id="updateMemberPointByCart" parameterType="hashmap">
-		UPDATE
-				MEMBER
-		SET
-				POINT = POINT + #{point}
-		WHERE
-				MEMBER_ID = #{memberId}
-	</update>
-	
-	<delete id="deleteCartByOrder" >
-		DELETE FROM 
-				CART
-		WHERE
-				CART_CD IN
-				<foreach collection="array" item="cartCd" separator="," open="(" close=")" >
-					#{cartCd}
-				</foreach> 
-	</delete>
-	
 	
 </mapper>

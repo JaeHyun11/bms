@@ -10,11 +10,8 @@ public class OrderDto {
 	private long orderCd;
 	private String memberId;
 	private int goodsCd;
-	private int xsOrderGoodsQty;
-	private int smOrderGoodsQty;
-	private int mdOrderGoodsQty;
-	private int lgOrderGoodsQty;
-	private int xlOrderGoodsQty;
+	private String size;
+	private int orderGoodsQty;
 	private int paymentAmt;
 	private String ordererNm;
 	private String ordererHp;
@@ -50,35 +47,17 @@ public class OrderDto {
 	public void setGoodsCd(int goodsCd) {
 		this.goodsCd = goodsCd;
 	}
-	public int getXsOrderGoodsQty() {
-		return xsOrderGoodsQty;
+	public String getSize() {
+		return size;
 	}
-	public void setXsOrderGoodsQty(int xsOrderGoodsQty) {
-		this.xsOrderGoodsQty = xsOrderGoodsQty;
+	public void setSize(String size) {
+		this.size = size;
 	}
-	public int getSmOrderGoodsQty() {
-		return smOrderGoodsQty;
+	public int getOrderGoodsQty() {
+		return orderGoodsQty;
 	}
-	public void setSmOrderGoodsQty(int smOrderGoodsQty) {
-		this.smOrderGoodsQty = smOrderGoodsQty;
-	}
-	public int getMdOrderGoodsQty() {
-		return mdOrderGoodsQty;
-	}
-	public void setMdOrderGoodsQty(int mdOrderGoodsQty) {
-		this.mdOrderGoodsQty = mdOrderGoodsQty;
-	}
-	public int getLgOrderGoodsQty() {
-		return lgOrderGoodsQty;
-	}
-	public void setLgOrderGoodsQty(int lgOrderGoodsQty) {
-		this.lgOrderGoodsQty = lgOrderGoodsQty;
-	}
-	public int getXlOrderGoodsQty() {
-		return xlOrderGoodsQty;
-	}
-	public void setXlOrderGoodsQty(int xlOrderGoodsQty) {
-		this.xlOrderGoodsQty = xlOrderGoodsQty;
+	public void setOrderGoodsQty(int orderGoodsQty) {
+		this.orderGoodsQty = orderGoodsQty;
 	}
 	public int getPaymentAmt() {
 		return paymentAmt;
@@ -179,15 +158,16 @@ public class OrderDto {
 	
 	@Override
 	public String toString() {
-		return "OrderDto [orderCd=" + orderCd + ", memberId=" + memberId + ", goodsCd=" + goodsCd + ", xsOrderGoodsQty="
-				+ xsOrderGoodsQty + ", smOrderGoodsQty=" + smOrderGoodsQty + ", mdOrderGoodsQty=" + mdOrderGoodsQty
-				+ ", lgOrderGoodsQty=" + lgOrderGoodsQty + ", xlOrderGoodsQty=" + xlOrderGoodsQty + ", paymentAmt="
-				+ paymentAmt + ", ordererNm=" + ordererNm + ", ordererHp=" + ordererHp + ", zipcode=" + zipcode
-				+ ", roadAddress=" + roadAddress + ", jibunAddress=" + jibunAddress + ", namujiAddress=" + namujiAddress
-				+ ", deliveryMethod=" + deliveryMethod + ", deliveryMessage=" + deliveryMessage + ", deliveryStatus="
-				+ deliveryStatus + ", giftWrapping=" + giftWrapping + ", payMethod=" + payMethod + ", payOrdererHp="
-				+ payOrdererHp + ", cardCompanyNm=" + cardCompanyNm + ", cardPayMonth=" + cardPayMonth
-				+ ", payOrderTime=" + payOrderTime + "]";
+		return "OrderDto [orderCd=" + orderCd + ", memberId=" + memberId + ", goodsCd=" + goodsCd + ", size=" + size
+				+ ", orderGoodsQty=" + orderGoodsQty + ", paymentAmt=" + paymentAmt + ", ordererNm=" + ordererNm
+				+ ", ordererHp=" + ordererHp + ", zipcode=" + zipcode + ", roadAddress=" + roadAddress
+				+ ", jibunAddress=" + jibunAddress + ", namujiAddress=" + namujiAddress + ", deliveryMethod="
+				+ deliveryMethod + ", deliveryMessage=" + deliveryMessage + ", deliveryStatus=" + deliveryStatus
+				+ ", giftWrapping=" + giftWrapping + ", payMethod=" + payMethod + ", payOrdererHp=" + payOrdererHp
+				+ ", cardCompanyNm=" + cardCompanyNm + ", cardPayMonth=" + cardPayMonth + ", payOrderTime="
+				+ payOrderTime + "]";
 	}
+	
+	
 	
 }

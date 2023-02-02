@@ -114,7 +114,16 @@
                     <div class="header__nav__option">
                         <a href="#" class="search-switch"><img src="${contextPath }/resources/bootstrap/img/icon/search.png" alt=""></a>
                         <a href="#"><img src="${contextPath }/resources/bootstrap/img/icon/heart.png" alt=""></a>
-                        <a href="${contextPath }/myPage/myCartList"><img src="${contextPath }/resources/bootstrap/img/icon/cart.png" alt=""> <span>${cartDto.cartGoodsQty } </span></a>
+                        <a href="${contextPath }/myPage/myCartList"><img src="${contextPath }/resources/bootstrap/img/icon/cart.png" alt=""> <span>
+                        	<c:choose>
+                             	<c:when test="${sessionScope.role == 'client'}">
+                                	<div class="tip">${sessionScope.myCartCnt }</div>
+                             	</c:when>
+                             	<c:otherwise>
+                             		<div class="tip">0</div>
+                             	</c:otherwise>
+                             </c:choose>
+                        </span></a>
                         <div class="price">$0.00</div>
                     </div>
                 </div>
