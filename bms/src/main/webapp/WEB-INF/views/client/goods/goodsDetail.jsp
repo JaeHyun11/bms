@@ -12,8 +12,20 @@
 
 	function processToCart(goodsCd) {
 		
-		locaton.href = "${contextPath }/myPage/addCart";
-		alert("장바구니에 추가되었습니다.");
+		if ("${sessionId == null}" == "true") {
+			alert("로그인을 진행해주세요.");
+			location.href = "${contextPath }/member/login";
+		}
+		else {
+			
+			$.ajax({
+				url : "${contextPath }/myPage/addCart",
+				method : "get",
+				data : {"goodsCd" : goodsCd , "cartGoodsQty" : $("#orderGoodsQty").val()},
+				success : function {
+					alert("상품이 추가되었습니다.")
+				}
+			}
 		
 	}
 	
@@ -29,17 +41,22 @@
 		
 	}
 	
-	$(document).ready(function () {
+	
+	$().ready(function () {
 		
-		$("[name='xs_stock']").click(function() {
-			$("#sizeTarget").prop("xsorderGoodsQty");
-		}
+		$("[name='xsStock']").click(function() {
+			$('.pro-qty').attr("sizeTarget",$("[name='xsOrderGoodsQty']"));
+		});
+		$("[name='smStock']").click(function() {
+			$('.pro-qty').attr("sizeTarget","smOrderGoodsQty");
+		});
+		$("[name='mdStock']").click(function() {
+			$("[name='sizeTarget']").attr("mdOrderGoodsQty");
+		});
 		
 		
 		
-		
-		
-	}
+	});
 	
 </script>
 </head>
@@ -148,102 +165,88 @@
                                         <input type="radio" id="xl" name="xl_stock">
                                     </label>
                                 </div>
-                                <div class="product__details__option__color">
-                                    <span>Color:</span>
-                						<label class="c-1" for="sp-1">
-                                             <input type="radio" id="sp-1" name="goodsColor" value="black">
-                                        </label>
-                                        <label class="c-2" for="sp-2">
-                                            <input type="radio" id="sp-2" name="goodsColor" value="navy">
-                                        </label>
-                                        <label class="c-3" for="sp-3">
-                                            <input type="radio" id="sp-3" name="goodsColor" value="yellow">
-                                        </label>
-                                        <label class="c-4" for="sp-4">
-                                            <input type="radio" id="sp-4" name="goodsColor" value="grey">
-                                        </label>                         
-                                </div>
-                            </div>
-                            <div class="product__details__cart__option">
-                                <div class="quantity">
-                                	<span>수량 : </span>
-                                    <div class="pro-qty">
-                                    	<input type="text" value="1" id="sizeTarget">
-                                    </div>
-                                </div>
-                                <a href="#" class="primary-btn">장바구니에 담기</a>
-                                <a href="javascript:processToOrder(${goodsDto.goodsCd });" class="primary-btn">주문하기</a>
-                            </div>
-                            <div class="product__details__btns__option">
-                                <a href="#"><i class="fa fa-heart"></i> add to wishlist</a>
-                            </div>
-                            <div class="product__details__last__option">
-                                <h5><span>Guaranteed Safe Checkout</span></h5>
-                                <img src="${contextPath }/resources/bootstrap/img/shop-details/details-payment.png" alt="">
-                                <ul>
-                                    <li><span>SKU:</span> ${goodsDto.goodsCd }</li>
-                                    <li><span>Categories:</span> ${goodsDto.goodsCategory }</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="product__details__tab">
-                            <ul class="nav nav-tabs" role="tablist">
-                                <li class="nav-item">
-                                    <a class="nav-link active" data-toggle="tab" href="#tabs-5"
-                                    role="tab">Description</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#tabs-6" role="tab">Additional Details</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#tabs-7" role="tab" href="#">Q&A</a>
-                                </li>
-                            </ul>
-                            <div class="tab-content">
-                                <div class="tab-pane active" id="tabs-5" role="tabpanel">
-                                    <div class="product__details__tab__content">
-                                        <p class="note"></p>
-                                        <div class="product__details__tab__content__item">
-                                            <h5>Products Infomation</h5>
-                                            <p>${goodsDto.goodsInfo }</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane" id="tabs-6" role="tabpanel">
-                                    <div class="product__details__tab__content">
-                                        <div class="product__details__tab__content__item">
-                                            <h5>Additional Details</h5>
-                                            <p>${goodsDto.goodsDetail }</p>
-                                        </div>
-                                        <div class="product__details__tab__content__item">
-                                            <h5></h5>
-                                            <p></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="tab-pane" id="tabs-7" role="tabpanel">
-                                    <div class="product__details__tab__content">
-                                        <p class="note"></p>
-                                        <div class="product__details__tab__content__item">
-                                            <h5>Products Infomation</h5>
-                                            <p></p>
-                                        </div>
-                                        <div class="product__details__tab__content__item">
-                                            <h5>Material used</h5>
-                                            <p>Polyester is deemed lower quality due to its none natural quality’s. Made
-                                                from synthetic materials, not natural like wool. Polyester suits become
-                                                creased easily and are</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+	                            <div class="product__details__cart__option">
+	                                <div class="quantity">
+	                                	<span>수량: </span>
+	                                    <div class="pro-qty">
+	                                    	<input type="text" value="1" name="sizeTarget">
+	                                    </div>
+	                                </div>
+	                                <a href="javascript:processToCart(${goodsDto.goodsCd });" class="primary-btn">장바구니에 담기</a>
+	                                <a href="javascript:processToOrder(${goodsDto.goodsCd });" class="primary-btn">주문하기</a>
+	                            </div>
+	                            <div class="product__details__btns__option">
+	                                <a href="#"><i class="fa fa-heart"></i> add to wishlist</a>
+	                            </div>
+	                            <div class="product__details__last__option">
+	                                <h5><span>Guaranteed Safe Checkout</span></h5>
+	                                <img src="${contextPath }/resources/bootstrap/img/shop-details/details-payment.png" alt="">
+	                                <ul>
+	                                    <li><span>SKU:</span> ${goodsDto.goodsCd }</li>
+	                                    <li><span>Categories:</span> ${goodsDto.goodsCategory }</li>
+	                                </ul>
+	                            </div>
+                        	</div>
+                    	</div>
+                	</div>
+	                <div class="row">
+	                    <div class="col-lg-12">
+	                        <div class="product__details__tab">
+	                            <ul class="nav nav-tabs" role="tablist">
+	                                <li class="nav-item">
+	                                    <a class="nav-link active" data-toggle="tab" href="#tabs-5"
+	                                    role="tab">Description</a>
+	                                </li>
+	                                <li class="nav-item">
+	                                    <a class="nav-link" data-toggle="tab" href="#tabs-6" role="tab">Additional Details</a>
+	                                </li>
+	                                <li class="nav-item">
+	                                    <a class="nav-link" data-toggle="tab" href="#tabs-7" role="tab" href="#">Q&A</a>
+	                                </li>
+	                            </ul>
+	                            <div class="tab-content">
+	                                <div class="tab-pane active" id="tabs-5" role="tabpanel">
+	                                    <div class="product__details__tab__content">
+	                                        <p class="note"></p>
+	                                        <div class="product__details__tab__content__item">
+	                                            <h5>Products Infomation</h5>
+	                                            <p>색상		${goodsDto.goodsColor }</p>
+	                                            <p>${goodsDto.goodsInfo }</p>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="tab-pane" id="tabs-6" role="tabpanel">
+	                                    <div class="product__details__tab__content">
+	                                        <div class="product__details__tab__content__item">
+	                                            <h5>Additional Details</h5>
+	                                            <p>${goodsDto.goodsDetail }</p>
+	                                        </div>
+	                                        <div class="product__details__tab__content__item">
+	                                            <h5></h5>
+	                                            <p></p>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                                <div class="tab-pane" id="tabs-7" role="tabpanel">
+	                                    <div class="product__details__tab__content">
+	                                        <p class="note"></p>
+	                                        <div class="product__details__tab__content__item">
+	                                            <h5>Products Infomation</h5>
+	                                            <p></p>
+	                                        </div>
+	                                        <div class="product__details__tab__content__item">
+	                                            <h5>Material used</h5>
+	                                            <p>Polyester is deemed lower quality due to its none natural quality’s. Made
+	                                                from synthetic materials, not natural like wool. Polyester suits become
+	                                                creased easily and are</p>
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                        </div>
+	                    </div>
+	                </div>
+	        	</div>
             </div>
         </div>
     </section>

@@ -59,7 +59,7 @@ public class OrderController {
 			   
 		HttpHeaders responseHeaders = new HttpHeaders();
 		responseHeaders.add("Content-Type", "text/html; charset=utf-8");
-		System.out.println(orderDto);
+		
 		return new ResponseEntity<Object>(js , responseHeaders, HttpStatus.OK);
 		
 	}

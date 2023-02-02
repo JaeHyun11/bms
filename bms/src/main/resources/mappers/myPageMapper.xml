@@ -176,6 +176,21 @@
 				MEMBER_ID = #{memberId}
 	</delete>
 	
+	<insert id="insertCart" parameterType="CartDto">
+		INSERT INTO
+			CART (GOODS_CD,
+				  CART_GOODS_QTY,
+				  MEMBER_ID,
+				  ENROLL_DT
+		)
+		VALUES (
+				#{goodsCd},
+				#{cartGoodsQty},
+				#{memberId},
+				NOW()
+		)
+	</insert>
+	
 	<delete id="deleteCartListByRemoveMember" parameterType="String">
 		DELETE FROM
 				CART
@@ -199,21 +214,6 @@
 				MEMBER_ID = #{memberId} AND
 				GOODS_CD = #{goodsCd}
 	</select>
-	
-	<insert id="insertCart" parameterType="CartDto">
-		INSERT INTO
-			CART (GOODS_CD,
-				  CART_GOODS_QTY,
-				  MEMBER_ID,
-				  ENROLL_DT
-		)
-		VALUES (
-				#{goodsCd},
-				#{cartGoodsQty},
-				#{memberId},
-				NOW()
-		)
-	</insert>
   
   	<resultMap type="hashmap" id="cartMap">
   		<result column="CART_CD"     	  property="cartCd"/>
@@ -253,7 +253,16 @@
 		ORDER BY
 				C.ENROLL_DT DESC
 	</select>
-  
+	
+	<select id="selectCountMyCart" parameterType="String" resultType="int">
+		SELECT
+				COUNT(*)
+		FROM
+				CART
+		WHERE
+				MEMBER_ID = #{memberId}
+	</select>
+	
   	<delete id="deleteCart" >
 		
 		DELETE FROM
@@ -275,13 +284,5 @@
 				CART_CD = #{cartCd}
 	</update>
 	
-	<select id="selectCountMyCart" parameterType="String" resultType="int">
-		SELECT
-				COUNT(*)
-		FROM
-				CART
-		WHERE
-				MEMBER_ID = #{memberId}
-	</select>
 	
 </mapper>

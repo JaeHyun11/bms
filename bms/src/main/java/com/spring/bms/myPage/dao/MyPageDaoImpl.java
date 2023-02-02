@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.spring.bms.member.dto.MemberDto;
+import com.spring.bms.myPage.dto.CartDto;
 
 @Repository
 public class MyPageDaoImpl implements MyPageDao {
@@ -48,6 +49,31 @@ public class MyPageDaoImpl implements MyPageDao {
 	@Override
 	public Map<String, Object> selectOneMyOrder(Map<String, Object> orderDetailMap) throws Exception {
 		return sqlSession.selectOne("myPage.selectOneMyOrder" , orderDetailMap);
+	}
+
+	@Override
+	public void insertCart(CartDto cartDto) throws Exception {
+		sqlSession.insert("myPage.insertCart" , cartDto);
+	}
+
+	@Override
+	public List<Map<String, Object>> selectListMyCart(String memberId) throws Exception {
+		return sqlSession.selectList("myPage.selectListMyCart" , memberId);
+	}
+
+	@Override
+	public int selectCountMyCart(String memberId) throws Exception {
+		return sqlSession.selectOne("myPage.selectCountMyCart" , memberId);
+	}
+
+	@Override
+	public void deleteCart(int[] deleteCartCdList) throws Exception {
+		sqlSession.delete("myPage.deleteCart" , deleteCartCdList);
+	}
+
+	@Override
+	public void updateCartGoodsQty(Map<String, Object> updateMap) throws Exception {
+		sqlSession.update("myPage.updateCartGoodsQty" , updateMap);
 	}
 	
 	

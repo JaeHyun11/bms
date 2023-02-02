@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.spring.bms.member.dto.MemberDto;
 import com.spring.bms.myPage.dao.MyPageDao;
+import com.spring.bms.myPage.dto.CartDto;
 
 @Service
 public class MyPageServiceImpl implements MyPageService {
@@ -43,7 +44,31 @@ public class MyPageServiceImpl implements MyPageService {
 	public Map<String, Object> getMyOrderDetail(Map<String, Object> orderDetailMap) throws Exception {
 		return myPageDao.selectOneMyOrder(orderDetailMap);
 	}
-	
+
+	@Override
+	public void addCart(CartDto cartDto) throws Exception {
+		myPageDao.insertCart(cartDto);
+	}
+
+	@Override
+	public List<Map<String, Object>> getMyCartList(String memberId) throws Exception {
+		return myPageDao.selectListMyCart(memberId);
+	}
+
+	@Override
+	public int countCartList(String memberId) throws Exception {
+		return myPageDao.selectCountMyCart(memberId);
+	}
+
+	@Override
+	public void removeCart(int[] deleteCartCdList) throws Exception {
+		myPageDao.deleteCart(deleteCartCdList);
+	}
+
+	@Override
+	public void modifyCartGoodsQty(Map<String, Object> updateMap) throws Exception {
+		myPageDao.updateCartGoodsQty(updateMap);
+	}
 	
 
 }
