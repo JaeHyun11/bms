@@ -30,7 +30,7 @@ public class OrderController {
 	private MemberService memberService;
 	
 	@RequestMapping(value="/orderGoods", method=RequestMethod.GET)				// 종류(xsstock,s,m)					수량(1,3)
-	public ModelAndView orderGoods(@RequestParam("goodsCd") int goodsCd , @RequestParam("size") String size, @RequestParam("orderGoodsQty") int orderGoodsQty,
+	public ModelAndView orderGoods(@RequestParam("goodsCd") int goodsCd , @RequestParam("sizeStock") String sizeStock, @RequestParam("orderGoodsQty") int orderGoodsQty,
 									HttpServletRequest request) throws Exception {
 		
 		ModelAndView mv = new ModelAndView();
@@ -40,7 +40,8 @@ public class OrderController {
 		
 		mv.addObject("orderer" , orderService.getOrdererDetail((String)session.getAttribute("memberId")));  // service로
 		mv.addObject("goodsDto" , orderService.getGoodsDetail(goodsCd));
-		mv.addObject("orderGoodsQty" , orderGoodsQty);		 // jsp로
+		mv.addObject("orderGoodsQty" , orderGoodsQty);
+		mv.addObject("sizeStock" , sizeStock);
 		
 		return mv;
 	}

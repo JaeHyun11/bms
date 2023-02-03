@@ -10,7 +10,7 @@ public class OrderDto {
 	private long orderCd;
 	private String memberId;
 	private int goodsCd;
-	private String size;
+	private String sizeStock;
 	private int orderGoodsQty;
 	private int paymentAmt;
 	private String ordererNm;
@@ -47,11 +47,11 @@ public class OrderDto {
 	public void setGoodsCd(int goodsCd) {
 		this.goodsCd = goodsCd;
 	}
-	public String getSize() {
-		return size;
+	public String getSizeStock() {
+		return sizeStock;
 	}
-	public void setSize(String size) {
-		this.size = size;
+	public void setSizeStock(String sizeStock) {
+		this.sizeStock = sizeStock;
 	}
 	public int getOrderGoodsQty() {
 		return orderGoodsQty;
@@ -158,7 +158,7 @@ public class OrderDto {
 	
 	@Override
 	public String toString() {
-		return "OrderDto [orderCd=" + orderCd + ", memberId=" + memberId + ", goodsCd=" + goodsCd + ", size=" + size
+		return "OrderDto [orderCd=" + orderCd + ", memberId=" + memberId + ", goodsCd=" + goodsCd + ", sizeStock=" + sizeStock
 				+ ", orderGoodsQty=" + orderGoodsQty + ", paymentAmt=" + paymentAmt + ", ordererNm=" + ordererNm
 				+ ", ordererHp=" + ordererHp + ", zipcode=" + zipcode + ", roadAddress=" + roadAddress
 				+ ", jibunAddress=" + jibunAddress + ", namujiAddress=" + namujiAddress + ", deliveryMethod="

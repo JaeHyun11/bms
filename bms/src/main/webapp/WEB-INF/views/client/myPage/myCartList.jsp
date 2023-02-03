@@ -8,6 +8,103 @@
 <meta charset="UTF-8">
 <script>
 	
+	$().ready(function(){
+	
+		getTotalPrice();
+		
+		$("[name='cartCd']").change(function(){
+			getTotalPrice();
+		});
+		
+	});
+	
+	
+	function getTotalPrice () {
+		var totalPrice = 0;
+		$("[name='cartCd']:checked").each(function(){
+			var tempCartCd = $(this).val();
+			totalPrice += Number($("#price" + tempCartCd).val()) * Number($("#cartGoodsQty" + tempCartCd).val());
+		});
+		totalPrice = totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " 원";
+		$("#totalPrice").html(totalPrice);
+	}
+	
+	
+	function removeCart() {
+			
+		var cartCdList = "";
+		if (confirm("정말로 삭제하시겠습니까?")) {
+			
+			$("input[name='cartCd']:checked").each(function(){
+				cartCdList += $(this).val() + ",";
+			});
+			location.href = "${contextPath}/myPage/removeCart?cartCdList=" + cartCdList;
+		}
+		
+	}
+	
+	
+	function modifyCartGoodsQty(cartCd){
+		$.ajax({
+			type : "get",
+			url : "${contextPath}/myPage/modifyCartGoodsQty",
+			data : {
+				"cartCd"   : cartCd,
+				"cartGoodsQty" : $("#cartGoodsQty" + cartCd).val()
+			},
+			success:function(){
+				getTotalPrice();
+			}
+		});
+		
+	}
+	
+	
+	function processOrderCart() {
+	
+		var goodsCdList = "";
+		var cartGoodsQtyList = "";
+		var cartCdList = ""
+		
+		$("[name='cartCd']:checked").each(function(){
+			
+			var cartCd = $(this).val();
+			var goodsCd =  $("#goodsCd" + cartCd).val();
+			var cartGoodsQty = $("#cartGoodsQty" + cartCd).val();
+			
+			goodsCdList += goodsCd + ",";
+			cartGoodsQtyList += cartGoodsQty +",";
+			cartCdList += cartCd + ",";
+			
+		});
+		
+		if (goodsCdList == "") {
+			alert("주문 목록이 없습니다.");
+			return false;
+		}
+		
+		var url = "${contextPath}/order/orderCartGoods";
+		    url += "?goodsCdList=" + goodsCdList;
+		    url += "&cartGoodsQtyList=" + cartGoodsQtyList;
+		    url += "&cartCdList=" + cartCdList;
+		
+		location.href = url;
+		
+		
+	}
+	
+	
+	function selectAllCart() {
+		if ($("#changeAllChoice").prop("checked")) {
+			$("[name='cartCd']").prop("checked" , true);
+		}
+		else {
+			$("[name='cartCd']").prop("checked" , false);
+		}
+		getTotalPrice();
+	}	
+	
+
 </script>
 </head>
 <body>
@@ -46,93 +143,54 @@
                         <table>
                             <thead>
                                 <tr>
-                                    <th>Product</th>
-                                    <th>Quantity</th>
-                                    <th>Total</th>
+                                    <th>상품명</th>
+                                    <th>주문수량</th>
+                                    <th>상품가격</th>
+                                    <th>삭제</th>
                                     <th></th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr>
-                                    <td class="product__cart__item">
-                                        <div class="product__cart__item__pic">
-                                            <img src="img/shopping-cart/cart-1.jpg" alt="">
-                                        </div>
-                                        <div class="product__cart__item__text">
-                                            <h6>T-shirt Contrast Pocket</h6>
-                                            <h5>$98.49</h5>
-                                        </div>
-                                    </td>
-                                    <td class="quantity__item">
-                                        <div class="quantity">
-                                            <div class="pro-qty-2">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="cart__price">$ 30.00</td>
-                                    <td class="cart__close"><i class="fa fa-close"></i></td>
-                                </tr>
-                                <tr>
-                                    <td class="product__cart__item">
-                                        <div class="product__cart__item__pic">
-                                            <img src="img/shopping-cart/cart-2.jpg" alt="">
-                                        </div>
-                                        <div class="product__cart__item__text">
-                                            <h6>Diagonal Textured Cap</h6>
-                                            <h5>$98.49</h5>
-                                        </div>
-                                    </td>
-                                    <td class="quantity__item">
-                                        <div class="quantity">
-                                            <div class="pro-qty-2">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="cart__price">$ 32.50</td>
-                                    <td class="cart__close"><i class="fa fa-close"></i></td>
-                                </tr>
-                                <tr>
-                                    <td class="product__cart__item">
-                                        <div class="product__cart__item__pic">
-                                            <img src="img/shopping-cart/cart-3.jpg" alt="">
-                                        </div>
-                                        <div class="product__cart__item__text">
-                                            <h6>Basic Flowing Scarf</h6>
-                                            <h5>$98.49</h5>
-                                        </div>
-                                    </td>
-                                    <td class="quantity__item">
-                                        <div class="quantity">
-                                            <div class="pro-qty-2">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="cart__price">$ 47.00</td>
-                                    <td class="cart__close"><i class="fa fa-close"></i></td>
-                                </tr>
-                                <tr>
-                                    <td class="product__cart__item">
-                                        <div class="product__cart__item__pic">
-                                            <img src="img/shopping-cart/cart-4.jpg" alt="">
-                                        </div>
-                                        <div class="product__cart__item__text">
-                                            <h6>Basic Flowing Scarf</h6>
-                                            <h5>$98.49</h5>
-                                        </div>
-                                    </td>
-                                    <td class="quantity__item">
-                                        <div class="quantity">
-                                            <div class="pro-qty-2">
-                                                <input type="text" value="1">
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="cart__price">$ 30.00</td>
-                                    <td class="cart__close"><i class="fa fa-close"></i></td>
-                                </tr>
+                            	<c:choose>
+                            		<c:when test="${empty myCartList}">
+                            			<tr align="center">
+                            				<td colspan="5"><h5>조회된 상품이 없습니다.</h5></td>
+                            			</tr>
+                            		</c:when>
+                            		<c:otherwise>
+                            			<c:forEach var="myCart" items="${myCartList }">
+			                                <td><input type="checkbox" name="cartCd" value="${myCart.cartCd }" checked></td>
+			                                <tr>
+			                                    <td class="product__cart__item">
+			                                        <div class="product__cart__item__pic">
+			                                            <img src="${contextPath }/thumbnails?goodsFileName=${myCart.goodsFileName }" width="50" height="50">
+			                                        </div>
+			                                        <div class="product__cart__item__text">
+			                                            <a href="${contextPath }/goods/goodsDetail?goodsCd=${myCart.goodsCd}">${myCart.goodsNm }</a>
+			                                            <input type="hidden" id="goodsCd${myCart.cartCd }" value="${myCart.goodsCd }"/>
+			                                        	<p>${myCart.goodsGroup } / ${myCart.goodsCategory }</p>
+			                                        </div>
+			                                    </td>
+			                                    <td class="quantity__item">
+			                                        <div class="quantity">
+			                                            <div class="pro-qty-2" onmouseleave="modifyCartGoodsQty(${myCart.cartCd })">
+			                                   				<input type="text" id="cartGoodsQty${myCart.cartCd }" value="${myCart.cartGoodsQty }" />
+			                                            </div>
+			                                        </div>
+			                                    </td>
+			                                    <td class="cart__price">
+			                                    	<span style="text-decoration: line-through; color: gray" ><fmt:formatNumber value="${myCart.price }"/></span>
+			                                    	<fmt:formatNumber value="${myCart.price -  myCart.price * (myCart.discountRate / 100)}"/>
+			                                    </td>
+			                                    <td class="cart__close">
+				                                	<div>
+				                                		<a href="javascript:removeCart();"></a><i class="fa fa-close"></i>
+				                                    </div>
+			                                    </td>
+			                                </tr>
+		                                </c:forEach>
+                                	</c:otherwise>
+                                </c:choose>
                             </tbody>
                         </table>
                     </div>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <c:set var="contextPath"  value="${pageContext.request.contextPath}" />
 
 <!DOCTYPE html>
@@ -124,7 +125,14 @@
                              	</c:otherwise>
                              </c:choose>
                         </span></a>
-                        <div class="price">$0.00</div>
+                        <div class="price">
+                        	<c:when test="${sessionScope.myCartCnt eq 0 }">
+                        		<a> - </a>
+                        	</c:when>
+                        	<c:otherwise>
+                        		<fmt:formatNumber value="${myCart.price -  myCart.price * (myCart.discountRate / 100)}"/>
+                        	</c:otherwise>
+                        </div>
                     </div>
                 </div>
             </div>

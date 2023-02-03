@@ -6,11 +6,8 @@
 	<resultMap type="hashmap" id="myOrderListMap">
 		<result column="ORDER_CD" 		 property="orderCd"/>
 		<result column="MEMBER_ID" 		 property="memberId"/>
-		<result column="XS_ORDER_GOODS_QTY" property="xsOrderGoodsQty"/>
-		<result column="SM_ORDER_GOODS_QTY" property="smOrderGoodsQty"/>
-		<result column="MD_ORDER_GOODS_QTY" property="mdOrderGoodsQty"/>
-		<result column="LG_ORDER_GOODS_QTY" property="lgOrderGoodsQty"/>
-		<result column="XL_ORDER_GOODS_QTY" property="xlOrderGoodsQty"/>
+		<result column="SIZE_STOCK" 	 property="sizeStock"/>
+		<result column="ORDER_GOODS_QTY" property="orderGoodsQty"/>
 		<result column="PAYMENT_AMT" 	 property="paymentAmt"/>
 		<result column="PAY_ORDER_TIME"  property="payOrderTime"/>
 		<result column="GOODS_CD" 		 property="goodsCd"/>
@@ -23,11 +20,8 @@
 		SELECT
 				O.ORDER_CD 		  		AS ORDER_CD,
 				O.MEMBER_ID				AS MEMBER_ID,
-		        O.XS_ORDER_GOODS_QTY 	AS XS_ORDER_GOODS_QTY,
-		        O.SM_ORDER_GOODS_QTY 	AS SM_ORDER_GOODS_QTY,
-		        O.MD_ORDER_GOODS_QTY 	AS MD_ORDER_GOODS_QTY,
-		        O.LG_ORDER_GOODS_QTY 	AS LG_ORDER_GOODS_QTY,
-		        O.XL_ORDER_GOODS_QTY 	AS XL_ORDER_GOODS_QTY,
+				O.SIZE_STOCK			AS SIZE_STOCK,
+		        O.ORDER_GOODS_QTY 		AS ORDER_GOODS_QTY,
 		        O.PAYMENT_AMT 			AS PAYMENT_AMT,
 		        O.PAY_ORDER_TIME  		AS PAY_ORDER_TIME,
 		        G.GOODS_CD  	  		AS GOODS_CD,
@@ -43,11 +37,8 @@
 	
 	<resultMap type="hashmap" id="myOrderDetailMap">
 		<result column="ORDER_CD" 		 		property="orderCd"/>
-		<result column="XS_ORDER_GOODS_QTY" 	property="xsOrderGoodsQty"/>
-		<result column="SM_ORDER_GOODS_QTY" 	property="smOrderGoodsQty"/>
-		<result column="MD_ORDER_GOODS_QTY" 	property="mdOrderGoodsQty"/>
-		<result column="LG_ORDER_GOODS_QTY" 	property="lgOrderGoodsQty"/>
-		<result column="XL_ORDER_GOODS_QTY" 	property="xlOrderGoodsQty"/>
+		<result column="SIZE_STOCK"		 		property="sizeStock"/>
+		<result column="ORDER_GOODS_QTY" 		property="orderGoodsQty"/>
 		<result column="PAYMENT_AMT" 			property="paymentAmt"/>
 		<result column="ORDERER_NM"  			property="ordererNm"/>
 		<result column="ORDERER_HP" 			property="ordererHp"/>
@@ -75,11 +66,8 @@
   	<select id="selectOneMyOrder" parameterType="hashmap" resultMap="myOrderDetailMap">
 		SELECT
 				O.ORDER_CD		   AS ORDER_CD,
-		        O.XS_ORDER_GOODS_QTY  AS XS_ORDER_GOODS_QTY,
-		        O.SM_ORDER_GOODS_QTY  AS SM_ORDER_GOODS_QTY,
-		        O.MD_ORDER_GOODS_QTY  AS MD_ORDER_GOODS_QTY,
-		        O.LG_ORDER_GOODS_QTY  AS LG_ORDER_GOODS_QTY,
-		        O.XL_ORDER_GOODS_QTY  AS XL_ORDER_GOODS_QTY,
+				O.SIZE_STOCK	   AS SIZE_STOCK,
+		        O.ORDER_GOODS_QTY  AS ORDER_GOODS_QTY,
 		        O.PAYMENT_AMT 	   AS PAYMENT_AMT,
 		        O.ORDERER_NM	   AS ORDERER_NM,
 		        O.ORDERER_HP 	   AS ORDERER_HP,
@@ -223,8 +211,8 @@
   		<result column="GOODS_CD" 		  property="goodsCd"/>
   		<result column="GOODS_NM"   	  property="goodsNm"/>
   		<result column="PRICE"   	  	  property="price"/>
-  		<result column="GOODS_GROUP"   	 	  property="goodsGroup"/>
-  		<result column="GOODS_CATEGORY"   	  property="goodsCategory"/>
+  		<result column="GOODS_GROUP"   	  property="goodsGroup"/>
+  		<result column="GOODS_CATEGORY"   property="goodsCategory"/>
   		<result column="DISCOUNT_RATE"    property="discountRate"/>
   		<result column="POINT"      	  property="point"/>
   		<result column="GOODS_FILE_NAME"  property="goodsFileName"/>
@@ -239,8 +227,8 @@
 				G.GOODS_CD  	   AS GOODS_CD,
 				G.GOODS_NM		   AS GOODS_NM,
 				G.PRICE    		   AS PRICE,
-				G.GOODS_GROUP      AS GROUP,
-				G.GOODS_CATEGORY   AS CATEGORY,
+				G.GOODS_GROUP      AS GOODS_GROUP,
+				G.GOODS_CATEGORY   AS GOODS_CATEGORY,
 				G.DISCOUNT_RATE    AS DISCOUNT_RATE,
 				G.POINT			   AS POINT,
 				G.GOODS_FILE_NAME  AS GOODS_FILE_NAME

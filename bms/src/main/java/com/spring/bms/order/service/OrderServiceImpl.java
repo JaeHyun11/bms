@@ -35,7 +35,7 @@ public class OrderServiceImpl implements OrderService {
 		
 		Map<String, Object> orderMap = new HashMap<String, Object>();
 		orderMap.put("point", point);
-		orderMap.put("size", orderDto.getSize());
+		orderMap.put("sizeStock", orderDto.getSizeStock());
 		orderMap.put("orderGoodsQty", orderDto.getOrderGoodsQty());
 		orderMap.put("goodsCd", orderDto.getGoodsCd());
 		orderMap.put("memberId", orderDto.getMemberId());

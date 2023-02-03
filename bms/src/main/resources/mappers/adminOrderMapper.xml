@@ -4,7 +4,7 @@
 
 	<resultMap type="hashmap" id="orderListMap">
 		<result column="ORDER_CD" 		 	property="orderCd"/>
-		<result column="SIZE" 		 		property="size"/>
+		<result column="SIZESTOCK" 		 	property="sizeStock"/>
 		<result column="ORDER_GOODS_QTY" 	property="orderGoodsQty"/>
 		<result column="PAY_ORDER_TIME"  	property="payOrderTime"/>
 		<result column="MEMBER_ID"  	 	property="memberId"/>
@@ -20,7 +20,7 @@
 	<select id="selectListOrder" resultMap="orderListMap">
 		SELECT
 				O.ORDER_CD 		  	AS ORDER_CD,
-				O.SIZE	  			AS SIZE,
+				O.SIZE_STOCK	  	AS SIZE_STOCK,
 		        O.ORDER_GOODS_QTY 	AS ORDER_GOODS_QTY,
 		        O.PAY_ORDER_TIME  	AS PAY_ORDER_TIME,
 		        O.MEMBER_ID			AS MEMBER_ID,
