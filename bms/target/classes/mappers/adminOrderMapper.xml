@@ -4,11 +4,8 @@
 
 	<resultMap type="hashmap" id="orderListMap">
 		<result column="ORDER_CD" 		 	property="orderCd"/>
-		<result column="XS_ORDER_GOODS_QTY" property="xsOrderGoodsQty"/>
-		<result column="SM_ORDER_GOODS_QTY" property="smOrderGoodsQty"/>
-		<result column="MD_ORDER_GOODS_QTY" property="mdOrderGoodsQty"/>
-		<result column="LG_ORDER_GOODS_QTY" property="lgOrderGoodsQty"/>
-		<result column="XL_ORDER_GOODS_QTY" property="xlOrderGoodsQty"/>
+		<result column="SIZE" 		 		property="size"/>
+		<result column="ORDER_GOODS_QTY" 	property="orderGoodsQty"/>
 		<result column="PAY_ORDER_TIME"  	property="payOrderTime"/>
 		<result column="MEMBER_ID"  	 	property="memberId"/>
 		<result column="DELIVERY_STATUS"  	property="deliveryStatus"/>
@@ -23,11 +20,8 @@
 	<select id="selectListOrder" resultMap="orderListMap">
 		SELECT
 				O.ORDER_CD 		  	AS ORDER_CD,
-		        O.XS_ORDER_GOODS_QTY 	AS XS_ORDER_GOODS_QTY,
-		        O.SM_ORDER_GOODS_QTY 	AS SM_ORDER_GOODS_QTY,
-		        O.MD_ORDER_GOODS_QTY 	AS MD_ORDER_GOODS_QTY,
-		        O.LG_ORDER_GOODS_QTY 	AS LG_ORDER_GOODS_QTY,
-		        O.XL_ORDER_GOODS_QTY 	AS XL_ORDER_GOODS_QTY,
+				O.SIZE	  			AS SIZE,
+		        O.ORDER_GOODS_QTY 	AS ORDER_GOODS_QTY,
 		        O.PAY_ORDER_TIME  	AS PAY_ORDER_TIME,
 		        O.MEMBER_ID			AS MEMBER_ID,
 		        O.DELIVERY_STATUS	AS DELIVERY_STATUS,
