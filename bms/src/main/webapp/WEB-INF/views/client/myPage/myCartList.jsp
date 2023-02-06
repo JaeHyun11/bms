@@ -18,8 +18,7 @@
 		
 	});
 	
-	
-	function getTotalPrice () {
+	function getTotalPrice() {
 		var totalPrice = 0;
 		$("[name='cartCd']:checked").each(function(){
 			var tempCartCd = $(this).val();
@@ -30,10 +29,31 @@
 	}
 	
 	
+	function getDeliveryPrice() {
+		var deliveryPrice = 0;
+		$("[name='cartCd']:checked").each(function(){
+			deliveryPrice = deliveryPrice.val();
+		});
+	}
+	
+	
 	function removeCart() {
 			
 		var cartCdList = "";
-		if (confirm("정말로 삭제하시겠습니까?")) {
+		if (confirm("제품을 장바구니에서 삭제하시겠습니까?")) {
+			
+			$("[name='cartCd']").each(function(){
+				cartCdList = $(this).val();
+			});
+			location.href = "${contextPath}/myPage/removeCart?cartCdList=" + cartCdList;
+		}
+		
+	}
+	
+	function removeAllCart() {
+		
+		var cartCdList = "";
+		if (confirm("장바구니를 비우시겠습니까?")) {
 			
 			$("input[name='cartCd']:checked").each(function(){
 				cartCdList += $(this).val() + ",";
@@ -42,7 +62,6 @@
 		}
 		
 	}
-	
 	
 	function modifyCartGoodsQty(cartCd){
 		$.ajax({
@@ -168,7 +187,7 @@
 			                                        <div class="product__cart__item__text">
 			                                            <a href="${contextPath }/goods/goodsDetail?goodsCd=${myCart.goodsCd}">${myCart.goodsNm }</a>
 			                                            <input type="hidden" id="goodsCd${myCart.cartCd }" value="${myCart.goodsCd }"/>
-			                                        	<p>${myCart.goodsGroup } / ${myCart.goodsCategory }</p>
+			                                        	<p>${myCart.goodsGroup } / ${myCart.goodsCategory } / ${myCart.sizeStock } </p>
 			                                        </div>
 			                                    </td>
 			                                    <td class="quantity__item">
@@ -184,7 +203,7 @@
 			                                    </td>
 			                                    <td class="cart__close">
 				                                	<div>
-				                                		<a href="javascript:removeCart();"></a><i class="fa fa-close"></i>
+				                                		<a href="javascript:removeCart();"><i class="fa fa-close"></i></a>
 				                                    </div>
 			                                    </td>
 			                                </tr>
@@ -197,31 +216,19 @@
                     <div class="row">
                         <div class="col-lg-6 col-md-6 col-sm-6">
                             <div class="continue__btn">
-                                <a href="#">Continue Shopping</a>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-6 col-sm-6">
-                            <div class="continue__btn update__btn">
-                                <a href="#"><i class="fa fa-spinner"></i> Update cart</a>
+                                <a href="javascript:removeAllCart();"> 장바구니 비우기</a>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="cart__discount">
-                        <h6>Discount codes</h6>
-                        <form action="#">
-                            <input type="text" placeholder="Coupon code">
-                            <button type="submit">Apply</button>
-                        </form>
-                    </div>
                     <div class="cart__total">
-                        <h6>Cart total</h6>
+                        <h6>장바구니 합계</h6>
                         <ul>
-                            <li>Subtotal <span>$ 169.50</span></li>
-                            <li>Total <span>$ 169.50</span></li>
+                            <li>배송비 <span><a href="javascript:getDeliveryPrice();"></a></span></li>
+                            <li>Total <a href="javascript:getTotalPrice();"></a></li>
                         </ul>
-                        <a href="#" class="primary-btn">Proceed to checkout</a>
+                        <a href="javascript:processOrderCart()" class="primary-btn"> 주문하기</a>
                     </div>
                 </div>
             </div>

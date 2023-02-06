@@ -103,7 +103,7 @@ public class MyPageController {
 	
 	
 	@RequestMapping(value="/addCart" , method=RequestMethod.GET)
-	public @ResponseBody String addCart(@RequestParam ("goodsCd") int goodsCd , @RequestParam ("cartGoodsQty") int cartGoodsQty , HttpServletRequest request) throws Exception {
+	public @ResponseBody String addCart(@RequestParam ("goodsCd") int goodsCd , @RequestParam ("cartGoodsQty") int cartGoodsQty , @RequestParam ("sizeStock") String sizeStock , @RequestParam ("deliveryPrice") String deliveryPrice , HttpServletRequest request) throws Exception {
 		
 		HttpSession session = request.getSession();
 		String memberId = (String)session.getAttribute("memberId");
@@ -112,6 +112,8 @@ public class MyPageController {
 		cartDto.setMemberId(memberId);
 		cartDto.setGoodsCd(goodsCd);
 		cartDto.setCartGoodsQty(cartGoodsQty);
+		cartDto.setSizeStock(sizeStock);
+		cartDto.getDeliveryPrice(deliveryPrice);
 		
 		myPageService.addCart(cartDto);
 		session.setAttribute("myCartCnt" , memberService.getMyCartCnt((memberId)));

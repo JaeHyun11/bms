@@ -2,12 +2,21 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> 
 <c:set var="contextPath"  value="${pageContext.request.contextPath}" />
-
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script>
+	
+	function processCartUpdate(goodsCd) {
+		
+		$.ajax({
+			
+		});
+	}
+	
+</script>
 </head>
 <body>
 	<header class="header">
@@ -126,12 +135,14 @@
                              </c:choose>
                         </span></a>
                         <div class="price">
-                        	<c:when test="${sessionScope.myCartCnt eq 0 }">
-                        		<a> - </a>
-                        	</c:when>
-                        	<c:otherwise>
-                        		<fmt:formatNumber value="${myCart.price -  myCart.price * (myCart.discountRate / 100)}"/>
+                        	<c:choose>
+	                        	<c:when test="${myCart.price == 0}">
+	                        		<a> - </a>
+	                        	</c:when>
+	                        	<c:otherwise>
+	                        		<fmt:formatNumber value="${myCart.price -  myCart.price * (myCart.discountRate / 100)}"/>
                         	</c:otherwise>
+                        	</c:choose>
                         </div>
                     </div>
                 </div>

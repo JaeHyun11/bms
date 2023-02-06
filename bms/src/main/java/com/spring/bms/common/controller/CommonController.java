@@ -29,7 +29,7 @@ public class CommonController {
 	
 	private final String CURR_IMAGE_REPO_PATH = "C:\\goods_repo";
 	private final String SEPERATOR = "\\";											// window
-
+	
 	@RequestMapping(value="/contact" , method=RequestMethod.GET)
 	public ModelAndView contact() throws Exception{
 		return new ModelAndView("/contact");

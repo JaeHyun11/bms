@@ -4,7 +4,7 @@
 
 	<resultMap type="hashmap" id="orderListMap">
 		<result column="ORDER_CD" 		 	property="orderCd"/>
-		<result column="SIZESTOCK" 		 	property="sizeStock"/>
+		<result column="SIZE_STOCK" 		property="sizeStock"/>
 		<result column="ORDER_GOODS_QTY" 	property="orderGoodsQty"/>
 		<result column="PAY_ORDER_TIME"  	property="payOrderTime"/>
 		<result column="MEMBER_ID"  	 	property="memberId"/>

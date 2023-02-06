@@ -41,25 +41,26 @@
 		}
 		
 	}
+	
 	$().ready(function () {
 		
 		$("[name='sizeStock']").each(function() {
-			if ($(this).val() == "xsStock" ) {
+			if ($(this).val() == "xs" ) {
 				$(this).prop("checked", true);
 			}
-			if ($(this).val() == "smStock" ) {
+			if ($(this).val() == "sm" ) {
 				$(this).prop("checked", true);
 			}
-			if ($(this).val() == "mdStock" ) {
+			if ($(this).val() == "md" ) {
 				$(this).prop("checked", true);
 			}
-			if ($(this).val() == "lgStock" ) {
+			if ($(this).val() == "lg" ) {
 				$(this).prop("checked", true);
 			}
-			if ($(this).val() == "xlStock" ) {
+			if ($(this).val() == "xl" ) {
 				$(this).prop("checked", true);
 			}
-		});
+		})
 		
 	});
 	
@@ -157,19 +158,19 @@
                                 <div class="product__details__option__size">
                                     <span>Size:</span>
                                     <label for="xs">xs
-                                        <input type="radio" id="sizeStock" name="sizeStock" value="xsStock">
+                                        <input type="radio" id="sizeStock" name="sizeStock" value="xs">
                                     </label>
                                     <label for="sm">sm
-                                        <input type="radio" id="sizeStock" name="sizeStock" value="smStock">
+                                        <input type="radio" id="sizeStock" name="sizeStock" value="sm">
                                     </label>
                                     <label for="md">md
-                                        <input type="radio" id="sizeStock" name="sizeStock" value="mdStock">
+                                        <input type="radio" id="sizeStock" name="sizeStock" value="md">
                                     </label>
                                     <label class="active" for="l">l
-                                        <input type="radio" id="sizeStock" name="sizeStock" value="lgStock">
+                                        <input type="radio" id="sizeStock" name="sizeStock" value="lg">
                                     </label>
                                     <label for="xl">xl
-                                        <input type="radio" id="sizeStock" name="sizeStock" value="xlStock">
+                                        <input type="radio" id="sizeStock" name="sizeStock" value="xl">
                                     </label>
                                 </div>
 	                            <div class="product__details__cart__option">

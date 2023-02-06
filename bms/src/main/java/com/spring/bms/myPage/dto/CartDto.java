@@ -9,6 +9,7 @@ public class CartDto {
 
 	private long cartCd;
 	private int goodsCd;
+	private String sizeStock;
 	private int cartGoodsQty;
 	private String memberId;
 	private Date enrollDt;
@@ -24,6 +25,12 @@ public class CartDto {
 	}
 	public void setGoodsCd(int goodsCd) {
 		this.goodsCd = goodsCd;
+	}
+	public String getSizeStock() {
+		return sizeStock;
+	}
+	public void setSizeStock(String sizeStock) {
+		this.sizeStock = sizeStock;
 	}
 	public int getCartGoodsQty() {
 		return cartGoodsQty;
@@ -46,8 +53,10 @@ public class CartDto {
 	
 	@Override
 	public String toString() {
-		return "CartDto [cartCd=" + cartCd + ", goodsCd=" + goodsCd + ", cartGoodsQty=" + cartGoodsQty + ", memberId="
-				+ memberId + ", enrollDt=" + enrollDt + "]";
+		return "CartDto [cartCd=" + cartCd + ", goodsCd=" + goodsCd + ", sizeStock=" + sizeStock + ", cartGoodsQty="
+				+ cartGoodsQty + ", memberId=" + memberId + ", enrollDt=" + enrollDt + "]";
 	}
+	
+	
 	
 }

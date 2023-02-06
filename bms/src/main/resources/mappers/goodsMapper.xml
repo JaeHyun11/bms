@@ -52,6 +52,9 @@
 		    FROM 
 					GOODS
 			ORDER BY
+				<if test='keyword == "enrollDt"'>
+					ENROLL_DT DESC
+				</if>
 				<if test='keyword == "highPrice"'>
 					PRICE DESC
 				</if>

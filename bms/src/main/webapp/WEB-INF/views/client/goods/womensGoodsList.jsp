@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-<c:set var="contextPath" value="${pageContext.request.contextPath}" />	
+<c:set var="contextPath" value="${pageContext.request.contextPath}" />
+<c:set var="sessionId" value="${sessionScope.memberId }"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,27 +11,15 @@
 <script>
 
 	function processToCart(goodsCd) {
-	
-		$.ajax({
-			url : "${contextPath }/myPage/addCart",
-			method : "get",
-			data : {"goodsCd" : goodsCd , "cartGoodsQty" : + 1},
-			success : function(result) {
-				alert("장바구니에 추가되었습니다.");
-			}
-		})
-		
-	}
-	
-	function processToOrder(goodsCd) {
-		
-		if ("${sessionId == null}" == "true") {
-			alert("로그인을 진행해주세요.");
-			location.href = "${contextPath }/member/login";
-		}
-		else {
-			location.href = "${contextPath }/order/orderGoods?goodsCd="+goodsCd+"&orderGoodsQty=1";	
-		}
+
+			$.ajax({
+				url : "${contextPath }/myPage/addCart",
+				method : "get",
+				data : {"goodsCd" : goodsCd , "cartGoodsQty" : $("#orderGoodsQty").val() , "sizeStock" : $("#sizeStock").val() },
+				success : function() {
+					alert("상품이 추가되었습니다.");
+				}
+			});
 		
 	}
 	
@@ -238,7 +227,7 @@
 				                                <div>
 				                                    <ul class="product__item__text">
 				                                        <li><a href="${contextPath }/thumbnails?goodsFileName=${goodsDto.goodsFileName}" class="image-popup"><span class="arrow_expand"></span></a></li>
-				                                        <li><a href="" class="add-cart">+ Add To Cart</a></li>
+				                                        <li><a href="javascript:processToCart(${goodsDto.goodsCd });" class="add-cart">+ Add To Cart</a></li>
 				                                        <li><a href=""><span class="icon_bag_alt"></span></a></li>
 				                                    </ul>
 				                                    <h6>

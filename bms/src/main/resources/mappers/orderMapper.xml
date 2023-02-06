@@ -140,19 +140,19 @@
 		UPDATE
 				GOODS
 		SET
-			<if test='sizeStock == "xsStock"'>
+			<if test='sizeStock == "xs"'>
 				XS_STOCK = XS_STOCK - #{orderGoodsQty}
 			</if>
-			<if test='sizeStock == "smStock"'>
+			<if test='sizeStock == "sm"'>
 				SM_STOCK = SM_STOCK - #{orderGoodsQty}
 			</if>
-			<if test='sizeStock == "mdStock"'>
+			<if test='sizeStock == "md"'>
 				MD_STOCK = MD_STOCK - #{orderGoodsQty}
 			</if>
-			<if test='sizeStock == "lgStock"'>
+			<if test='sizeStock == "lg"'>
 				LG_STOCK = LG_STOCK - #{orderGoodsQty}
 			</if>
-			<if test='sizeStock == "xlStock"'>
+			<if test='sizeStock == "xl"'>
 				XL_STOCK = XL_STOCK - #{orderGoodsQty}
 			</if>
 				

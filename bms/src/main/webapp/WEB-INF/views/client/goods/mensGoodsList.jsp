@@ -14,10 +14,9 @@
 		$.ajax({
 			url : "${contextPath }/myPage/addCart",
 			method : "get",
-			data : {"goodsCd" : goodsCd , "cartGoodsQty" : + 1},
-			success : function(result) {
+			data : {"goodsCd" : goodsCd , "cartGoodsQty" : $("#orderGoodsQty").val() , "sizeStock" : $("#sizeStock").val() },
+			success : function() {
 				alert("장바구니에 추가되었습니다.");
-				
 			}
 		})
 		
@@ -237,7 +236,7 @@
 				                                <div>
 				                                    <ul class="product__item__text">
 				                                        <li><a href="${contextPath }/thumbnails?goodsFileName=${goodsDto.goodsFileName}" class="image-popup"><span class="arrow_expand"></span></a></li>
-				                                        <li><a href="" class="add-cart">+ Add To Cart</a></li>
+				                                        <li><a href="javascript:processToCart(${goodsDto.goodsCd });">+ Add To Cart</a></li>
 				                                        <li><a href=""><span class="icon_bag_alt"></span></a></li>
 				                                    </ul>
 				                                    <h6>

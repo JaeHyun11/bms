@@ -156,7 +156,7 @@
                            <h4 class="order__title">내 주문목록</h4>
                            <div class="checkout__order__products">Product <span>Total</span></div>
                            <ul class="checkout__total__products">
-                               <li>01. ${goodsDto.goodsNm } , <span>${orderGoodsQty }개</span></li>
+                               <li>01. ${goodsDto.goodsNm } , ${sizeStock}<span>${orderGoodsQty }개</span></li>
                                <li>상품 금액 <span><fmt:formatNumber value="${(goodsDto.price - (goodsDto.price * goodsDto.discountRate / 100)) * (orderGoodsQty)}"/>원</span></li>
                            </ul>
                            <ul class="checkout__total__all">
