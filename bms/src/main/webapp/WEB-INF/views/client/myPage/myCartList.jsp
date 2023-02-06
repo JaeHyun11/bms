@@ -8,39 +8,13 @@
 <meta charset="UTF-8">
 <script>
 	
-	$().ready(function(){
 	
-		getTotalPrice();
-		
-		$("[name='cartCd']").change(function(){
-			getTotalPrice();
-		});
-		
-	});
-	
-	function getTotalPrice() {
-		var totalPrice = 0;
-		$("[name='cartCd']:checked").each(function(){
-			var tempCartCd = $(this).val();
-			totalPrice += Number($("#price" + tempCartCd).val()) * Number($("#cartGoodsQty" + tempCartCd).val());
-		});
-		totalPrice = totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " 원";
-		$("#totalPrice").html(totalPrice);
-	}
-	
-	
-	function getDeliveryPrice() {
-		var deliveryPrice = 0;
-		$("[name='cartCd']:checked").each(function(){
-			deliveryPrice = deliveryPrice.val();
-		});
-	}
 	
 	
 	function removeCart() {
 			
 		var cartCdList = "";
-		if (confirm("제품을 장바구니에서 삭제하시겠습니까?")) {
+		if (confirm("제품을 삭제하시겠습니까?")) {
 			
 			$("[name='cartCd']").each(function(){
 				cartCdList = $(this).val();
@@ -225,8 +199,7 @@
                     <div class="cart__total">
                         <h6>장바구니 합계</h6>
                         <ul>
-                            <li>배송비 <span><a href="javascript:getDeliveryPrice();"></a></span></li>
-                            <li>Total <a href="javascript:getTotalPrice();"></a></li>
+                            <li>Total <span id=""></span></li>
                         </ul>
                         <a href="javascript:processOrderCart()" class="primary-btn"> 주문하기</a>
                     </div>

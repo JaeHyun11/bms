@@ -75,6 +75,54 @@ public class OrderServiceImpl implements OrderService {
 			paymentAmtList[i] = Integer.parseInt(temp3[i]);
 		}
 		
+for (int i = 0; i < goodsCdList.length; i++) {
+			
+			OrderDto orderDto = new OrderDto();
+			orderDto.setGoodsCd(goodsCdList[i]);
+			orderDto.setMemberId(orderListMap.get("memberId"));
+			orderDto.setOrderGoodsQty(orderGoodsQtyList[i]);
+			orderDto.setPaymentAmt(paymentAmtList[i]);
+			orderDto.setOrdererNm(orderListMap.get("ordererNm"));
+			orderDto.setOrdererHp(orderListMap.get("ordererHp"));
+			orderDto.setZipcode(orderListMap.get("zipcode"));
+			orderDto.setRoadAddress(orderListMap.get("roadAddress"));
+			orderDto.setJibunAddress(orderListMap.get("jibunAddress"));
+			orderDto.setNamujiAddress(orderListMap.get("namujiAddress"));
+			orderDto.setDeliveryMethod(orderListMap.get("deliveryMethod"));
+			orderDto.setDeliveryMessage(orderListMap.get("deliveryMessage"));
+			orderDto.setGiftWrapping(orderListMap.get("giftWrapping"));
+			orderDto.setPayMethod(orderListMap.get("payMethod"));
+			orderDto.setPayOrdererHp(orderListMap.get("payOrdererHp"));
+			orderDto.setCardCompanyNm(orderListMap.get("cardCompanyNm"));
+			orderDto.setCardPayMonth(orderListMap.get("cardPayMonth"));
+			orderList.add(orderDto);
+			
+		}
+		
+		Map<String, Object> memberMap = new HashMap<String, Object>();
+		memberMap.put("point", Integer.parseInt(orderListMap.get("totalPoint")));
+		memberMap.put("memberId" , orderListMap.get("memberId"));
+		
+		orderDao.updateMemberPointByCart(memberMap); 
+
+		List<Map<String,Integer>> goodsMapList = new ArrayList<Map<String,Integer>>();
+		for (int i = 0; i < goodsCdList.length; i++) {
+			Map<String,Integer> goodsMap = new HashMap<String, Integer>();
+			goodsMap.put("goodsCd" , goodsCdList[i]);
+			goodsMap.put("orderGoodsQty" , orderGoodsQtyList[i]);
+			goodsMapList.add(goodsMap);
+		}
+		
+		orderDao.updateGoodsStockCntByCart(goodsMapList); 
+		orderDao.insertOrderByCart(orderList);
+		
+		String[] temp4 = orderListMap.get("cartCdList").split(",");
+		int[] cartCdList = new int[temp4.length];
+		for (int i = 0; i < temp4.length; i++) {
+			cartCdList[i] = Integer.parseInt(temp4[i]);
+		}
+		
+		orderDao.deleteCartByOrder(cartCdList);
 		
 		
 		

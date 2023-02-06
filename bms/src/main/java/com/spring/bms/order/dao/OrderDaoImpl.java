@@ -44,8 +44,32 @@ public class OrderDaoImpl implements OrderDao {
 
 	@Override
 	public List<GoodsDto> selectListCartGoods(int[] goodsCdList) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectList("order.selectListCartGoods" , goodsCdList);
+
+	}
+
+	@Override
+	public void updateMemberPointByCart(Map<String, Object> memberMap) throws Exception {
+		sqlSession.update("order.updateMemberPointByCart" , memberMap);
+
+	}
+
+	@Override
+	public void updateGoodsStockCntByCart(List<Map<String, Integer>> goodsMapList) throws Exception {
+		sqlSession.update("order.updateGoodsStockCntByCart" , goodsMapList);
+
+	}
+
+	@Override
+	public void insertOrderByCart(List<OrderDto> orderList) throws Exception {
+		sqlSession.insert("order.insertOrderByCart" , orderList);
+
+	}
+
+	@Override
+	public void deleteCartByOrder(int[] cartCdList) throws Exception {
+		sqlSession.insert("order.deleteCartByOrder" , cartCdList);
+
 	}
 
 

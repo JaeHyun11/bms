@@ -168,6 +168,35 @@
 		WHERE
 				MEMBER_ID = #{memberId}
 	</update>
+	
+	<update id="updateGoodsStockCntByCart" >
+		<foreach collection="list" item="goodsMap" separator=";" >
+			UPDATE
+					GOODS
+			SET
+					STOCK = STOCK - #{goodsMap.orderGoodsQty}
+			WHERE
+					GOODS_CD = #{goodsMap.goodsCd}
+		</foreach> 
+	</update>
 
+	<update id="updateMemberPointByCart" parameterType="hashmap">
+		UPDATE
+				MEMBER
+		SET
+				POINT = POINT + #{point}
+		WHERE
+				MEMBER_ID = #{memberId}
+	</update>
+	
+	<delete id="deleteCartByOrder" >
+		DELETE FROM 
+				CART
+		WHERE
+				CART_CD IN
+				<foreach collection="array" item="cartCd" separator="," open="(" close=")" >
+					#{cartCd}
+				</foreach> 
+	</delete>
 	
 </mapper>

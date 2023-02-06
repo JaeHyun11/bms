@@ -136,11 +136,11 @@
                         </span></a>
                         <div class="price">
                         	<c:choose>
-	                        	<c:when test="${myCart.price == 0}">
+	                        	<c:when test="${my.totalprice == 0}">
 	                        		<a> - </a>
 	                        	</c:when>
 	                        	<c:otherwise>
-	                        		<fmt:formatNumber value="${myCart.price -  myCart.price * (myCart.discountRate / 100)}"/>
+	                        		<fmt:formatNumber value="${my.totalprice -  my.totalprice * (my.discountRate / 100)}"/>
                         	</c:otherwise>
                         	</c:choose>
                         </div>

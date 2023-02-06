@@ -10,6 +10,7 @@
 <title>Insert title here</title>
 <script>
 
+	
 	function processToCart(goodsCd) {
 		
 		if ("${sessionId == null}" == "true") {
@@ -21,48 +22,38 @@
 			$.ajax({
 				url : "${contextPath }/myPage/addCart",
 				method : "get",
-				data : {"goodsCd" : goodsCd , "cartGoodsQty" : $("#orderGoodsQty").val() , "sizeStock" : $("#sizeStock").val() },
+				data : {"goodsCd" : goodsCd , "cartGoodsQty" : $("#orderGoodsQty").val() , "sizeStock" : $("[name='sizeStock']:checked").val() },
 				success : function() {
 					alert("상품이 추가되었습니다.");
 				}
 			});
 		}
 	}
-	
+		
 	function processToOrder(goodsCd) {
 		
 		if ("${sessionId == null}" == "true") {
 			alert("로그인 먼저 진행해주세요.");
 			location.href = "${contextPath }/member/login";
 		}
-		else {
+		else {		
 			
-			location.href = "${contextPath }/order/orderGoods?goodsCd="+goodsCd+"&sizeStock="+$("#sizeStock").val()+"&orderGoodsQty="+$("#orderGoodsQty").val();	
+			location.href = "${contextPath }/order/orderGoods?goodsCd="+goodsCd+"&sizeStock="+$("[name='sizeStock']:checked").val()+"&orderGoodsQty="+$("#orderGoodsQty").val();	
 		}
 		
 	}
 	
 	$().ready(function () {
 		
-		$("[name='sizeStock']").each(function() {
-			if ($(this).val() == "xs" ) {
-				$(this).prop("checked", true);
-			}
-			if ($(this).val() == "sm" ) {
-				$(this).prop("checked", true);
-			}
-			if ($(this).val() == "md" ) {
-				$(this).prop("checked", true);
-			}
-			if ($(this).val() == "lg" ) {
-				$(this).prop("checked", true);
-			}
-			if ($(this).val() == "xl" ) {
-				$(this).prop("checked", true);
-			}
-		})
+		$("[name='sizeStock']").click(function() {
+			
+			var keyword = $("[name='sizeStock']:checked").val();
+			keyword.prop("checked", true);
+			
+		});
 		
 	});
+			
 	
 	
 	
@@ -158,19 +149,19 @@
                                 <div class="product__details__option__size">
                                     <span>Size:</span>
                                     <label for="xs">xs
-                                        <input type="radio" id="sizeStock" name="sizeStock" value="xs">
+                                        <input type="radio" id="xs" name="sizeStock" value="xs">
                                     </label>
                                     <label for="sm">sm
-                                        <input type="radio" id="sizeStock" name="sizeStock" value="sm">
+                                        <input type="radio" id="sm" name="sizeStock" value="sm">
                                     </label>
                                     <label for="md">md
-                                        <input type="radio" id="sizeStock" name="sizeStock" value="md">
+                                        <input type="radio" id="md" name="sizeStock" value="md">
                                     </label>
                                     <label class="active" for="l">l
-                                        <input type="radio" id="sizeStock" name="sizeStock" value="lg">
+                                        <input type="radio" id="l" name="sizeStock" value="lg" checked>
                                     </label>
                                     <label for="xl">xl
-                                        <input type="radio" id="sizeStock" name="sizeStock" value="xl">
+                                        <input type="radio" id="xl" name="sizeStock" value="xl">
                                     </label>
                                 </div>
 	                            <div class="product__details__cart__option">

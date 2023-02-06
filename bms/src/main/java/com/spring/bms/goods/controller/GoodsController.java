@@ -53,7 +53,7 @@ public class GoodsController {
 		
 		mv.setViewName("/goods/goodsDetail");
 		mv.addObject("goodsDto" , goodsDto);
-
+		
 		Map<String, Object> goodsMap = new HashMap<String, Object>();
 		goodsMap.put("sort" , goodsDto.getSort());
 		goodsMap.put("goodsCd" , goodsCd);
