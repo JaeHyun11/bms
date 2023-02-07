@@ -266,7 +266,7 @@
 		</foreach>
 		
 	</delete>
-  
+	
   	<update id="updateCartGoodsQty" parameterType="hashmap" >
 		UPDATE
 				CART

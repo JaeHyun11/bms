@@ -11,7 +11,6 @@ public class CartDto {
 	private int goodsCd;
 	private String sizeStock;
 	private int cartGoodsQty;
-	private int deliveryPrice;
 	private String memberId;
 	private Date enrollDt;
 	
@@ -39,12 +38,6 @@ public class CartDto {
 	public void setCartGoodsQty(int cartGoodsQty) {
 		this.cartGoodsQty = cartGoodsQty;
 	}
-	public int getDeliveryPrice() {
-		return deliveryPrice;
-	}
-	public void setDeliveryPrice(int deliveryPrice) {
-		this.deliveryPrice = deliveryPrice;
-	}
 	public String getMemberId() {
 		return memberId;
 	}
@@ -61,7 +54,7 @@ public class CartDto {
 	@Override
 	public String toString() {
 		return "CartDto [cartCd=" + cartCd + ", goodsCd=" + goodsCd + ", sizeStock=" + sizeStock + ", cartGoodsQty="
-				+ cartGoodsQty + ", deliveryPrice=" + deliveryPrice + ", memberId=" + memberId + ", enrollDt="
+				+ cartGoodsQty + ", memberId=" + memberId + ", enrollDt="
 				+ enrollDt + "]";
 	}
 	

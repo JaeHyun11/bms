@@ -8,7 +8,26 @@
 <meta charset="UTF-8">
 <script>
 	
+	$().ready(function(){
+		
+		getTotalPrice();
+		
+		$("[name='cartCd']").change(function(){
+			getTotalPrice();
+		});
+		
+	});
 	
+	
+	function getTotalPrice () {
+		var totalPrice = 0;
+		$("[name='cartCd']:checked").each(function(){
+			var tempCartCd = $(this).val();
+			totalPrice += Number($("#price" + tempCartCd).val()) * Number($("#cartGoodsQty" + tempCartCd).val());
+		});
+		totalPrice = totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',') + " 원";
+		$("#totalPrice").html(totalPrice);
+	}
 	
 	
 	function removeCart() {
@@ -174,6 +193,7 @@
 			                                    <td class="cart__price">
 			                                    	<span style="text-decoration: line-through; color: gray" ><fmt:formatNumber value="${myCart.price }"/></span>
 			                                    	<fmt:formatNumber value="${myCart.price -  myCart.price * (myCart.discountRate / 100)}"/>
+			                                    	<input type="hidden" id="price${myCart.cartCd }" value="${myCart.price -  myCart.price * (myCart.discountRate / 100)}">
 			                                    </td>
 			                                    <td class="cart__close">
 				                                	<div>
@@ -199,7 +219,7 @@
                     <div class="cart__total">
                         <h6>장바구니 합계</h6>
                         <ul>
-                            <li>Total <span id=""></span></li>
+                            <li>Total <span id="totalPrice"></span></li>
                         </ul>
                         <a href="javascript:processOrderCart()" class="primary-btn"> 주문하기</a>
                     </div>
